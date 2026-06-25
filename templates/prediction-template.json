@@ -1,0 +1,53 @@
+{
+  "match": "阿根廷 vs 奥地利",
+  "match_no": "041",
+  "home_team": "阿根廷",
+  "away_team": "奥地利",
+  "stage": "小组赛 J组",
+  "prediction": {
+    "result": "阿根廷胜",
+    "result_value": "home",
+    "confidence": 0.76,
+    "confidence_label": "高"
+  },
+  "score": {
+    "most_likely": "阿根廷 3-0 奥地利",
+    "alternatives": ["阿根廷 2-0 奥地利", "阿根廷 3-1 奥地利", "阿根廷 4-0 奥地利"]
+  },
+  "over_under": {
+    "prediction": "大球(>2.5)",
+    "prediction_value": "over",
+    "confidence": 0.55,
+    "line": 2.5
+  },
+  "recommendations": [
+    {"type": "胜负", "pick": "阿根廷胜", "confidence": "76%"},
+    {"type": "大小球", "pick": "大球(>2.5)", "confidence": "55%"}
+  ],
+  "odds_analysis": {
+    "jingcai": {"home_win": 1.30, "draw": 4.30, "away_win": 7.85},
+    "asian_handicap": "初盘让0.75升盘至让1.25",
+    "euro_movement": "主胜↓0.22,平赔↑0.77,客胜↑1.95",
+    "over_under": "2.5球 (大球0.82/小球0.98)"
+  },
+  "factors": {
+    "odds_implied": {"result": "home", "confidence": 0.65, "detail": "赔率隐含主胜概率78%"},
+    "odds_movement": {"result": "home", "confidence": 0.12, "detail": "主胜略降"},
+    "asian_handicap": {"result": "home", "confidence": 0.35, "detail": "深盘升盘,低水防范"},
+    "over_under": {"prediction": null, "confidence": 0.15, "detail": "盘口2.5方向不明确"}
+  },
+  "analysis": "阿根廷实力碾压奥地利，竞彩1.30赔率极低，亚盘从0.75升到1.25显示庄家信心增强。欧赔主降客升，平赔拉高排除冷门。但需警惕世界杯冷门频发，且阿根廷有慢热传统。",
+  "keyFactors": [
+    "赔率1.30极度看好",
+    "亚盘升盘信心增强",
+    "阿根廷世界杯卫冕冠军",
+    "奥地利实力差距明显"
+  ],
+  "timestamp": "2026-06-22 17:19:26",
+  "post_match": {
+    "actual_score": null,
+    "actual_result": null,
+    "was_correct": null,
+    "reviewed": false
+  }
+}

@@ -1,0 +1,172 @@
+[
+  {
+    "no": "04606",
+    "time": "04:00",
+    "league": "世界杯",
+    "home": "英格兰",
+    "away": "加纳",
+    "handicap": "-2",
+    "score": "0-0",
+    "half_time": "0-0"
+  },
+  {
+    "no": "20606",
+    "time": "01:00",
+    "league": "芬超",
+    "home": "玛丽港",
+    "away": "赫尔辛基",
+    "handicap": "+1",
+    "score": "0-4",
+    "half_time": "0-1"
+  },
+  {
+    "no": "04506",
+    "time": "01:00",
+    "league": "世界杯",
+    "home": "葡萄牙",
+    "away": "乌兹别克",
+    "handicap": "-2",
+    "score": "5-0",
+    "half_time": "3-0"
+  },
+  {
+    "no": "20506",
+    "time": "00:00",
+    "league": "芬超",
+    "home": "国际图尔",
+    "away": "塞伊奈",
+    "handicap": "-1",
+    "score": "1-1",
+    "half_time": "0-1"
+  },
+  {
+    "no": "20406",
+    "time": "00:00",
+    "league": "芬超",
+    "home": "雅罗",
+    "away": "赫尔火花",
+    "handicap": "+1",
+    "score": "1-1",
+    "half_time": "0-1"
+  },
+  {
+    "no": "20306",
+    "time": "23:00",
+    "league": "芬超",
+    "home": "VPS瓦萨",
+    "away": "AC奥卢",
+    "handicap": "-1",
+    "score": "5-1",
+    "half_time": "3-1"
+  },
+  {
+    "no": "20206",
+    "time": "23:00",
+    "league": "芬超",
+    "home": "库奥皮奥",
+    "away": "埃尔维斯",
+    "handicap": "-1",
+    "score": "4-3",
+    "half_time": "4-1"
+  },
+  {
+    "no": "20106",
+    "time": "23:00",
+    "league": "芬超",
+    "home": "拉赫蒂",
+    "away": "TPS图尔库",
+    "handicap": "-1",
+    "score": "0-0",
+    "half_time": "0-0"
+  },
+  {
+    "no": "04406",
+    "time": "11:00",
+    "league": "世界杯",
+    "home": "约旦",
+    "away": "阿尔及利亚",
+    "handicap": "+1",
+    "score": "1-2",
+    "half_time": "1-0"
+  },
+  {
+    "no": "04306",
+    "time": "08:00",
+    "league": "世界杯",
+    "home": "挪威",
+    "away": "塞内加尔",
+    "handicap": "-1",
+    "score": "3-2",
+    "half_time": "1-0"
+  },
+  {
+    "no": "04206",
+    "time": "05:00",
+    "league": "世界杯",
+    "home": "法国",
+    "away": "伊拉克",
+    "handicap": "-3",
+    "score": "3-0",
+    "half_time": "1-0"
+  },
+  {
+    "no": "04106",
+    "time": "01:00",
+    "league": "世界杯",
+    "home": "阿根廷",
+    "away": "奥地利",
+    "handicap": "-1",
+    "score": "2-0",
+    "half_time": "1-0"
+  },
+  {
+    "no": "04006",
+    "time": "09:00",
+    "league": "世界杯",
+    "home": "新西兰",
+    "away": "埃及",
+    "handicap": "+1",
+    "score": "1-3",
+    "half_time": "1-0"
+  },
+  {
+    "no": "03906",
+    "time": "06:00",
+    "league": "世界杯",
+    "home": "乌拉圭",
+    "away": "佛得角",
+    "handicap": "-1",
+    "score": "2-2",
+    "half_time": "2-1"
+  },
+  {
+    "no": "03806",
+    "time": "03:00",
+    "league": "世界杯",
+    "home": "比利时",
+    "away": "伊朗",
+    "handicap": "-1",
+    "score": "0-0",
+    "half_time": "0-0"
+  },
+  {
+    "no": "03706",
+    "time": "00:00",
+    "league": "世界杯",
+    "home": "西班牙",
+    "away": "沙特",
+    "handicap": "-2",
+    "score": "4-0",
+    "half_time": "3-0"
+  },
+  {
+    "no": "03606",
+    "time": "12:00",
+    "league": "世界杯",
+    "home": "突尼斯",
+    "away": "日本",
+    "handicap": "+1",
+    "score": "0-4",
+    "half_time": "0-2"
+  }
+]

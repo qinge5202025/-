@@ -1,0 +1,473 @@
+{
+  "fetch_time": "2026-06-23 18:37:21",
+  "league": "芬超",
+  "match_count": 6,
+  "predictions": [
+    {
+      "match_no": "芬201",
+      "match_time": "2026-06-23 23:00",
+      "home_team": "拉赫蒂",
+      "away_team": "TPS图尔",
+      "league": "芬超",
+      "jingcai_odds": {
+        "home_win": 1.66,
+        "draw": 3.5,
+        "away_win": 4.15
+      },
+      "jingcai_handicap": 0,
+      "euro_odds": {
+        "home": "1.68",
+        "draw": "3.60",
+        "away": "4.00"
+      },
+      "asian_hcap": "半/一",
+      "ou_line": "2.5",
+      "result_prediction": {
+        "value": "home",
+        "prediction": "主胜",
+        "confidence": 0.5828,
+        "scores": {
+          "home": 0.5828,
+          "draw": 0.2195,
+          "away": 0.1976
+        }
+      },
+      "score_prediction": {
+        "most_likely": "2-1",
+        "alternatives": [
+          "2-0",
+          "3-1",
+          "1-0"
+        ]
+      },
+      "ou_prediction": {
+        "value": "大球",
+        "prediction": "大球",
+        "confidence": 1.0
+      },
+      "htft_prediction": {
+        "value": "胜胜",
+        "confidence": "高"
+      },
+      "factors": {
+        "odds_implied": {
+          "home": 0.61,
+          "draw": 0.2473,
+          "away": 0.2226
+        },
+        "odds_movement": {
+          "home": 0.61,
+          "draw": 0.2473,
+          "away": 0.2226
+        },
+        "asian_handicap": {
+          "home": 0.15500000000000003,
+          "draw": 0,
+          "away": 0
+        },
+        "form_factor": {
+          "home": 0,
+          "draw": 0,
+          "away": 0
+        },
+        "league_factor": {
+          "home": 0,
+          "draw": 0,
+          "away": 0
+        },
+        "over_under": {
+          "over": 0.05,
+          "under": 0
+        }
+      }
+    },
+    {
+      "match_no": "芬202",
+      "match_time": "2026-06-23 23:00",
+      "home_team": "库奥皮奥",
+      "away_team": "坦山猫",
+      "league": "芬超",
+      "jingcai_odds": {
+        "home_win": 1.55,
+        "draw": 3.85,
+        "away_win": 4.45
+      },
+      "jingcai_handicap": 0,
+      "euro_odds": {
+        "home": "1.62",
+        "draw": "3.78",
+        "away": "4.10"
+      },
+      "asian_hcap": "半/一",
+      "ou_line": "2.5/3",
+      "result_prediction": {
+        "value": "home",
+        "prediction": "主胜",
+        "confidence": 0.5646,
+        "scores": {
+          "home": 0.5646,
+          "draw": 0.2265,
+          "away": 0.2089
+        }
+      },
+      "score_prediction": {
+        "most_likely": "1-0",
+        "alternatives": [
+          "2-1",
+          "1-1"
+        ]
+      },
+      "ou_prediction": {
+        "value": "未知",
+        "prediction": "未知",
+        "confidence": 0
+      },
+      "htft_prediction": {
+        "value": "胜胜",
+        "confidence": "高"
+      },
+      "factors": {
+        "odds_implied": {
+          "home": 0.5483,
+          "draw": 0.235,
+          "away": 0.2167
+        },
+        "odds_movement": {
+          "home": 0.5483,
+          "draw": 0.235,
+          "away": 0.2167
+        },
+        "asian_handicap": {
+          "home": 0.125,
+          "draw": 0,
+          "away": 0
+        },
+        "form_factor": {
+          "home": 0,
+          "draw": 0,
+          "away": 0
+        },
+        "league_factor": {
+          "home": 0,
+          "draw": 0,
+          "away": 0
+        },
+        "over_under": {
+          "over": 0,
+          "under": 0
+        }
+      }
+    },
+    {
+      "match_no": "芬203",
+      "match_time": "2026-06-23 23:00",
+      "home_team": "瓦萨",
+      "away_team": "AC奥卢",
+      "league": "芬超",
+      "jingcai_odds": {
+        "home_win": 2.26,
+        "draw": 2.95,
+        "away_win": 2.88
+      },
+      "jingcai_handicap": 0,
+      "euro_odds": {
+        "home": "2.28",
+        "draw": "3.31",
+        "away": "2.60"
+      },
+      "asian_hcap": "平/半",
+      "ou_line": "2.5",
+      "result_prediction": {
+        "value": "home",
+        "prediction": "主胜",
+        "confidence": 0.4084,
+        "scores": {
+          "home": 0.4084,
+          "draw": 0.2603,
+          "away": 0.3313
+        }
+      },
+      "score_prediction": {
+        "most_likely": "2-1",
+        "alternatives": [
+          "1-0",
+          "2-0",
+          "1-1"
+        ]
+      },
+      "ou_prediction": {
+        "value": "小球",
+        "prediction": "小球",
+        "confidence": 1.0
+      },
+      "htft_prediction": {
+        "value": "平胜",
+        "confidence": "中"
+      },
+      "factors": {
+        "odds_implied": {
+          "home": 0.3898,
+          "draw": 0.2685,
+          "away": 0.3418
+        },
+        "odds_movement": {
+          "home": 0.3898,
+          "draw": 0.2685,
+          "away": 0.3418
+        },
+        "asian_handicap": {
+          "home": 0.10500000000000001,
+          "draw": 0,
+          "away": 0
+        },
+        "form_factor": {
+          "home": 0,
+          "draw": 0,
+          "away": 0
+        },
+        "league_factor": {
+          "home": 0,
+          "draw": 0,
+          "away": 0
+        },
+        "over_under": {
+          "over": 0,
+          "under": 0.05
+        }
+      }
+    },
+    {
+      "match_no": "芬204",
+      "match_time": "2026-06-24 00:00",
+      "home_team": "雅罗",
+      "away_team": "赫尔火花",
+      "league": "芬超",
+      "jingcai_odds": {
+        "home_win": 3.25,
+        "draw": 3.45,
+        "away_win": 1.88
+      },
+      "jingcai_handicap": 0,
+      "euro_odds": {
+        "home": "2.95",
+        "draw": "3.40",
+        "away": "2.04"
+      },
+      "asian_hcap": "受半球",
+      "ou_line": "2.5/3",
+      "result_prediction": {
+        "value": "away",
+        "prediction": "客胜",
+        "confidence": 0.4767,
+        "scores": {
+          "home": 0.2802,
+          "draw": 0.2431,
+          "away": 0.4767
+        }
+      },
+      "score_prediction": {
+        "most_likely": "0-1",
+        "alternatives": [
+          "1-2",
+          "1-1"
+        ]
+      },
+      "ou_prediction": {
+        "value": "小球",
+        "prediction": "小球",
+        "confidence": 1.0
+      },
+      "htft_prediction": {
+        "value": "平负",
+        "confidence": "中"
+      },
+      "factors": {
+        "odds_implied": {
+          "home": 0.3018,
+          "draw": 0.2618,
+          "away": 0.4744
+        },
+        "odds_movement": {
+          "home": 0.3018,
+          "draw": 0.2618,
+          "away": 0.4744
+        },
+        "asian_handicap": {
+          "home": 0,
+          "draw": 0,
+          "away": 0.13
+        },
+        "form_factor": {
+          "home": 0,
+          "draw": 0,
+          "away": 0
+        },
+        "league_factor": {
+          "home": 0,
+          "draw": 0,
+          "away": 0
+        },
+        "over_under": {
+          "over": 0,
+          "under": 0.05
+        }
+      }
+    },
+    {
+      "match_no": "芬205",
+      "match_time": "2026-06-24 00:00",
+      "home_team": "国际图尔",
+      "away_team": "塞伊奈",
+      "league": "芬超",
+      "jingcai_odds": {
+        "home_win": 1.39,
+        "draw": 4.25,
+        "away_win": 5.75
+      },
+      "jingcai_handicap": 0,
+      "euro_odds": {
+        "home": "1.47",
+        "draw": "4.15",
+        "away": "4.90"
+      },
+      "asian_hcap": "一球",
+      "ou_line": "2.5/3",
+      "result_prediction": {
+        "value": "home",
+        "prediction": "主胜",
+        "confidence": 0.616,
+        "scores": {
+          "home": 0.616,
+          "draw": 0.2079,
+          "away": 0.1761
+        }
+      },
+      "score_prediction": {
+        "most_likely": "2-0",
+        "alternatives": [
+          "3-0",
+          "2-1",
+          "3-1"
+        ]
+      },
+      "ou_prediction": {
+        "value": "大球",
+        "prediction": "大球",
+        "confidence": 1.0
+      },
+      "htft_prediction": {
+        "value": "胜胜",
+        "confidence": "高"
+      },
+      "factors": {
+        "odds_implied": {
+          "home": 0.6045,
+          "draw": 0.2141,
+          "away": 0.1814
+        },
+        "odds_movement": {
+          "home": 0.6045,
+          "draw": 0.2141,
+          "away": 0.1814
+        },
+        "asian_handicap": {
+          "home": 0.1,
+          "draw": 0,
+          "away": 0
+        },
+        "form_factor": {
+          "home": 0,
+          "draw": 0,
+          "away": 0
+        },
+        "league_factor": {
+          "home": 0,
+          "draw": 0,
+          "away": 0
+        },
+        "over_under": {
+          "over": 0.05,
+          "under": 0
+        }
+      }
+    },
+    {
+      "match_no": "芬206",
+      "match_time": "2026-06-24 01:00",
+      "home_team": "玛丽港",
+      "away_team": "赫尔辛基",
+      "league": "芬超",
+      "jingcai_odds": {
+        "home_win": 7.5,
+        "draw": 4.95,
+        "away_win": 1.26
+      },
+      "jingcai_handicap": 0,
+      "euro_odds": {
+        "home": "6.70",
+        "draw": "4.90",
+        "away": "1.30"
+      },
+      "asian_hcap": "受球半",
+      "ou_line": "3/3.5",
+      "result_prediction": {
+        "value": "away",
+        "prediction": "客胜",
+        "confidence": 0.6988,
+        "scores": {
+          "home": 0.1273,
+          "draw": 0.174,
+          "away": 0.6988
+        }
+      },
+      "score_prediction": {
+        "most_likely": "0-2",
+        "alternatives": [
+          "0-3",
+          "1-2",
+          "1-3"
+        ]
+      },
+      "ou_prediction": {
+        "value": "大球",
+        "prediction": "大球",
+        "confidence": 0.6667
+      },
+      "htft_prediction": {
+        "value": "负负",
+        "confidence": "高"
+      },
+      "factors": {
+        "odds_implied": {
+          "home": 0.133,
+          "draw": 0.1818,
+          "away": 0.6852
+        },
+        "odds_movement": {
+          "home": 0.133,
+          "draw": 0.1818,
+          "away": 0.6852
+        },
+        "asian_handicap": {
+          "home": 0,
+          "draw": 0,
+          "away": 0.15000000000000002
+        },
+        "form_factor": {
+          "home": 0,
+          "draw": 0,
+          "away": 0
+        },
+        "league_factor": {
+          "home": 0,
+          "draw": 0,
+          "away": 0
+        },
+        "over_under": {
+          "over": 0.1,
+          "under": 0.05
+        }
+      }
+    }
+  ]
+}

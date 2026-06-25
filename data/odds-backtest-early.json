@@ -1,0 +1,377 @@
+{
+  "fetch_time": "2026-06-22 17:11:01",
+  "matches": [
+    {
+      "match_id": "5439041",
+      "match_no": "041",
+      "handicap_list": "-1",
+      "kickoff": "2026-06-23 01:00",
+      "deadline": "2026-06-22 22:00",
+      "home_team": "阿根廷",
+      "away_team": "奥地利",
+      "jingcai": {
+        "home_win": 1.3,
+        "draw": 4.3,
+        "away_win": 7.85
+      },
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5439042",
+      "match_no": "042",
+      "handicap_list": "-3",
+      "kickoff": "2026-06-23 05:00",
+      "deadline": "2026-06-22 22:00",
+      "home_team": "法国",
+      "away_team": "伊拉克",
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5439043",
+      "match_no": "043",
+      "handicap_list": "-1",
+      "kickoff": "2026-06-23 08:00",
+      "deadline": "2026-06-22 22:00",
+      "home_team": "挪威",
+      "away_team": "塞内加尔",
+      "jingcai": {
+        "home_win": 1.86,
+        "draw": 3.48,
+        "away_win": 3.28
+      },
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5439044",
+      "match_no": "044",
+      "handicap_list": "1",
+      "kickoff": "2026-06-23 11:00",
+      "deadline": "2026-06-23 11:00",
+      "home_team": "约旦",
+      "away_team": "阿尔及利",
+      "jingcai": {
+        "home_win": 6.2,
+        "draw": 4.1,
+        "away_win": 1.38
+      },
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5440045",
+      "match_no": "045",
+      "handicap_list": "-2",
+      "kickoff": "2026-06-24 01:00",
+      "deadline": "2026-06-23 22:00",
+      "home_team": "葡萄牙",
+      "away_team": "乌兹别克",
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5440046",
+      "match_no": "046",
+      "handicap_list": "-2",
+      "kickoff": "2026-06-24 04:00",
+      "deadline": "2026-06-23 22:00",
+      "home_team": "英格兰",
+      "away_team": "加纳",
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5440047",
+      "match_no": "047",
+      "handicap_list": "1",
+      "kickoff": "2026-06-24 07:00",
+      "deadline": "2026-06-23 22:00",
+      "home_team": "巴拿马",
+      "away_team": "克罗地亚",
+      "jingcai": {
+        "home_win": 6.38,
+        "draw": 3.95,
+        "away_win": 1.39
+      },
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5440048",
+      "match_no": "048",
+      "handicap_list": "-1",
+      "kickoff": "2026-06-24 10:00",
+      "deadline": "2026-06-24 10:00",
+      "home_team": "哥伦比亚",
+      "away_team": "刚果金",
+      "jingcai": {
+        "home_win": 1.36,
+        "draw": 3.85,
+        "away_win": 7.5
+      },
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5441049",
+      "match_no": "049",
+      "handicap_list": "-1",
+      "kickoff": "2026-06-25 03:00",
+      "deadline": "2026-06-24 22:00",
+      "home_team": "瑞士",
+      "away_team": "加拿大",
+      "jingcai": {
+        "home_win": 2.3,
+        "draw": 2.62,
+        "away_win": 3.2
+      },
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5441050",
+      "match_no": "050",
+      "handicap_list": "-1",
+      "kickoff": "2026-06-25 03:00",
+      "deadline": "2026-06-24 22:00",
+      "home_team": "波黑",
+      "away_team": "卡塔尔",
+      "jingcai": {
+        "home_win": 1.38,
+        "draw": 4.45,
+        "away_win": 5.55
+      },
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5441051",
+      "match_no": "051",
+      "handicap_list": "1",
+      "kickoff": "2026-06-25 06:00",
+      "deadline": "2026-06-24 22:00",
+      "home_team": "苏格兰",
+      "away_team": "巴西",
+      "jingcai": {
+        "home_win": 7.85,
+        "draw": 4.8,
+        "away_win": 1.26
+      },
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5441052",
+      "match_no": "052",
+      "handicap_list": "-2",
+      "kickoff": "2026-06-25 06:00",
+      "deadline": "2026-06-24 22:00",
+      "home_team": "摩洛哥",
+      "away_team": "海地",
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5441053",
+      "match_no": "053",
+      "handicap_list": "1",
+      "kickoff": "2026-06-25 09:00",
+      "deadline": "2026-06-24 22:00",
+      "home_team": "南非",
+      "away_team": "韩国",
+      "jingcai": {
+        "home_win": 4.65,
+        "draw": 3.28,
+        "away_win": 1.64
+      },
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    },
+    {
+      "match_id": "5441054",
+      "match_no": "054",
+      "handicap_list": "1",
+      "kickoff": "2026-06-25 09:00",
+      "deadline": "2026-06-24 22:00",
+      "home_team": "捷克",
+      "away_team": "墨西哥",
+      "jingcai": {
+        "home_win": 3.35,
+        "draw": 3.25,
+        "away_win": 1.91
+      },
+      "odds_3in1": {
+        "asian": {},
+        "euro": {},
+        "overunder": {},
+        "raw_companies": []
+      },
+      "analysis_info": {},
+      "analysis_result": {
+        "asian_analysis": "",
+        "euro_analysis": "",
+        "ou_analysis": "",
+        "overall_judgment": "📊 各维度信号不一致，建议结合基本面判断",
+        "prediction_hints": []
+      }
+    }
+  ]
+}

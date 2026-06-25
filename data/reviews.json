@@ -1,0 +1,134 @@
+{
+  "reviews": [
+    {
+      "match": "阿根廷 vs 奥地利",
+      "home_team": "阿根廷",
+      "away_team": "奥地利",
+      "actual": {
+        "home_goals": 2,
+        "away_goals": 0,
+        "result": "阿根廷胜",
+        "result_value": "home"
+      },
+      "prediction": {
+        "result": "home",
+        "result_text": "阿根廷胜",
+        "result_confidence": 0.9,
+        "over_under": "over",
+        "over_under_text": "大球(>2.5)",
+        "ou_confidence": 0.06
+      },
+      "comparison": {
+        "result_correct": true,
+        "ou_correct": false,
+        "score_detail": null
+      },
+      "timestamp": "2026-06-23 10:37:14"
+    },
+    {
+      "match": "法国 vs 伊拉克",
+      "home_team": "法国",
+      "away_team": "伊拉克",
+      "actual": {
+        "home_goals": 3,
+        "away_goals": 0,
+        "result": "法国胜",
+        "result_value": "home"
+      },
+      "prediction": {
+        "result": "home",
+        "result_text": "法国胜",
+        "result_confidence": 0.9,
+        "over_under": "over",
+        "over_under_text": "大球(>3.5)",
+        "ou_confidence": 0.8
+      },
+      "comparison": {
+        "result_correct": true,
+        "ou_correct": true,
+        "score_detail": null
+      },
+      "timestamp": "2026-06-23 10:37:14"
+    },
+    {
+      "match": "挪威 vs 塞内加尔",
+      "home_team": "挪威",
+      "away_team": "塞内加尔",
+      "actual": {
+        "home_goals": 3,
+        "away_goals": 2,
+        "result": "挪威胜",
+        "result_value": "home"
+      },
+      "prediction": {
+        "result": "away",
+        "result_text": "塞内加尔胜",
+        "result_confidence": 0.48,
+        "over_under": "over",
+        "over_under_text": "大球(>2.5)",
+        "ou_confidence": 0.12
+      },
+      "comparison": {
+        "result_correct": false,
+        "ou_correct": true,
+        "score_detail": null
+      },
+      "timestamp": "2026-06-23 10:37:14"
+    },
+    {
+      "match": "约旦 vs 阿尔及利",
+      "home_team": "约旦",
+      "away_team": "阿尔及利",
+      "actual": {
+        "home_goals": 1,
+        "away_goals": 2,
+        "result": "阿尔及利胜",
+        "result_value": "away"
+      },
+      "prediction": {
+        "result": "away",
+        "result_text": "阿尔及利胜",
+        "result_confidence": 0.9,
+        "over_under": "under",
+        "over_under_text": "小球(<2.5)",
+        "ou_confidence": 0.0
+      },
+      "comparison": {
+        "result_correct": true,
+        "ou_correct": false,
+        "score_detail": null
+      },
+      "timestamp": "2026-06-23 18:55:58"
+    }
+  ],
+  "total_reviewed": 4,
+  "accuracy": {
+    "total_reviewed": 4,
+    "result_accuracy": 0.75,
+    "result_correct": 3,
+    "result_wrong": 1,
+    "result_na": 0,
+    "ou_accuracy": 0.5,
+    "ou_correct": 2,
+    "ou_total": 4,
+    "score_exact_matches": 0,
+    "confidence_buckets": {
+      "high": {
+        "correct": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "medium": {
+        "correct": 0,
+        "total": 1,
+        "rate": 0.0
+      },
+      "low": {
+        "correct": 0,
+        "total": 0,
+        "rate": 0.0
+      }
+    }
+  },
+  "last_updated": "2026-06-23 18:55:58"
+}

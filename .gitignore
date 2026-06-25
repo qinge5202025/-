@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Data - keep structure but ignore cache/snapshots
+data/*.html
+data/*_raw.html
+data/nowscore_*.html
+data/cp_*.html
+data/analysis_*.html
+data/odds_*.html
+data/1x2_*.html
+data/3in1_*.html
+data/detail_*.html
+data/match_*.html
+data/*cat_*.html
+data/jingcai_*.html
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log

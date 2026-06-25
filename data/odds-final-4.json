@@ -1,0 +1,150 @@
+[
+  {
+    "match_no": "045",
+    "home_team": "葡萄牙",
+    "away_team": "乌兹别克",
+    "schedule_id": 2913647,
+    "asian_init": {
+      "home": "",
+      "hcap": "",
+      "away": ""
+    },
+    "asian_now": {
+      "home": "",
+      "hcap": "",
+      "away": ""
+    },
+    "euro_init": {
+      "home": "",
+      "draw": "",
+      "away": ""
+    },
+    "euro_now": {
+      "home": "",
+      "draw": "",
+      "away": ""
+    },
+    "ou_init": {
+      "over": "",
+      "line": "",
+      "under": ""
+    },
+    "ou_now": {
+      "over": "",
+      "line": "",
+      "under": ""
+    },
+    "company": "36*"
+  },
+  {
+    "match_no": "046",
+    "home_team": "英格兰",
+    "away_team": "加纳",
+    "schedule_id": 2913648,
+    "asian_init": {
+      "home": "",
+      "hcap": "",
+      "away": ""
+    },
+    "asian_now": {
+      "home": "",
+      "hcap": "",
+      "away": ""
+    },
+    "euro_init": {
+      "home": "",
+      "draw": "",
+      "away": ""
+    },
+    "euro_now": {
+      "home": "",
+      "draw": "",
+      "away": ""
+    },
+    "ou_init": {
+      "over": "",
+      "line": "",
+      "under": ""
+    },
+    "ou_now": {
+      "over": "",
+      "line": "",
+      "under": ""
+    },
+    "company": "36*"
+  },
+  {
+    "match_no": "047",
+    "home_team": "巴拿马",
+    "away_team": "克罗地亚",
+    "schedule_id": 2913649,
+    "asian_init": {
+      "home": "",
+      "hcap": "",
+      "away": ""
+    },
+    "asian_now": {
+      "home": "",
+      "hcap": "",
+      "away": ""
+    },
+    "euro_init": {
+      "home": "",
+      "draw": "",
+      "away": ""
+    },
+    "euro_now": {
+      "home": "",
+      "draw": "",
+      "away": ""
+    },
+    "ou_init": {
+      "over": "",
+      "line": "",
+      "under": ""
+    },
+    "ou_now": {
+      "over": "",
+      "line": "",
+      "under": ""
+    },
+    "company": "36*"
+  },
+  {
+    "match_no": "048",
+    "home_team": "哥伦比亚",
+    "away_team": "刚果金",
+    "schedule_id": 2913650,
+    "asian_init": {
+      "home": "",
+      "hcap": "",
+      "away": ""
+    },
+    "asian_now": {
+      "home": "",
+      "hcap": "",
+      "away": ""
+    },
+    "euro_init": {
+      "home": "",
+      "draw": "",
+      "away": ""
+    },
+    "euro_now": {
+      "home": "",
+      "draw": "",
+      "away": ""
+    },
+    "ou_init": {
+      "over": "",
+      "line": "",
+      "under": ""
+    },
+    "ou_now": {
+      "over": "",
+      "line": "",
+      "under": ""
+    },
+    "company": "36*"
+  }
+]
