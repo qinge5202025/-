@@ -1,0 +1,199 @@
+{
+  "source": "Polymarket API",
+  "event": "World Cup Winner 2026",
+  "timestamp": "2026-06-26",
+  "teams": {
+    "Spain": {
+      "prob": 13.750000000000002,
+      "volume": 63532878.48743207
+    },
+    "New Zealand": {
+      "prob": 0.05,
+      "volume": 47516866.662645176
+    },
+    "Switzerland": {
+      "prob": 0.8500000000000001,
+      "volume": 70190355.70218846
+    },
+    "England": {
+      "prob": 9.85,
+      "volume": 57826431.448440485
+    },
+    "France": {
+      "prob": 18.65,
+      "volume": 72765158.4632761
+    },
+    "South Korea": {
+      "prob": 0.05,
+      "volume": 103757446.71418549
+    },
+    "Haiti": {
+      "prob": 0.0,
+      "volume": 33265926.54182009
+    },
+    "Brazil": {
+      "prob": 5.55,
+      "volume": 57184271.67380833
+    },
+    "Jordan": {
+      "prob": 0.0,
+      "volume": 33082576.34188277
+    },
+    "Cura莽ao": {
+      "prob": 0.0,
+      "volume": 44007492.74691623
+    },
+    "Argentina": {
+      "prob": 14.649999999999999,
+      "volume": 73407007.42516162
+    },
+    "Germany": {
+      "prob": 4.45,
+      "volume": 67061424.33073053
+    },
+    "Colombia": {
+      "prob": 1.4500000000000002,
+      "volume": 71818292.90463082
+    },
+    "Iran": {
+      "prob": 0.05,
+      "volume": 61350462.21678979
+    },
+    "Portugal": {
+      "prob": 8.05,
+      "volume": 68793552.71489881
+    },
+    "Ghana": {
+      "prob": 0.05,
+      "volume": 64689213.3352363
+    },
+    "Netherlands": {
+      "prob": 5.8500000000000005,
+      "volume": 67303874.53468095
+    },
+    "Algeria": {
+      "prob": 0.05,
+      "volume": 70950250.17721532
+    },
+    "Bosnia-Herzegovina": {
+      "prob": 0.15,
+      "volume": 56021230.088717766
+    },
+    "USA": {
+      "prob": 3.15,
+      "volume": 102537386.23258853
+    },
+    "Canada": {
+      "prob": 0.25,
+      "volume": 75332499.31254028
+    },
+    "Turkiye": {
+      "prob": 0.0,
+      "volume": 61684097.10867325
+    },
+    "Uruguay": {
+      "prob": 0.15,
+      "volume": 75934364.18954317
+    },
+    "Mexico": {
+      "prob": 1.25,
+      "volume": 89836103.53962593
+    },
+    "Paraguay": {
+      "prob": 0.15,
+      "volume": 73187139.17246525
+    },
+    "Scotland": {
+      "prob": 0.05,
+      "volume": 67915006.68193021
+    },
+    "Japan": {
+      "prob": 1.15,
+      "volume": 79330547.72398198
+    },
+    "Norway": {
+      "prob": 3.6999999999999997,
+      "volume": 70060728.88601874
+    },
+    "Tunisia": {
+      "prob": 0.0,
+      "volume": 36470355.983686015
+    },
+    "Ecuador": {
+      "prob": 0.5499999999999999,
+      "volume": 79974466.87338734
+    },
+    "Uzbekistan": {
+      "prob": 0.05,
+      "volume": 61499635.73841759
+    },
+    "Morocco": {
+      "prob": 1.4500000000000002,
+      "volume": 76912624.2446857
+    },
+    "Panama": {
+      "prob": 0.0,
+      "volume": 20049174.385756884
+    },
+    "Iraq": {
+      "prob": 0.05,
+      "volume": 30609770.59271094
+    },
+    "South Africa": {
+      "prob": 0.05,
+      "volume": 44672968.587894246
+    },
+    "Senegal": {
+      "prob": 0.25,
+      "volume": 62994306.96011014
+    },
+    "Ivory Coast": {
+      "prob": 0.25,
+      "volume": 93958004.76642711
+    },
+    "Congo DR": {
+      "prob": 0.05,
+      "volume": 86363588.81207162
+    },
+    "Cape Verde": {
+      "prob": 0.15,
+      "volume": 79979676.20516405
+    },
+    "Czechia": {
+      "prob": 0.0,
+      "volume": 57485266.93301565
+    },
+    "Qatar": {
+      "prob": 0.0,
+      "volume": 45097302.84833185
+    },
+    "Belgium": {
+      "prob": 1.05,
+      "volume": 74321223.90662661
+    },
+    "Australia": {
+      "prob": 0.15,
+      "volume": 75023499.306115
+    },
+    "Saudi Arabia": {
+      "prob": 0.05,
+      "volume": 57207946.512883715
+    },
+    "Austria": {
+      "prob": 0.25,
+      "volume": 68039974.60187319
+    },
+    "Croatia": {
+      "prob": 0.35000000000000003,
+      "volume": 81399240.90663484
+    },
+    "Egypt": {
+      "prob": 0.25,
+      "volume": 80679598.15900548
+    },
+    "Sweden": {
+      "prob": 0.15,
+      "volume": 61358432.62195239
+    }
+  }
+}

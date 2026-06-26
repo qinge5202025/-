@@ -336,6 +336,59 @@ def extract_features(ctx: MatchContext):
         'favored': asian_dir,
     }
     
+    # ---- Polymarket市场情绪因子 ----
+    poly_file = DATA_DIR / 'polymarket-data.json'
+    if poly_file.exists():
+        try:
+            with open(poly_file, 'r', encoding='utf-8') as f:
+                poly_raw = json.load(f)
+            poly_teams = poly_raw.get('teams', {})
+            # 别名映射
+            alias = {'阿尔及利': 'Algeria', '乌兹别克': 'Uzbekistan'}
+            h_name = alias.get(ctx.home_team, ctx.home_team)
+            a_name = alias.get(ctx.away_team, ctx.away_team)
+            
+            # 英文名→中文名映射
+            en_to_cn = {
+                'Argentina': '阿根廷', 'Spain': '西班牙', 'France': '法国',
+                'England': '英格兰', 'Brazil': '巴西', 'Germany': '德国',
+                'Portugal': '葡萄牙', 'Netherlands': '荷兰', 'Uruguay': '乌拉圭',
+                'Croatia': '克罗地亚', 'Morocco': '摩洛哥', 'Colombia': '哥伦比亚',
+                'Japan': '日本', 'Norway': '挪威', 'USA': '美国',
+                'Mexico': '墨西哥', 'Canada': '加拿大', 'Switzerland': '瑞士',
+                'South Korea': '韩国', 'Belgium': '比利时', 'Senegal': '塞内加尔',
+                'Ecuador': '厄瓜多尔', 'Egypt': '埃及', 'Australia': '澳大利亚',
+                'Scotland': '苏格兰', 'Turkey': '土耳其', 'Czechia': '捷克',
+                'Bosnia-Herzegovina': '波黑', 'Qatar': '卡塔尔', 'Paraguay': '巴拉圭',
+                'Ivory Coast': '科特迪瓦', 'Tunisia': '突尼斯', 'Iran': '伊朗',
+                'New Zealand': '新西兰', 'Saudi Arabia': '沙特阿拉伯',
+                'Algeria': '阿尔及利亚', 'Ghana': '加纳', 'Panama': '巴拿马',
+                'Iraq': '伊拉克', 'Uzbekistan': '乌兹别克斯坦', 'Jordan': '约旦',
+                'South Africa': '南非', 'Haiti': '海地', 'Cape Verde': '佛得角',
+                'Congo DR': '刚果金', 'Austria': '奥地利', 'Sweden': '瑞典',
+                'Curacao': '库拉索',
+            }
+            
+            # 找对应的英文名
+            h_en = None
+            a_en = None
+            for en, cn in en_to_cn.items():
+                if cn == ctx.home_team:
+                    h_en = en
+                if cn == ctx.away_team:
+                    a_en = en
+            
+            if h_en and a_en:
+                h_poly = poly_teams.get(h_en, {}).get('prob', 0)
+                a_poly = poly_teams.get(a_en, {}).get('prob', 0)
+                if h_poly > 0 and a_poly > 0:
+                    ratio = h_poly / a_poly
+                    ctx.odds_features['polymarket_ratio'] = ratio
+                    ctx.odds_features['polymarket_home'] = h_poly
+                    ctx.odds_features['polymarket_away'] = a_poly
+        except:
+            pass
+    
     # ---- 原predict.py的赛果预测 (用于后续对比) ----
     ctx.raw_result = ctx.raw.get('result_prediction', {})
 
@@ -596,6 +649,35 @@ def predict_score(ctx: MatchContext):
         base_a *= (1.0 + factor)
         base_h *= (1.0 - factor * 0.7)
     
+    # Polymarket市场情绪加成:
+    # 冠军赔率概率比 = 大众对两队的看好程度
+    # 如果Polymarket概率差显著大于Elo差, 说明市场有额外信息
+    poly_ratio = ctx.odds_features.get('polymarket_ratio', None)
+    if poly_ratio and poly_ratio > 1.5:
+        # 市场显著看好主队 (超出Elo预期)
+        poly_h = ctx.odds_features.get('polymarket_home', 0)
+        poly_a = ctx.odds_features.get('polymarket_away', 0)
+        if poly_h > 0 and poly_a > 0:
+            # 用Polymarket比值除以Elo期望比值, 得到"市场超额信心"
+            elo_expected = ctx.elo.get('expected', 0.5)
+            elo_ratio = elo_expected / max(1 - elo_expected, 0.01)
+            excess_confidence = poly_ratio / max(elo_ratio, 0.1)
+            if excess_confidence > 1.3:
+                boost = min((excess_confidence - 1.0) * 0.08, 0.15)
+                base_h *= (1.0 + boost)
+                base_a *= (1.0 - boost * 0.5)
+    elif poly_ratio and poly_ratio < 0.67:
+        poly_h = ctx.odds_features.get('polymarket_home', 0)
+        poly_a = ctx.odds_features.get('polymarket_away', 0)
+        if poly_h > 0 and poly_a > 0:
+            elo_expected = ctx.elo.get('expected', 0.5)
+            elo_ratio = elo_expected / max(1 - elo_expected, 0.01)
+            excess_confidence = (1/poly_ratio) / max(1/elo_ratio, 0.1) if elo_ratio > 0 else 1
+            if excess_confidence > 1.3:
+                boost = min((excess_confidence - 1.0) * 0.08, 0.15)
+                base_a *= (1.0 + boost)
+                base_h *= (1.0 - boost * 0.5)
+    
     # 战意读取
     goal_mult = ctx.raw.get('goal_multiplier', 1.0)
     home_motive = ctx.raw.get('home_motive', '')
@@ -618,8 +700,9 @@ def predict_score(ctx: MatchContext):
     motive_adj_h = 1.0
     motive_adj_a = 1.0
     
+    # 进攻调整: 动机影响进攻欲望
     if home_motive == '已出线':
-        motive_adj_h = 0.75  # 已出线留力, 进球-25%
+        motive_adj_h = 0.70  # 已出线留力, 进攻-30%
     elif home_motive == '保平出线':
         motive_adj_h = 0.85  # 保平即可, 保守
     elif home_motive == '背水一战':
@@ -627,12 +710,14 @@ def predict_score(ctx: MatchContext):
     elif home_motive == '绝境求生':
         motive_adj_h = 1.15
     elif home_motive == '荣誉之战':
-        motive_adj_h = 1.05  # 无压力, 放开打
+        motive_adj_h = 1.10  # 无压力, 放开打
     elif home_motive == '主动进取':
         motive_adj_h = 1.10
+    else:
+        motive_adj_h = 1.0
     
     if away_motive == '已出线':
-        motive_adj_a = 0.75
+        motive_adj_a = 0.70  # 已出线留力, 进攻-30%
     elif away_motive == '保平出线':
         motive_adj_a = 0.85
     elif away_motive == '背水一战':
@@ -640,12 +725,37 @@ def predict_score(ctx: MatchContext):
     elif away_motive == '绝境求生':
         motive_adj_a = 1.15
     elif away_motive == '荣誉之战':
-        motive_adj_a = 1.05
+        motive_adj_a = 1.10
     elif away_motive == '主动进取':
         motive_adj_a = 1.10
+    else:
+        motive_adj_a = 1.0
     
-    exp_h = base_h * goal_mult * home_intensity * motive_adj_h
-    exp_a = base_a * goal_mult * away_intensity * motive_adj_a
+    # 防守松懈因子: 已出线队防守变弱 → 对手进球期望↑
+    # 背水一战队防守更拼 → 对手进球期望↓
+    def_adj_h = 1.0  # 主队防守对客队进球的影响
+    def_adj_a = 1.0  # 客队防守对主队进球的影响
+    
+    if home_motive == '已出线':
+        def_adj_a = 1.20  # 主队已出线: 防守松懈, 客队进球+20%
+    elif home_motive == '背水一战':
+        def_adj_a = 0.85  # 主队背水一战: 防守拼命, 客队进球-15%
+    elif home_motive == '绝境求生':
+        def_adj_a = 0.90
+    elif home_motive == '保平出线':
+        def_adj_a = 0.90  # 保平即出线: 防守为主
+    
+    if away_motive == '已出线':
+        def_adj_h = 1.20  # 客队已出线: 防守松懈, 主队进球+20%
+    elif away_motive == '背水一战':
+        def_adj_h = 0.85
+    elif away_motive == '绝境求生':
+        def_adj_h = 0.90
+    elif away_motive == '保平出线':
+        def_adj_h = 0.90
+    
+    exp_h = base_h * goal_mult * home_intensity * motive_adj_h * def_adj_h
+    exp_a = base_a * goal_mult * away_intensity * motive_adj_a * def_adj_a
     
     # 阶段调整
     if ctx.stage in ('16强', '8强'):
