@@ -541,9 +541,13 @@ def predict_score(home_odds, away_odds, home_team, away_team, hcap_val=0, line=2
 
 # ============ 战意分析（第3轮关键因子）============
 
-def classify_motivation(team):
+def classify_motivation(team, pts_gap_to_3rd=0):
     """
     根据小组排名&积分判断球队战意状态
+    
+    Args:
+        team: 球队数据 (含 pts, mp, rank, gd 等)
+        pts_gap_to_3rd: 领先第3名的积分差（第3轮关键，用于判断'打平就出线'）
     
     返回: (战意等级, 战意描述, 预期进球调整系数, 防守强度调整)
     """
@@ -557,9 +561,10 @@ def classify_motivation(team):
     if pts >= 6:
         return ('已出线', '已锁定出线，可能轮换主力，节奏放缓', 0.75, 1.15)
     
-    # 保平即出线(前2名且>=4分): 保守战术,防守优先
-    if rank <= 2 and pts >= 4:
-        if ppg >= 2.0:
+    # 保平即出线: 前2名 + (>=4分 或 领先第3名≥2分)
+    # ★优化v3: 3分但领先第3名≥2分(如3分vs1分), 打平即出线
+    if rank <= 2 and (pts >= 4 or pts_gap_to_3rd >= 2):
+        if ppg >= 2.0 or pts >= 4:
             return ('保平出线', '保平即可出线，战术保守，小比分倾向', 0.80, 1.20)
         else:
             return ('巩固位置', '赢球基本锁定，可接受平局', 0.85, 1.10)
@@ -605,8 +610,27 @@ def factor_motivation(home_team, away_team, team_stats):
                 'home_motive': '', 'away_motive': '',
                 'draw_tendency': 0, 'motivation_score': {'home': 0, 'away': 0}}
     
-    hm, hd, hg, hd_def = classify_motivation(hs)
-    am, ad, ag, ad_def = classify_motivation(ha)
+    # 计算小组内领先第3名的积分差（第3轮关键判断）
+    home_group = hs.get('group', '')
+    away_group = ha.get('group', '')
+    
+    def get_pts_gap_to_3rd(team_data, group, all_stats):
+        if not group:
+            return 0
+        # 找同组中 rank=3 的球队积分
+        my_pts = team_data.get('pts', 0)
+        third_pts = 0
+        for t_name, t_data in all_stats.items():
+            if t_data.get('group') == group and t_data.get('rank') == 3:
+                third_pts = t_data.get('pts', 0)
+                break
+        return my_pts - third_pts
+    
+    h_gap = get_pts_gap_to_3rd(hs, home_group, team_stats)
+    a_gap = get_pts_gap_to_3rd(ha, away_group, team_stats)
+    
+    hm, hd, hg, hd_def = classify_motivation(hs, h_gap)
+    am, ad, ag, ad_def = classify_motivation(ha, a_gap)
     
     analysis = []
     analysis.append(f"{home_team}: {hd}")
@@ -629,7 +653,7 @@ def factor_motivation(home_team, away_team, team_stats):
     # ---- 胜负倾向分析 ----
     motive_rank = {
         '背水一战': 5, '主动进取': 4, '绝境求生': 3,
-        '保平出线': 2, '巩固位置': 2, '荣誉之战': 1, '已出线': 0
+        '巩固位置': 2, '荣誉之战': 1, '保平出线': 1, '已出线': 0
     }
     h_mr = motive_rank.get(hm, 1)
     a_mr = motive_rank.get(am, 1)
@@ -1376,20 +1400,21 @@ def ensemble_predict(match, team_stats=None, stage='小组赛'):
     am_type = mot.get('away_motive', '')
     
     # Elo落后方有强烈战意 -> 可能爆冷
-    if elo_gap > 80 and am_type in ('背水一战', '绝境求生', '主动进取'):
+    # ★优化v3: 加入'保平出线'（打平就出线=心理最脆弱）且补偿翻倍
+    if elo_gap >= 80 and am_type in ('背水一战', '绝境求生', '主动进取', '保平出线'):
         # 客队Elo低但战意强
-        votes['away'] = min(votes['away'] + 0.04, 1.0)
-        detail_lines.append(f"冷门检测: 客队Elo低{elo_gap:.0f}分但战意({am_type})强→防冷(+0.04)")
-    if elo_gap < -80 and hm_type in ('背水一战', '绝境求生', '主动进取'):
-        votes['home'] = min(votes['home'] + 0.04, 1.0)
-        detail_lines.append(f"冷门检测: 主队Elo低{abs(elo_gap):.0f}分但战意({hm_type})强→防冷(+0.04)")
+        votes['away'] = min(votes['away'] + 0.10, 1.0)
+        detail_lines.append(f"冷门检测: 客队Elo低{elo_gap:.0f}分但战意({am_type})强→防冷(+0.10)")
+    if elo_gap <= -80 and hm_type in ('背水一战', '绝境求生', '主动进取', '保平出线'):
+        votes['home'] = min(votes['home'] + 0.10, 1.0)
+        detail_lines.append(f"冷门检测: 主队Elo低{abs(elo_gap):.0f}分但战意({hm_type})强→防冷(+0.10)")
     
     # Elo领先方已出线/荣誉之战 -> 可能松懈
-    if elo_gap > 100 and hm_type in ('已出线', '荣誉之战'):
+    if elo_gap >= 100 and hm_type in ('已出线', '荣誉之战'):
         votes['home'] = max(votes['home'] - 0.05, 0)
         votes['away'] = min(votes['away'] + 0.03, 1.0)
         detail_lines.append(f"冷门检测: 主队领先Elo{elo_gap:.0f}分但已无欲无求→防冷(-0.05)")
-    if elo_gap < -100 and am_type in ('已出线', '荣誉之战'):
+    if elo_gap <= -100 and am_type in ('已出线', '荣誉之战'):
         votes['away'] = max(votes['away'] - 0.05, 0)
         votes['home'] = min(votes['home'] + 0.03, 1.0)
         detail_lines.append(f"冷门检测: 客队领先Elo{abs(elo_gap):.0f}分但已无欲无求→防冷(-0.05)")

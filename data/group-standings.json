@@ -1,6 +1,6 @@
 {
   "tournament": "2026 FIFA World Cup",
-  "last_updated": "2026-06-22 17:31:38",
+  "last_updated": "2026-06-25 14:55:00",
   "standings": {
     "A": [
       {
@@ -8,85 +8,85 @@
         "team_id": 819,
         "team_cn": "墨西哥",
         "team_en": "Mexico",
-        "mp": 2,
-        "w": 2,
+        "mp": 3,
+        "w": 3,
         "d": 0,
         "l": 0,
-        "gf": 3,
+        "gf": 6,
         "ga": 0,
-        "gd": 3,
-        "pts": 6
+        "gd": 6,
+        "pts": 9
       },
       {
         "rank": 2,
-        "team_id": 898,
-        "team_cn": "韩国",
-        "team_en": "South Korea",
-        "mp": 2,
+        "team_id": 803,
+        "team_cn": "南非",
+        "team_en": "South Africa",
+        "mp": 3,
         "w": 1,
-        "d": 0,
-        "l": 1,
-        "gf": 2,
-        "ga": 2,
-        "gd": 0,
-        "pts": 3
-      },
-      {
-        "rank": 3,
-        "team_id": 747,
-        "team_cn": "捷克",
-        "team_en": "Czech Republic",
-        "mp": 2,
-        "w": 0,
         "d": 1,
         "l": 1,
         "gf": 2,
         "ga": 3,
         "gd": -1,
-        "pts": 1
+        "pts": 4
+      },
+      {
+        "rank": 3,
+        "team_id": 898,
+        "team_cn": "韩国",
+        "team_en": "South Korea",
+        "mp": 3,
+        "w": 1,
+        "d": 0,
+        "l": 2,
+        "gf": 2,
+        "ga": 3,
+        "gd": -1,
+        "pts": 3
       },
       {
         "rank": 4,
-        "team_id": 803,
-        "team_cn": "南非",
-        "team_en": "South Africa",
-        "mp": 2,
+        "team_id": 747,
+        "team_cn": "捷克",
+        "team_en": "Czech Republic",
+        "mp": 3,
         "w": 0,
         "d": 1,
-        "l": 1,
-        "gf": 1,
-        "ga": 3,
-        "gd": -2,
+        "l": 2,
+        "gf": 2,
+        "ga": 6,
+        "gd": -4,
         "pts": 1
       }
     ],
     "B": [
       {
         "rank": 1,
-        "team_id": 795,
-        "team_cn": "加拿大",
-        "team_en": "Canada",
-        "mp": 2,
-        "w": 1,
-        "d": 1,
-        "l": 0,
-        "gf": 7,
-        "ga": 1,
-        "gd": 6,
-        "pts": 4
-      },
-      {
-        "rank": 2,
         "team_id": 648,
         "team_cn": "瑞士",
         "team_en": "Switzerland",
-        "mp": 2,
-        "w": 1,
+        "mp": 3,
+        "w": 2,
         "d": 1,
         "l": 0,
-        "gf": 5,
-        "ga": 2,
-        "gd": 3,
+        "gf": 7,
+        "ga": 3,
+        "gd": 4,
+        "pts": 7
+      },
+      {
+        "rank": 2,
+        "team_id": 795,
+        "team_cn": "加拿大",
+        "team_en": "Canada",
+        "mp": 3,
+        "w": 1,
+        "d": 1,
+        "l": 1,
+        "gf": 8,
+        "ga": 3,
+        "gd": 5,
         "pts": 4
       },
       {
@@ -94,27 +94,27 @@
         "team_id": 782,
         "team_cn": "波黑",
         "team_en": "Bosnia and Herzegovina",
-        "mp": 2,
-        "w": 0,
+        "mp": 3,
+        "w": 1,
         "d": 1,
         "l": 1,
-        "gf": 2,
-        "ga": 5,
-        "gd": -3,
-        "pts": 1
+        "gf": 5,
+        "ga": 6,
+        "gd": -1,
+        "pts": 4
       },
       {
         "rank": 4,
         "team_id": 904,
         "team_cn": "卡塔尔",
         "team_en": "Qatar",
-        "mp": 2,
+        "mp": 3,
         "w": 0,
         "d": 1,
-        "l": 1,
-        "gf": 1,
-        "ga": 7,
-        "gd": -6,
+        "l": 2,
+        "gf": 2,
+        "ga": 10,
+        "gd": -8,
         "pts": 1
       }
     ],
@@ -124,41 +124,41 @@
         "team_id": 778,
         "team_cn": "巴西",
         "team_en": "Brazil",
-        "mp": 2,
-        "w": 1,
+        "mp": 3,
+        "w": 2,
         "d": 1,
         "l": 0,
-        "gf": 4,
+        "gf": 7,
         "ga": 1,
-        "gd": 3,
-        "pts": 4
+        "gd": 6,
+        "pts": 7
       },
       {
         "rank": 2,
         "team_id": 813,
         "team_cn": "摩洛哥",
         "team_en": "Morocco",
-        "mp": 2,
-        "w": 1,
+        "mp": 3,
+        "w": 2,
         "d": 1,
         "l": 0,
-        "gf": 2,
-        "ga": 1,
-        "gd": 1,
-        "pts": 4
+        "gf": 6,
+        "ga": 3,
+        "gd": 3,
+        "pts": 7
       },
       {
         "rank": 3,
         "team_id": 641,
         "team_cn": "苏格兰",
         "team_en": "Scotland",
-        "mp": 2,
+        "mp": 3,
         "w": 1,
         "d": 0,
-        "l": 1,
+        "l": 2,
         "gf": 1,
-        "ga": 1,
-        "gd": 0,
+        "ga": 4,
+        "gd": -3,
         "pts": 3
       },
       {
@@ -166,13 +166,13 @@
         "team_id": 909,
         "team_cn": "海地",
         "team_en": "Haiti",
-        "mp": 2,
+        "mp": 3,
         "w": 0,
         "d": 0,
-        "l": 2,
-        "gf": 0,
-        "ga": 4,
-        "gd": -4,
+        "l": 3,
+        "gf": 2,
+        "ga": 8,
+        "gd": -6,
         "pts": 0
       }
     ],
@@ -469,44 +469,44 @@
     "I": [
       {
         "rank": 1,
-        "team_id": 640,
-        "team_cn": "挪威",
-        "team_en": "Norway",
-        "mp": 1,
-        "w": 1,
-        "d": 0,
-        "l": 0,
-        "gf": 4,
-        "ga": 1,
-        "gd": 3,
-        "pts": 3
-      },
-      {
-        "rank": 2,
         "team_id": 649,
         "team_cn": "法国",
         "team_en": "France",
-        "mp": 1,
-        "w": 1,
+        "mp": 2,
+        "w": 2,
         "d": 0,
         "l": 0,
-        "gf": 3,
+        "gf": 6,
         "ga": 1,
-        "gd": 2,
-        "pts": 3
+        "gd": 5,
+        "pts": 6
+      },
+      {
+        "rank": 2,
+        "team_id": 640,
+        "team_cn": "挪威",
+        "team_en": "Norway",
+        "mp": 2,
+        "w": 2,
+        "d": 0,
+        "l": 0,
+        "gf": 7,
+        "ga": 3,
+        "gd": 4,
+        "pts": 6
       },
       {
         "rank": 3,
         "team_id": 815,
         "team_cn": "塞内加尔",
         "team_en": "Senegal",
-        "mp": 1,
+        "mp": 2,
         "w": 0,
         "d": 0,
-        "l": 1,
-        "gf": 1,
-        "ga": 3,
-        "gd": -2,
+        "l": 2,
+        "gf": 3,
+        "ga": 6,
+        "gd": -3,
         "pts": 0
       },
       {
@@ -514,13 +514,13 @@
         "team_id": 874,
         "team_cn": "伊拉克",
         "team_en": "Iraq",
-        "mp": 1,
+        "mp": 2,
         "w": 0,
         "d": 0,
-        "l": 1,
+        "l": 2,
         "gf": 1,
-        "ga": 4,
-        "gd": -3,
+        "ga": 7,
+        "gd": -6,
         "pts": 0
       }
     ],
@@ -530,54 +530,54 @@
         "team_id": 766,
         "team_cn": "阿根廷",
         "team_en": "Argentina",
-        "mp": 1,
-        "w": 1,
+        "mp": 2,
+        "w": 2,
         "d": 0,
         "l": 0,
-        "gf": 3,
+        "gf": 5,
         "ga": 0,
-        "gd": 3,
-        "pts": 3
+        "gd": 5,
+        "pts": 6
       },
       {
         "rank": 2,
         "team_id": 647,
         "team_cn": "奥地利",
         "team_en": "Austria",
-        "mp": 1,
+        "mp": 2,
         "w": 1,
         "d": 0,
-        "l": 0,
+        "l": 1,
         "gf": 3,
-        "ga": 1,
-        "gd": 2,
+        "ga": 3,
+        "gd": 0,
         "pts": 3
       },
       {
         "rank": 3,
-        "team_id": 881,
-        "team_cn": "约旦",
-        "team_en": "Jordan",
-        "mp": 1,
-        "w": 0,
-        "d": 0,
-        "l": 1,
-        "gf": 1,
-        "ga": 3,
-        "gd": -2,
-        "pts": 0
-      },
-      {
-        "rank": 4,
         "team_id": 18406,
         "team_cn": "阿尔及利亚",
         "team_en": "Algeria",
-        "mp": 1,
-        "w": 0,
+        "mp": 2,
+        "w": 1,
         "d": 0,
         "l": 1,
-        "gf": 0,
-        "ga": 3,
+        "gf": 2,
+        "ga": 4,
+        "gd": -2,
+        "pts": 3
+      },
+      {
+        "rank": 4,
+        "team_id": 881,
+        "team_cn": "约旦",
+        "team_en": "Jordan",
+        "mp": 2,
+        "w": 0,
+        "d": 0,
+        "l": 2,
+        "gf": 2,
+        "ga": 5,
         "gd": -3,
         "pts": 0
       }
@@ -588,41 +588,41 @@
         "team_id": 775,
         "team_cn": "哥伦比亚",
         "team_en": "Colombia",
-        "mp": 1,
-        "w": 1,
+        "mp": 2,
+        "w": 2,
         "d": 0,
         "l": 0,
-        "gf": 3,
+        "gf": 4,
         "ga": 1,
-        "gd": 2,
-        "pts": 3
+        "gd": 3,
+        "pts": 6
       },
       {
         "rank": 2,
-        "team_id": 811,
-        "team_cn": "刚果金",
-        "team_en": "Democratic Rep Congo",
-        "mp": 1,
-        "w": 0,
-        "d": 1,
-        "l": 0,
-        "gf": 1,
-        "ga": 1,
-        "gd": 0,
-        "pts": 1
-      },
-      {
-        "rank": 3,
         "team_id": 765,
         "team_cn": "葡萄牙",
         "team_en": "Portugal",
-        "mp": 1,
-        "w": 0,
+        "mp": 2,
+        "w": 1,
         "d": 1,
         "l": 0,
-        "gf": 1,
+        "gf": 6,
         "ga": 1,
-        "gd": 0,
+        "gd": 5,
+        "pts": 4
+      },
+      {
+        "rank": 3,
+        "team_id": 811,
+        "team_cn": "刚果金",
+        "team_en": "Democratic Rep Congo",
+        "mp": 2,
+        "w": 0,
+        "d": 1,
+        "l": 1,
+        "gf": 1,
+        "ga": 2,
+        "gd": -1,
         "pts": 1
       },
       {
@@ -630,13 +630,13 @@
         "team_id": 875,
         "team_cn": "乌兹别克斯坦",
         "team_en": "Uzbekistan",
-        "mp": 1,
+        "mp": 2,
         "w": 0,
         "d": 0,
-        "l": 1,
+        "l": 2,
         "gf": 1,
-        "ga": 3,
-        "gd": -2,
+        "ga": 8,
+        "gd": -7,
         "pts": 0
       }
     ],
@@ -646,54 +646,54 @@
         "team_id": 744,
         "team_cn": "英格兰",
         "team_en": "England",
-        "mp": 1,
+        "mp": 2,
         "w": 1,
-        "d": 0,
+        "d": 1,
         "l": 0,
         "gf": 4,
         "ga": 2,
         "gd": 2,
-        "pts": 3
+        "pts": 4
       },
       {
         "rank": 2,
         "team_id": 810,
         "team_cn": "加纳",
         "team_en": "Ghana",
-        "mp": 1,
+        "mp": 2,
         "w": 1,
-        "d": 0,
+        "d": 1,
         "l": 0,
         "gf": 1,
         "ga": 0,
         "gd": 1,
-        "pts": 3
+        "pts": 4
       },
       {
         "rank": 3,
-        "team_id": 798,
-        "team_cn": "巴拿马",
-        "team_en": "Panama",
-        "mp": 1,
-        "w": 0,
-        "d": 0,
-        "l": 1,
-        "gf": 0,
-        "ga": 1,
-        "gd": -1,
-        "pts": 0
-      },
-      {
-        "rank": 4,
         "team_id": 768,
         "team_cn": "克罗地亚",
         "team_en": "Croatia",
-        "mp": 1,
-        "w": 0,
+        "mp": 2,
+        "w": 1,
         "d": 0,
         "l": 1,
-        "gf": 2,
+        "gf": 3,
         "ga": 4,
+        "gd": -1,
+        "pts": 3
+      },
+      {
+        "rank": 4,
+        "team_id": 798,
+        "team_cn": "巴拿马",
+        "team_en": "Panama",
+        "mp": 2,
+        "w": 0,
+        "d": 0,
+        "l": 2,
+        "gf": 0,
+        "ga": 2,
         "gd": -2,
         "pts": 0
       }
@@ -752,9 +752,9 @@
         "away_team_cn": "韩国",
         "home_id": 803,
         "away_id": 898,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "1-0",
+        "half_time_score": "0-0",
+        "round": -1
       },
       {
         "match_id": 2907367,
@@ -763,9 +763,9 @@
         "away_team_cn": "墨西哥",
         "home_id": 747,
         "away_id": 819,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "0-3",
+        "half_time_score": "0-0",
+        "round": -1
       }
     ],
     "B": [
@@ -820,9 +820,9 @@
         "away_team_cn": "加拿大",
         "home_id": 648,
         "away_id": 795,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "2-1",
+        "half_time_score": "0-0",
+        "round": -1
       },
       {
         "match_id": 2907368,
@@ -831,9 +831,9 @@
         "away_team_cn": "卡塔尔",
         "home_id": 782,
         "away_id": 904,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "3-1",
+        "half_time_score": "2-1",
+        "round": -1
       }
     ],
     "C": [
@@ -888,9 +888,9 @@
         "away_team_cn": "巴西",
         "home_id": 641,
         "away_id": 778,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "0-3",
+        "half_time_score": "0-2",
+        "round": -1
       },
       {
         "match_id": 2906950,
@@ -899,9 +899,9 @@
         "away_team_cn": "海地",
         "home_id": 813,
         "away_id": 909,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "4-2",
+        "half_time_score": "2-2",
+        "round": -1
       }
     ],
     "D": [
@@ -1274,9 +1274,9 @@
         "away_team_cn": "伊拉克",
         "home_id": 649,
         "away_id": 874,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "3-0",
+        "half_time_score": "1-0",
+        "round": -1
       },
       {
         "match_id": 2906967,
@@ -1285,9 +1285,9 @@
         "away_team_cn": "塞内加尔",
         "home_id": 640,
         "away_id": 815,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "3-2",
+        "half_time_score": "1-0",
+        "round": -1
       },
       {
         "match_id": 2906968,
@@ -1342,9 +1342,9 @@
         "away_team_cn": "奥地利",
         "home_id": 766,
         "away_id": 647,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "2-0",
+        "half_time_score": "1-0",
+        "round": -1
       },
       {
         "match_id": 2906970,
@@ -1353,9 +1353,9 @@
         "away_team_cn": "阿尔及利亚",
         "home_id": 881,
         "away_id": 18406,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "1-2",
+        "half_time_score": "1-0",
+        "round": -1
       },
       {
         "match_id": 2906971,
@@ -1410,9 +1410,9 @@
         "away_team_cn": "乌兹别克斯坦",
         "home_id": 765,
         "away_id": 875,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "5-0",
+        "half_time_score": "3-0",
+        "round": -1
       },
       {
         "match_id": 2907361,
@@ -1421,9 +1421,9 @@
         "away_team_cn": "刚果金",
         "home_id": 775,
         "away_id": 811,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "1-0",
+        "half_time_score": "0-0",
+        "round": -1
       },
       {
         "match_id": 2907374,
@@ -1478,9 +1478,9 @@
         "away_team_cn": "加纳",
         "home_id": 744,
         "away_id": 810,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "0-0",
+        "half_time_score": "0-0",
+        "round": -1
       },
       {
         "match_id": 2906976,
@@ -1489,9 +1489,9 @@
         "away_team_cn": "克罗地亚",
         "home_id": 798,
         "away_id": 768,
-        "full_time_score": "",
-        "half_time_score": "",
-        "round": 0
+        "full_time_score": "0-1",
+        "half_time_score": "0-0",
+        "round": -1
       },
       {
         "match_id": 2906977,

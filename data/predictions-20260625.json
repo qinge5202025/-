@@ -1,8 +1,8 @@
 {
-  "predict_time": "2026-06-25 09:13:43",
+  "predict_time": "2026-06-25 19:41:13",
   "predict_date": "2026-06-25",
   "stage": "Group Stage Round 3",
-  "total_matches": 12,
+  "total_matches": 18,
   "predictions": [
     {
       "match": "厄瓜多尔 vs 德国",
@@ -13,11 +13,11 @@
       "result_prediction": {
         "prediction": "厄瓜多尔胜",
         "value": "home",
-        "confidence": 0.46,
+        "confidence": 0.52,
         "votes": {
-          "home": 0.145,
+          "home": 0.253,
           "draw": 0.0,
-          "away": 0.141
+          "away": 0.184
         }
       },
       "score_prediction": {
@@ -29,8 +29,8 @@
           "厄瓜多尔 2-0 德国",
           "厄瓜多尔 1-0 德国"
         ],
-        "expected_home_goals": 1.96,
-        "expected_away_goals": 1.14
+        "expected_home_goals": 2.06,
+        "expected_away_goals": 1.26
       },
       "ht_prediction": {
         "score": "厄瓜多尔 0-0 德国(HT)",
@@ -39,10 +39,10 @@
       },
       "htft_prediction": {
         "most_likely": "负负",
-        "probability": 0.29,
+        "probability": 0.5,
         "alternatives": [
           "平负",
-          "平平"
+          "胜负"
         ],
         "description": "客队全程压制",
         "narrative": "客队半场胜全场胜"
@@ -50,10 +50,18 @@
       "over_under_prediction": {
         "prediction": "大球(>2.5)",
         "value": "over",
-        "confidence": 0.0,
+        "confidence": 0.12,
         "line": 2.5
       },
-      "recommendations": [],
+      "recommendations": [
+        {
+          "type": "半全场",
+          "pick": "负负",
+          "confidence": "50%",
+          "stars": 2,
+          "note": "客队全程压制"
+        }
+      ],
       "factors_detail": [
         "odds_implied",
         "odds_movement",
@@ -63,14 +71,15 @@
         "bookmaker_intent"
       ],
       "factor_analysis": [
-        "odds_implied: ->away (cf=0.32, w=0.35)",
-        "odds_movement: ->home (cf=0.50, w=0.12)",
+        "odds_implied: ->away (cf=0.64, w=0.35)",
+        "odds_movement: ->away (cf=0.44, w=0.12)",
         "asian_handicap: ->away (cf=0.20, w=0.22)",
         "motivation: ->home (cf=0.16, w=0.12)",
         "elo: 厄瓜多尔(1540) vs 德国(1680) ->away (exp=0.31, w=0.11)",
-        "庄家动机: 高抽水12.9%→庄家风险规避，信心不足",
-        "庄家动机: 高抽水-整体降信5%",
-        "冷门检测: 主队Elo低140分但战意(绝境求生)强→防冷(+0.04)",
+        "庄家动机: 诱盘⚡: 欧赔降客胜0.17但亚盘未动→诱客",
+        "庄家动机: 高抽水13.0%→庄家风险规避，信心不足",
+        "庄家动机: 🎣诱客→反买主, 修正0.26",
+        "冷门检测: 主队Elo低140分但战意(绝境求生)强→防冷(+0.10)",
         "冷门检测: 客队领先Elo140分但已无欲无求→防冷(-0.05)"
       ],
       "motivation_analysis": [
@@ -99,7 +108,7 @@
         "elo": 0.11
       },
       "stage": "小组赛",
-      "timestamp": "2026-06-25 09:13:43"
+      "timestamp": "2026-06-25 19:41:13"
     },
     {
       "match": "库拉索 vs 科特迪瓦",
@@ -110,11 +119,11 @@
       "result_prediction": {
         "prediction": "科特迪瓦胜",
         "value": "away",
-        "confidence": 0.78,
+        "confidence": 0.64,
         "votes": {
-          "home": 0.04,
+          "home": 0.106,
           "draw": 0.0,
-          "away": 0.262
+          "away": 0.255
         }
       },
       "score_prediction": {
@@ -122,12 +131,12 @@
         "home_goals": 0,
         "away_goals": 3,
         "alternatives": [
-          "库拉索 0-2 科特迪瓦",
           "库拉索 0-4 科特迪瓦",
-          "库拉索 0-1 科特迪瓦"
+          "库拉索 0-2 科特迪瓦",
+          "库拉索 0-5 科特迪瓦"
         ],
-        "expected_home_goals": 0.32,
-        "expected_away_goals": 3.03
+        "expected_home_goals": 0.36,
+        "expected_away_goals": 3.65
       },
       "ht_prediction": {
         "score": "库拉索 0-1 科特迪瓦(HT)",
@@ -152,17 +161,10 @@
       },
       "recommendations": [
         {
-          "type": "胜负",
-          "pick": "科特迪瓦胜",
-          "confidence": "78%",
-          "stars": 3,
-          "note": ""
-        },
-        {
           "type": "比分",
           "pick": "库拉索 0-3 科特迪瓦",
-          "confidence": "78%",
-          "stars": 2,
+          "confidence": "64%",
+          "stars": 1,
           "note": ""
         }
       ],
@@ -174,24 +176,24 @@
         "bookmaker_intent"
       ],
       "factor_analysis": [
-        "odds_movement: ->away (cf=0.31, w=0.12)",
+        "odds_movement: ->away (cf=0.30, w=0.12)",
         "asian_handicap: ->away (cf=0.46, w=0.22)",
-        "motivation: ->away (cf=0.05, w=0.12)",
+        "motivation: ->home (cf=0.05, w=0.12)",
         "elo: 库拉索(1400) vs 科特迪瓦(1500) ->away (exp=0.36, w=0.11)",
-        "庄家动机: 阻盘🛡️: 盘口-1.5→-2.25大幅降盘但客水1.04未降→阻客",
+        "庄家动机: 阻盘🛡️: 盘口-1.5→-2.25大幅降盘但客水1.02未降→阻客",
         "庄家动机: 🛡️阻客→庄家有信心(+0.08)",
-        "冷门检测: 主队Elo低100分但战意(绝境求生)强→防冷(+0.04)"
+        "冷门检测: 主队Elo低100分但战意(绝境求生)强→防冷(+0.10)"
       ],
       "motivation_analysis": [
         "库拉索: 必须赢且需要其他场次配合，奋力一搏",
-        "科特迪瓦: 赢球即出线，全力争胜",
-        "科特迪瓦战意略强"
+        "科特迪瓦: 赢球基本锁定，可接受平局",
+        "库拉索战意略强"
       ],
-      "goal_multiplier": 1.17,
+      "goal_multiplier": 1.02,
       "home_intensity": 0.95,
-      "away_intensity": 0.97,
+      "away_intensity": 1.05,
       "home_motive": "绝境求生",
-      "away_motive": "主动进取",
+      "away_motive": "巩固位置",
       "elo": {
         "home": 1400,
         "away": 1500,
@@ -206,7 +208,7 @@
         "elo": 0.11
       },
       "stage": "小组赛",
-      "timestamp": "2026-06-25 09:13:43"
+      "timestamp": "2026-06-25 19:41:13"
     },
     {
       "match": "突尼斯 vs 荷兰",
@@ -217,11 +219,11 @@
       "result_prediction": {
         "prediction": "荷兰胜",
         "value": "away",
-        "confidence": 0.77,
+        "confidence": 0.79,
         "votes": {
           "home": 0.0,
           "draw": 0.042,
-          "away": 0.238
+          "away": 0.305
         }
       },
       "score_prediction": {
@@ -233,8 +235,8 @@
           "突尼斯 0-2 荷兰",
           "突尼斯 0-5 荷兰"
         ],
-        "expected_home_goals": 0.39,
-        "expected_away_goals": 3.99
+        "expected_home_goals": 0.41,
+        "expected_away_goals": 4.16
       },
       "ht_prediction": {
         "score": "突尼斯 0-1 荷兰(HT)",
@@ -252,23 +254,30 @@
         "narrative": "半场平全场平"
       },
       "over_under_prediction": {
-        "prediction": "大球(>3.0)",
+        "prediction": "大球(>3.5)",
         "value": "over",
-        "confidence": 0.45,
-        "line": 3.0
+        "confidence": 0.6,
+        "line": 3.5
       },
       "recommendations": [
         {
           "type": "胜负",
           "pick": "荷兰胜",
-          "confidence": "77%",
+          "confidence": "79%",
+          "stars": 3,
+          "note": ""
+        },
+        {
+          "type": "大小球",
+          "pick": "大球(>3.5)",
+          "confidence": "60%",
           "stars": 3,
           "note": ""
         },
         {
           "type": "比分",
           "pick": "突尼斯 0-3 荷兰",
-          "confidence": "77%",
+          "confidence": "79%",
           "stars": 2,
           "note": ""
         }
@@ -277,20 +286,23 @@
         "odds_movement",
         "asian_handicap",
         "motivation",
-        "elo"
+        "elo",
+        "bookmaker_intent"
       ],
       "factor_analysis": [
         "odds_movement: ->away (cf=0.50, w=0.12)",
         "asian_handicap: ->away (cf=0.50, w=0.22)",
-        "motivation: ->away (cf=0.16, w=0.12)",
+        "motivation: ->away (cf=0.05, w=0.12)",
         "elo: 突尼斯(1472.0) vs 荷兰(1660) ->away (exp=0.25, w=0.11)",
-        "motivation: draw_tendency=0.35, 平局修正"
+        "motivation: draw_tendency=0.35, 平局修正",
+        "庄家动机: 阻盘🛡️: 盘口-1.0→-2.75大幅降盘但客水0.98未降→阻客",
+        "庄家动机: 🛡️阻客→庄家有信心(+0.08)"
       ],
       "motivation_analysis": [
         "突尼斯: 已确定出局，为荣誉而战，压力小",
         "荷兰: 保平即可出线，战术保守，小比分倾向",
         "荷兰需争小组第一避强敌，战意提升",
-        "荷兰战意(保平出线)远强于突尼斯(荣誉之战), 客队更饥渴"
+        "荷兰战意略强"
       ],
       "goal_multiplier": 0.93,
       "home_intensity": 1.0,
@@ -311,7 +323,7 @@
         "elo": 0.11
       },
       "stage": "小组赛",
-      "timestamp": "2026-06-25 09:13:43"
+      "timestamp": "2026-06-25 19:41:13"
     },
     {
       "match": "日本 vs 瑞典",
@@ -320,26 +332,26 @@
       "away_team": "瑞典",
       "schedule_id": "2907369",
       "result_prediction": {
-        "prediction": "瑞典胜",
-        "value": "away",
-        "confidence": 0.5,
+        "prediction": "日本胜",
+        "value": "home",
+        "confidence": 0.61,
         "votes": {
-          "home": 0.068,
+          "home": 0.179,
           "draw": 0.0,
-          "away": 0.084
+          "away": 0.085
         }
       },
       "score_prediction": {
-        "most_likely": "日本 0-1 瑞典",
-        "home_goals": 0,
-        "away_goals": 1,
+        "most_likely": "日本 1-0 瑞典",
+        "home_goals": 1,
+        "away_goals": 0,
         "alternatives": [
-          "日本 0-2 瑞典",
-          "日本 0-0 瑞典",
-          "日本 1-1 瑞典"
+          "日本 2-0 瑞典",
+          "日本 1-1 瑞典",
+          "日本 2-1 瑞典"
         ],
-        "expected_home_goals": 0.59,
-        "expected_away_goals": 1.64
+        "expected_home_goals": 1.9,
+        "expected_away_goals": 0.74
       },
       "ht_prediction": {
         "score": "日本 0-0 瑞典(HT)",
@@ -347,23 +359,39 @@
         "away_goals": 0
       },
       "htft_prediction": {
-        "most_likely": "平胜",
-        "probability": 0.21,
+        "most_likely": "胜胜",
+        "probability": 0.51,
         "alternatives": [
-          "胜胜",
+          "平胜",
           "平平"
         ],
-        "description": "半场胶着一方爆发",
-        "narrative": "主队半场平全场胜"
+        "description": "主队领先→保持",
+        "narrative": "主队半场胜全场胜"
       },
       "over_under_prediction": {
-        "prediction": "小球(<2.5)",
-        "value": "under",
+        "prediction": "大球(>2.5)",
+        "value": "over",
         "confidence": 0.12,
         "line": 2.5
       },
-      "recommendations": [],
+      "recommendations": [
+        {
+          "type": "半全场",
+          "pick": "胜胜",
+          "confidence": "51%",
+          "stars": 2,
+          "note": "主队领先→保持"
+        },
+        {
+          "type": "比分",
+          "pick": "日本 1-0 瑞典",
+          "confidence": "61%",
+          "stars": 1,
+          "note": ""
+        }
+      ],
       "factors_detail": [
+        "odds_implied",
         "odds_movement",
         "asian_handicap",
         "motivation",
@@ -371,12 +399,13 @@
         "bookmaker_intent"
       ],
       "factor_analysis": [
-        "odds_movement: ->home (cf=0.32, w=0.12)",
+        "odds_implied: ->home (cf=0.38, w=0.35)",
+        "odds_movement: ->home (cf=0.18, w=0.12)",
         "asian_handicap: ->home (cf=0.15, w=0.22)",
-        "motivation: ->away (cf=0.24, w=0.12)",
+        "motivation: ->away (cf=0.25, w=0.12)",
         "elo: 日本(1618.0) vs 瑞典(1550) ->drawish (exp=0.60, w=0.11)",
-        "motivation: 战意差距-3→ favore away(+0.06)",
-        "庄家动机: 高抽水13.0%→庄家风险规避，信心不足",
+        "motivation: 战意差距-4→ favore away(+0.06)",
+        "庄家动机: 高抽水12.9%→庄家风险规避，信心不足",
         "庄家动机: 高抽水-整体降信5%"
       ],
       "motivation_analysis": [
@@ -404,7 +433,7 @@
         "elo": 0.11
       },
       "stage": "小组赛",
-      "timestamp": "2026-06-25 09:13:43"
+      "timestamp": "2026-06-25 19:41:13"
     },
     {
       "match": "巴拉圭 vs 澳大利亚",
@@ -415,10 +444,10 @@
       "result_prediction": {
         "prediction": "平局",
         "value": "draw",
-        "confidence": 0.84,
+        "confidence": 0.82,
         "votes": {
           "home": 0.006,
-          "draw": 0.08,
+          "draw": 0.062,
           "away": 0.0
         }
       },
@@ -441,7 +470,7 @@
       },
       "htft_prediction": {
         "most_likely": "平平",
-        "probability": 0.2,
+        "probability": 0.35,
         "alternatives": [
           "平胜",
           "平负"
@@ -459,14 +488,14 @@
         {
           "type": "胜负",
           "pick": "平局",
-          "confidence": "84%",
+          "confidence": "82%",
           "stars": 4,
           "note": ""
         },
         {
           "type": "比分",
           "pick": "巴拉圭 0-0 澳大利亚",
-          "confidence": "84%",
+          "confidence": "82%",
           "stars": 2,
           "note": ""
         }
@@ -478,10 +507,10 @@
         "bookmaker_intent"
       ],
       "factor_analysis": [
-        "odds_implied: ->draw (cf=0.24, w=0.35)",
+        "odds_implied: ->draw (cf=0.19, w=0.35)",
         "motivation: ->home (cf=0.05, w=0.12)",
         "elo: 巴拉圭(1510) vs 澳大利亚(1530) ->drawish (exp=0.47, w=0.11)",
-        "庄家动机: 高抽水12.9%→庄家风险规避，信心不足",
+        "庄家动机: 高抽水13.0%→庄家风险规避，信心不足",
         "庄家动机: 高抽水-整体降信5%"
       ],
       "motivation_analysis": [
@@ -508,7 +537,7 @@
         "elo": 0.11
       },
       "stage": "小组赛",
-      "timestamp": "2026-06-25 09:13:43"
+      "timestamp": "2026-06-25 19:41:13"
     },
     {
       "match": "土耳其 vs 美国",
@@ -519,24 +548,24 @@
       "result_prediction": {
         "prediction": "美国胜",
         "value": "away",
-        "confidence": 0.86,
+        "confidence": 0.88,
         "votes": {
           "home": 0.006,
           "draw": 0.0,
-          "away": 0.114
+          "away": 0.222
         }
       },
       "score_prediction": {
-        "most_likely": "土耳其 0-1 美国",
+        "most_likely": "土耳其 0-2 美国",
         "home_goals": 0,
-        "away_goals": 1,
+        "away_goals": 2,
         "alternatives": [
-          "土耳其 0-2 美国",
-          "土耳其 1-1 美国",
-          "土耳其 0-3 美国"
+          "土耳其 0-1 美国",
+          "土耳其 0-3 美国",
+          "土耳其 1-2 美国"
         ],
-        "expected_home_goals": 0.62,
-        "expected_away_goals": 2.03
+        "expected_home_goals": 0.73,
+        "expected_away_goals": 2.38
       },
       "ht_prediction": {
         "score": "土耳其 0-0 美国(HT)",
@@ -544,38 +573,46 @@
         "away_goals": 0
       },
       "htft_prediction": {
-        "most_likely": "平负",
-        "probability": 0.35,
+        "most_likely": "负负",
+        "probability": 0.46,
         "alternatives": [
-          "负负",
+          "平负",
           "平平"
         ],
-        "description": "半场胶着一方爆发",
-        "narrative": "客队半场平全场胜"
+        "description": "客队全程压制",
+        "narrative": "客队半场胜全场胜"
       },
       "over_under_prediction": {
-        "prediction": "小球(<2.5)",
-        "value": "under",
-        "confidence": 0.0,
+        "prediction": "大球(>2.5)",
+        "value": "over",
+        "confidence": 0.06,
         "line": 2.5
       },
       "recommendations": [
         {
           "type": "胜负",
           "pick": "美国胜",
-          "confidence": "86%",
+          "confidence": "88%",
           "stars": 4,
           "note": ""
         },
         {
+          "type": "半全场",
+          "pick": "负负",
+          "confidence": "46%",
+          "stars": 2,
+          "note": "客队全程压制"
+        },
+        {
           "type": "比分",
-          "pick": "土耳其 0-1 美国",
-          "confidence": "86%",
+          "pick": "土耳其 0-2 美国",
+          "confidence": "88%",
           "stars": 2,
           "note": ""
         }
       ],
       "factors_detail": [
+        "odds_implied",
         "odds_movement",
         "asian_handicap",
         "motivation",
@@ -583,6 +620,7 @@
         "bookmaker_intent"
       ],
       "factor_analysis": [
+        "odds_implied: ->away (cf=0.32, w=0.35)",
         "odds_movement: ->away (cf=0.50, w=0.12)",
         "asian_handicap: ->away (cf=0.28, w=0.22)",
         "motivation: ->home (cf=0.05, w=0.12)",
@@ -615,7 +653,7 @@
         "elo": 0.11
       },
       "stage": "小组赛",
-      "timestamp": "2026-06-25 09:13:43"
+      "timestamp": "2026-06-25 19:41:13"
     },
     {
       "match": "挪威 vs 法国",
@@ -626,11 +664,11 @@
       "result_prediction": {
         "prediction": "法国胜",
         "value": "away",
-        "confidence": 0.79,
+        "confidence": 0.8,
         "votes": {
-          "home": 0.04,
+          "home": 0.03,
           "draw": 0.0,
-          "away": 0.28
+          "away": 0.23
         }
       },
       "score_prediction": {
@@ -642,8 +680,8 @@
           "挪威 0-3 法国",
           "挪威 1-2 法国"
         ],
-        "expected_home_goals": 0.75,
-        "expected_away_goals": 2.29
+        "expected_home_goals": 0.83,
+        "expected_away_goals": 2.53
       },
       "ht_prediction": {
         "score": "挪威 0-0 法国(HT)",
@@ -663,14 +701,14 @@
       "over_under_prediction": {
         "prediction": "大球(>2.5)",
         "value": "over",
-        "confidence": 0.0,
+        "confidence": 0.06,
         "line": 2.5
       },
       "recommendations": [
         {
           "type": "胜负",
           "pick": "法国胜",
-          "confidence": "79%",
+          "confidence": "80%",
           "stars": 3,
           "note": ""
         },
@@ -684,7 +722,7 @@
         {
           "type": "比分",
           "pick": "挪威 0-2 法国",
-          "confidence": "79%",
+          "confidence": "80%",
           "stars": 2,
           "note": ""
         }
@@ -703,19 +741,20 @@
         "elo: 挪威(1606.0) vs 法国(1786.0) ->away (exp=0.26, w=0.08)",
         "庄家动机: 高抽水12.9%→庄家风险规避，信心不足",
         "庄家动机: 高抽水-整体降信5%",
-        "冷门检测: 主队Elo低180分但战意(主动进取)强→防冷(+0.04)"
+        "冷门检测: 客队领先Elo180分但已无欲无求→防冷(-0.05)"
       ],
       "motivation_analysis": [
-        "挪威: 赢球即出线，全力争胜",
-        "法国: 赢球即出线，全力争胜",
+        "挪威: 已锁定出线，可能轮换主力，节奏放缓",
+        "法国: 已锁定出线，可能轮换主力，节奏放缓",
         "法国需争小组第一避强敌，战意提升",
-        "法国战意略强"
+        "法国战意略强",
+        "双方无压力→可能打出开放比赛"
       ],
-      "goal_multiplier": 1.15,
-      "home_intensity": 0.97,
-      "away_intensity": 0.97,
-      "home_motive": "主动进取",
-      "away_motive": "主动进取",
+      "goal_multiplier": 0.86,
+      "home_intensity": 1.07,
+      "away_intensity": 1.07,
+      "home_motive": "已出线",
+      "away_motive": "已出线",
       "elo": {
         "home": 1606.0,
         "away": 1786.0,
@@ -730,7 +769,7 @@
         "elo": 0.08
       },
       "stage": "小组赛",
-      "timestamp": "2026-06-25 09:13:43"
+      "timestamp": "2026-06-25 19:41:13"
     },
     {
       "match": "塞内加尔 vs 伊拉克",
@@ -833,7 +872,7 @@
         "elo": 0.14
       },
       "stage": "小组赛",
-      "timestamp": "2026-06-25 09:13:43"
+      "timestamp": "2026-06-25 19:41:13"
     },
     {
       "match": "佛得角 vs 沙特",
@@ -911,7 +950,7 @@
         "asian_handicap: ->home (cf=0.11, w=0.22)",
         "elo: 佛得角(1439.0) vs 沙特(1490.0) ->drawish (exp=0.43, w=0.11)",
         "庄家动机: 阻盘🛡️: 盘口-0.5→0.25大幅升盘但主水1.09未降→阻盘",
-        "庄家动机: 高抽水13.0%→庄家风险规避，信心不足",
+        "庄家动机: 高抽水12.9%→庄家风险规避，信心不足",
         "庄家动机: 🛡️阻主→庄家有信心(+0.08)"
       ],
       "motivation_analysis": [],
@@ -934,7 +973,7 @@
         "elo": 0.11
       },
       "stage": "小组赛",
-      "timestamp": "2026-06-25 09:13:43"
+      "timestamp": "2026-06-25 19:41:13"
     },
     {
       "match": "乌拉圭 vs 西班牙",
@@ -945,9 +984,9 @@
       "result_prediction": {
         "prediction": "西班牙胜",
         "value": "away",
-        "confidence": 0.81,
+        "confidence": 0.69,
         "votes": {
-          "home": 0.046,
+          "home": 0.118,
           "draw": 0.0,
           "away": 0.391
         }
@@ -989,8 +1028,8 @@
         {
           "type": "胜负",
           "pick": "西班牙胜",
-          "confidence": "81%",
-          "stars": 4,
+          "confidence": "69%",
+          "stars": 3,
           "note": ""
         },
         {
@@ -1003,7 +1042,7 @@
         {
           "type": "比分",
           "pick": "乌拉圭 0-2 西班牙",
-          "confidence": "81%",
+          "confidence": "69%",
           "stars": 2,
           "note": ""
         }
@@ -1020,17 +1059,17 @@
         "odds_implied: ->away (cf=0.67, w=0.35)",
         "odds_movement: ->away (cf=0.50, w=0.12)",
         "asian_handicap: ->away (cf=0.35, w=0.22)",
-        "motivation: ->home (cf=0.05, w=0.12)",
+        "motivation: ->home (cf=0.16, w=0.12)",
         "elo: 乌拉圭(1631.0) vs 西班牙(1760.0) ->away (exp=0.32, w=0.11)",
         "庄家动机: 高抽水12.9%→庄家风险规避，信心不足",
         "庄家动机: 高抽水-整体降信5%",
-        "冷门检测: 主队Elo低129分但战意(主动进取)强→防冷(+0.04)"
+        "冷门检测: 主队Elo低129分但战意(主动进取)强→防冷(+0.10)"
       ],
       "motivation_analysis": [
         "乌拉圭: 赢球即出线，全力争胜",
         "西班牙: 保平即可出线，战术保守，小比分倾向",
         "西班牙需争小组第一避强敌，战意提升",
-        "乌拉圭战意略强"
+        "乌拉圭战意(主动进取)远强于西班牙(保平出线), 主队更饥渴"
       ],
       "goal_multiplier": 0.97,
       "home_intensity": 0.97,
@@ -1051,7 +1090,7 @@
         "elo": 0.11
       },
       "stage": "小组赛",
-      "timestamp": "2026-06-25 09:13:43"
+      "timestamp": "2026-06-25 19:41:13"
     },
     {
       "match": "埃及 vs 伊朗",
@@ -1066,7 +1105,7 @@
         "votes": {
           "home": 0.0,
           "draw": 0.0,
-          "away": 0.018
+          "away": 0.084
         }
       },
       "score_prediction": {
@@ -1124,8 +1163,9 @@
         "bookmaker_intent"
       ],
       "factor_analysis": [
-        "motivation: ->away (cf=0.16, w=0.12)",
+        "motivation: ->away (cf=0.24, w=0.12)",
         "elo: 埃及(1557.0) vs 伊朗(1504.0) ->drawish (exp=0.58, w=0.11)",
+        "motivation: 战意差距-3→ favore away(+0.06)",
         "庄家动机: 高抽水13.0%→庄家风险规避，信心不足",
         "庄家动机: 高抽水-整体降信5%"
       ],
@@ -1153,7 +1193,7 @@
         "elo": 0.11
       },
       "stage": "小组赛",
-      "timestamp": "2026-06-25 09:13:43"
+      "timestamp": "2026-06-25 19:41:13"
     },
     {
       "match": "新西兰 vs 比利时",
@@ -1164,9 +1204,9 @@
       "result_prediction": {
         "prediction": "比利时胜",
         "value": "away",
-        "confidence": 0.77,
+        "confidence": 0.64,
         "votes": {
-          "home": 0.04,
+          "home": 0.1,
           "draw": 0.0,
           "away": 0.244
         }
@@ -1201,22 +1241,15 @@
       "over_under_prediction": {
         "prediction": "大球(>3.0)",
         "value": "over",
-        "confidence": 0.25,
+        "confidence": 0.35,
         "line": 3.0
       },
       "recommendations": [
         {
-          "type": "胜负",
-          "pick": "比利时胜",
-          "confidence": "77%",
-          "stars": 3,
-          "note": ""
-        },
-        {
           "type": "比分",
           "pick": "新西兰 0-3 比利时",
-          "confidence": "77%",
-          "stars": 2,
+          "confidence": "64%",
+          "stars": 1,
           "note": ""
         }
       ],
@@ -1230,9 +1263,9 @@
         "odds_movement: ->away (cf=0.15, w=0.12)",
         "asian_handicap: ->away (cf=0.42, w=0.22)",
         "elo: 新西兰(1453.0) vs 比利时(1576.0) ->away (exp=0.33, w=0.14)",
-        "庄家动机: 阻盘🛡️: 盘口-1.75→-2.25大幅降盘但客水1.00未降→阻客",
+        "庄家动机: 阻盘🛡️: 盘口-1.75→-2.25大幅降盘但客水1.02未降→阻客",
         "庄家动机: 🛡️阻客→庄家有信心(+0.08)",
-        "冷门检测: 主队Elo低123分但战意(绝境求生)强→防冷(+0.04)"
+        "冷门检测: 主队Elo低123分但战意(绝境求生)强→防冷(+0.10)"
       ],
       "motivation_analysis": [
         "新西兰: 必须赢且需要其他场次配合，奋力一搏",
@@ -1258,7 +1291,642 @@
         "elo": 0.14
       },
       "stage": "小组赛",
-      "timestamp": "2026-06-25 09:13:43"
+      "timestamp": "2026-06-25 19:41:13"
+    },
+    {
+      "match": "克罗地亚 vs 加纳",
+      "match_no": "067",
+      "home_team": "克罗地亚",
+      "away_team": "加纳",
+      "schedule_id": "2906977",
+      "result_prediction": {
+        "prediction": "克罗地亚胜",
+        "value": "home",
+        "confidence": 0.67,
+        "votes": {
+          "home": 0.295,
+          "draw": 0.0,
+          "away": 0.1
+        }
+      },
+      "score_prediction": {
+        "most_likely": "克罗地亚 1-0 加纳",
+        "home_goals": 1,
+        "away_goals": 0,
+        "alternatives": [
+          "克罗地亚 2-0 加纳",
+          "克罗地亚 0-0 加纳",
+          "克罗地亚 1-1 加纳"
+        ],
+        "expected_home_goals": 1.58,
+        "expected_away_goals": 0.58
+      },
+      "ht_prediction": {
+        "score": "克罗地亚 0-0 加纳(HT)",
+        "home_goals": 0,
+        "away_goals": 0
+      },
+      "htft_prediction": {
+        "most_likely": "胜胜",
+        "probability": 0.51,
+        "alternatives": [
+          "平胜",
+          "平平"
+        ],
+        "description": "主队领先→保持",
+        "narrative": "主队半场胜全场胜"
+      },
+      "over_under_prediction": {
+        "prediction": "小球(<2.0)",
+        "value": "under",
+        "confidence": 0.3,
+        "line": 2.0
+      },
+      "recommendations": [
+        {
+          "type": "胜负",
+          "pick": "克罗地亚胜",
+          "confidence": "67%",
+          "stars": 3,
+          "note": ""
+        },
+        {
+          "type": "半全场",
+          "pick": "胜胜",
+          "confidence": "51%",
+          "stars": 2,
+          "note": "主队领先→保持"
+        },
+        {
+          "type": "比分",
+          "pick": "克罗地亚 1-0 加纳",
+          "confidence": "67%",
+          "stars": 2,
+          "note": ""
+        }
+      ],
+      "factors_detail": [
+        "odds_implied",
+        "asian_handicap",
+        "motivation",
+        "elo",
+        "bookmaker_intent"
+      ],
+      "factor_analysis": [
+        "odds_implied: ->home (cf=0.42, w=0.35)",
+        "asian_handicap: ->home (cf=0.15, w=0.22)",
+        "motivation: ->home (cf=0.25, w=0.12)",
+        "elo: 克罗地亚(1630) vs 加纳(1500.0) ->home (exp=0.68, w=0.11)",
+        "motivation: 战意差距4→ favore home(+0.06)",
+        "庄家动机: 赔率异常稳定→庄家高度控盘",
+        "庄家动机: 高抽水13.0%→庄家风险规避，信心不足",
+        "庄家动机: 高抽水-整体降信5%",
+        "冷门检测: 客队Elo低130分但战意(保平出线)强→防冷(+0.10)"
+      ],
+      "motivation_analysis": [
+        "克罗地亚: 第3名3分，必须赢才有机会，全力进攻",
+        "加纳: 保平即可出线，战术保守，小比分倾向",
+        "克罗地亚战意(背水一战)远强于加纳(保平出线), 主队更饥渴"
+      ],
+      "goal_multiplier": 0.95,
+      "home_intensity": 1.06,
+      "away_intensity": 1.1,
+      "home_motive": "背水一战",
+      "away_motive": "保平出线",
+      "elo": {
+        "home": 1630,
+        "away": 1500.0,
+        "expected": 0.679
+      },
+      "dynamic_weights": {
+        "odds_implied": 0.35,
+        "odds_movement": 0.12,
+        "asian_handicap": 0.22,
+        "over_under": 0.08,
+        "motivation": 0.12,
+        "elo": 0.11
+      },
+      "stage": "小组赛",
+      "timestamp": "2026-06-25 19:41:13"
+    },
+    {
+      "match": "巴拿马 vs 英格兰",
+      "match_no": "068",
+      "home_team": "巴拿马",
+      "away_team": "英格兰",
+      "schedule_id": "2906978",
+      "result_prediction": {
+        "prediction": "英格兰胜",
+        "value": "away",
+        "confidence": 0.75,
+        "votes": {
+          "home": 0.0,
+          "draw": 0.042,
+          "away": 0.215
+        }
+      },
+      "score_prediction": {
+        "most_likely": "巴拿马 0-3 英格兰",
+        "home_goals": 0,
+        "away_goals": 3,
+        "alternatives": [
+          "巴拿马 0-2 英格兰",
+          "巴拿马 0-4 英格兰",
+          "巴拿马 0-5 英格兰"
+        ],
+        "expected_home_goals": 0.36,
+        "expected_away_goals": 3.66
+      },
+      "ht_prediction": {
+        "score": "巴拿马 0-1 英格兰(HT)",
+        "home_goals": 0,
+        "away_goals": 1
+      },
+      "htft_prediction": {
+        "most_likely": "平平",
+        "probability": 0.38,
+        "alternatives": [
+          "平负",
+          "负负"
+        ],
+        "description": "全程僵持",
+        "narrative": "半场平全场平"
+      },
+      "over_under_prediction": {
+        "prediction": "大球(>3.0)",
+        "value": "over",
+        "confidence": 0.25,
+        "line": 3.0
+      },
+      "recommendations": [
+        {
+          "type": "胜负",
+          "pick": "英格兰胜",
+          "confidence": "75%",
+          "stars": 3,
+          "note": ""
+        },
+        {
+          "type": "比分",
+          "pick": "巴拿马 0-3 英格兰",
+          "confidence": "75%",
+          "stars": 2,
+          "note": ""
+        }
+      ],
+      "factors_detail": [
+        "odds_movement",
+        "asian_handicap",
+        "motivation",
+        "elo"
+      ],
+      "factor_analysis": [
+        "odds_movement: ->away (cf=0.15, w=0.12)",
+        "asian_handicap: ->away (cf=0.60, w=0.22)",
+        "motivation: ->away (cf=0.05, w=0.12)",
+        "elo: 巴拿马(1460) vs 英格兰(1750.0) ->away (exp=0.16, w=0.11)",
+        "motivation: draw_tendency=0.35, 平局修正"
+      ],
+      "motivation_analysis": [
+        "巴拿马: 已确定出局，为荣誉而战，压力小",
+        "英格兰: 保平即可出线，战术保守，小比分倾向",
+        "英格兰需争小组第一避强敌，战意提升",
+        "英格兰战意略强"
+      ],
+      "goal_multiplier": 0.93,
+      "home_intensity": 1.0,
+      "away_intensity": 1.1,
+      "home_motive": "荣誉之战",
+      "away_motive": "保平出线",
+      "elo": {
+        "home": 1460,
+        "away": 1750.0,
+        "expected": 0.159
+      },
+      "dynamic_weights": {
+        "odds_implied": 0.35,
+        "odds_movement": 0.12,
+        "asian_handicap": 0.22,
+        "over_under": 0.08,
+        "motivation": 0.12,
+        "elo": 0.11
+      },
+      "stage": "小组赛",
+      "timestamp": "2026-06-25 19:41:13"
+    },
+    {
+      "match": "哥伦比亚 vs 葡萄牙",
+      "match_no": "069",
+      "home_team": "哥伦比亚",
+      "away_team": "葡萄牙",
+      "schedule_id": "2906974",
+      "result_prediction": {
+        "prediction": "葡萄牙胜",
+        "value": "away",
+        "confidence": 0.77,
+        "votes": {
+          "home": 0.0,
+          "draw": 0.04,
+          "away": 0.242
+        }
+      },
+      "score_prediction": {
+        "most_likely": "哥伦比亚 0-2 葡萄牙",
+        "home_goals": 0,
+        "away_goals": 2,
+        "alternatives": [
+          "哥伦比亚 0-1 葡萄牙",
+          "哥伦比亚 0-3 葡萄牙",
+          "哥伦比亚 1-2 葡萄牙"
+        ],
+        "expected_home_goals": 0.78,
+        "expected_away_goals": 2.43
+      },
+      "ht_prediction": {
+        "score": "哥伦比亚 0-0 葡萄牙(HT)",
+        "home_goals": 0,
+        "away_goals": 0
+      },
+      "htft_prediction": {
+        "most_likely": "平负",
+        "probability": 0.35,
+        "alternatives": [
+          "负负",
+          "平平"
+        ],
+        "description": "半场胶着一方爆发",
+        "narrative": "客队半场平全场胜"
+      },
+      "over_under_prediction": {
+        "prediction": "大球(>2.5)",
+        "value": "over",
+        "confidence": 0.4,
+        "line": 2.5
+      },
+      "recommendations": [
+        {
+          "type": "胜负",
+          "pick": "葡萄牙胜",
+          "confidence": "77%",
+          "stars": 3,
+          "note": ""
+        },
+        {
+          "type": "比分",
+          "pick": "哥伦比亚 0-2 葡萄牙",
+          "confidence": "77%",
+          "stars": 2,
+          "note": ""
+        }
+      ],
+      "factors_detail": [
+        "odds_implied",
+        "odds_movement",
+        "asian_handicap",
+        "motivation",
+        "elo",
+        "bookmaker_intent"
+      ],
+      "factor_analysis": [
+        "odds_implied: ->away (cf=0.28, w=0.38)",
+        "odds_movement: ->away (cf=0.42, w=0.12)",
+        "asian_handicap: ->away (cf=0.35, w=0.22)",
+        "motivation: ->away (cf=0.16, w=0.12)",
+        "elo: 哥伦比亚(1610) vs 葡萄牙(1664.0) ->drawish (exp=0.42, w=0.08)",
+        "motivation: draw_tendency=0.35, 平局修正",
+        "庄家动机: 高抽水13.0%→庄家风险规避，信心不足",
+        "庄家动机: 高抽水-整体降信5%"
+      ],
+      "motivation_analysis": [
+        "哥伦比亚: 已锁定出线，可能轮换主力，节奏放缓",
+        "葡萄牙: 保平即可出线，战术保守，小比分倾向",
+        "葡萄牙需争小组第一避强敌，战意提升",
+        "葡萄牙战意(保平出线)远强于哥伦比亚(已出线), 客队更饥渴"
+      ],
+      "goal_multiplier": 0.78,
+      "home_intensity": 1.07,
+      "away_intensity": 1.1,
+      "home_motive": "已出线",
+      "away_motive": "保平出线",
+      "elo": {
+        "home": 1610,
+        "away": 1664.0,
+        "expected": 0.423
+      },
+      "dynamic_weights": {
+        "odds_implied": 0.38,
+        "odds_movement": 0.12,
+        "asian_handicap": 0.22,
+        "over_under": 0.08,
+        "motivation": 0.12,
+        "elo": 0.08
+      },
+      "stage": "小组赛",
+      "timestamp": "2026-06-25 19:41:13"
+    },
+    {
+      "match": "刚果金 vs 乌兹别克",
+      "match_no": "070",
+      "home_team": "刚果金",
+      "away_team": "乌兹别克",
+      "schedule_id": "2907374",
+      "result_prediction": {
+        "prediction": "刚果金胜",
+        "value": "home",
+        "confidence": 0.9,
+        "votes": {
+          "home": 0.204,
+          "draw": 0.0,
+          "away": 0.0
+        }
+      },
+      "score_prediction": {
+        "most_likely": "刚果金 2-0 乌兹别克",
+        "home_goals": 2,
+        "away_goals": 0,
+        "alternatives": [
+          "刚果金 1-0 乌兹别克",
+          "刚果金 2-1 乌兹别克",
+          "刚果金 1-1 乌兹别克"
+        ],
+        "expected_home_goals": 2.05,
+        "expected_away_goals": 0.73
+      },
+      "ht_prediction": {
+        "score": "刚果金 0-0 乌兹别克(HT)",
+        "home_goals": 0,
+        "away_goals": 0
+      },
+      "htft_prediction": {
+        "most_likely": "胜胜",
+        "probability": 0.35,
+        "alternatives": [
+          "平胜",
+          "平平"
+        ],
+        "description": "主队领先→保持",
+        "narrative": "主队半场胜全场胜"
+      },
+      "over_under_prediction": {
+        "prediction": "大球(>2.5)",
+        "value": "over",
+        "confidence": 0.12,
+        "line": 2.5
+      },
+      "recommendations": [
+        {
+          "type": "胜负",
+          "pick": "刚果金胜",
+          "confidence": "90%",
+          "stars": 4,
+          "note": ""
+        },
+        {
+          "type": "比分",
+          "pick": "刚果金 2-0 乌兹别克",
+          "confidence": "90%",
+          "stars": 2,
+          "note": ""
+        }
+      ],
+      "factors_detail": [
+        "odds_implied",
+        "odds_movement",
+        "asian_handicap",
+        "elo",
+        "bookmaker_intent"
+      ],
+      "factor_analysis": [
+        "odds_implied: ->home (cf=0.30, w=0.35)",
+        "odds_movement: ->home (cf=0.50, w=0.12)",
+        "asian_handicap: ->home (cf=0.22, w=0.22)",
+        "elo: 刚果金(1440) vs 乌兹别克(1446.0) ->drawish (exp=0.49, w=0.11)",
+        "庄家动机: 高抽水12.9%→庄家风险规避，信心不足",
+        "庄家动机: 高抽水-整体降信5%"
+      ],
+      "motivation_analysis": [],
+      "goal_multiplier": 1.0,
+      "home_intensity": 1.0,
+      "away_intensity": 1.0,
+      "home_motive": "",
+      "away_motive": "",
+      "elo": {
+        "home": 1440,
+        "away": 1446.0,
+        "expected": 0.491
+      },
+      "dynamic_weights": {
+        "odds_implied": 0.35,
+        "odds_movement": 0.12,
+        "asian_handicap": 0.22,
+        "over_under": 0.08,
+        "motivation": 0.12,
+        "elo": 0.11
+      },
+      "stage": "小组赛",
+      "timestamp": "2026-06-25 19:41:13"
+    },
+    {
+      "match": "阿尔及利 vs 奥地利",
+      "match_no": "071",
+      "home_team": "阿尔及利",
+      "away_team": "奥地利",
+      "schedule_id": "2906971",
+      "result_prediction": {
+        "prediction": "平局",
+        "value": "draw",
+        "confidence": 0.9,
+        "votes": {
+          "home": 0.0,
+          "draw": 0.069,
+          "away": 0.0
+        }
+      },
+      "score_prediction": {
+        "most_likely": "阿尔及利 1-1 奥地利",
+        "home_goals": 1,
+        "away_goals": 1,
+        "alternatives": [
+          "阿尔及利 0-1 奥地利",
+          "阿尔及利 1-0 奥地利",
+          "阿尔及利 0-0 奥地利"
+        ],
+        "expected_home_goals": 1.06,
+        "expected_away_goals": 1.06
+      },
+      "ht_prediction": {
+        "score": "阿尔及利 0-0 奥地利(HT)",
+        "home_goals": 0,
+        "away_goals": 0
+      },
+      "htft_prediction": {
+        "most_likely": "平平",
+        "probability": 0.35,
+        "alternatives": [
+          "平胜",
+          "平负"
+        ],
+        "description": "全程僵持",
+        "narrative": "半场平全场平"
+      },
+      "over_under_prediction": {
+        "prediction": "小球(<2.0)",
+        "value": "under",
+        "confidence": 0.4,
+        "line": 2.0
+      },
+      "recommendations": [
+        {
+          "type": "胜负",
+          "pick": "平局",
+          "confidence": "90%",
+          "stars": 4,
+          "note": ""
+        },
+        {
+          "type": "比分",
+          "pick": "阿尔及利 1-1 奥地利",
+          "confidence": "90%",
+          "stars": 2,
+          "note": ""
+        }
+      ],
+      "factors_detail": [
+        "odds_implied",
+        "elo",
+        "bookmaker_intent"
+      ],
+      "factor_analysis": [
+        "odds_implied: ->draw (cf=0.21, w=0.35)",
+        "elo: 阿尔及利(1516.0) vs 奥地利(1522.0) ->drawish (exp=0.49, w=0.11)",
+        "庄家动机: 高抽水13.0%→庄家风险规避，信心不足",
+        "庄家动机: 高抽水-整体降信5%"
+      ],
+      "motivation_analysis": [],
+      "goal_multiplier": 1.0,
+      "home_intensity": 1.0,
+      "away_intensity": 1.0,
+      "home_motive": "",
+      "away_motive": "",
+      "elo": {
+        "home": 1516.0,
+        "away": 1522.0,
+        "expected": 0.491
+      },
+      "dynamic_weights": {
+        "odds_implied": 0.35,
+        "odds_movement": 0.12,
+        "asian_handicap": 0.22,
+        "over_under": 0.08,
+        "motivation": 0.12,
+        "elo": 0.11
+      },
+      "stage": "小组赛",
+      "timestamp": "2026-06-25 19:41:13"
+    },
+    {
+      "match": "约旦 vs 阿根廷",
+      "match_no": "072",
+      "home_team": "约旦",
+      "away_team": "阿根廷",
+      "schedule_id": "2906972",
+      "result_prediction": {
+        "prediction": "阿根廷胜",
+        "value": "away",
+        "confidence": 0.73,
+        "votes": {
+          "home": 0.03,
+          "draw": 0.0,
+          "away": 0.125
+        }
+      },
+      "score_prediction": {
+        "most_likely": "约旦 0-3 阿根廷",
+        "home_goals": 0,
+        "away_goals": 3,
+        "alternatives": [
+          "约旦 0-2 阿根廷",
+          "约旦 0-4 阿根廷",
+          "约旦 0-1 阿根廷"
+        ],
+        "expected_home_goals": 0.35,
+        "expected_away_goals": 3.42
+      },
+      "ht_prediction": {
+        "score": "约旦 0-1 阿根廷(HT)",
+        "home_goals": 0,
+        "away_goals": 1
+      },
+      "htft_prediction": {
+        "most_likely": "平平",
+        "probability": 0.38,
+        "alternatives": [
+          "平负",
+          "负负"
+        ],
+        "description": "全程僵持",
+        "narrative": "半场平全场平"
+      },
+      "over_under_prediction": {
+        "prediction": "大球(>3.0)",
+        "value": "over",
+        "confidence": 0.25,
+        "line": 3.0
+      },
+      "recommendations": [
+        {
+          "type": "胜负",
+          "pick": "阿根廷胜",
+          "confidence": "73%",
+          "stars": 3,
+          "note": ""
+        },
+        {
+          "type": "比分",
+          "pick": "约旦 0-3 阿根廷",
+          "confidence": "73%",
+          "stars": 2,
+          "note": ""
+        }
+      ],
+      "factors_detail": [
+        "asian_handicap",
+        "elo",
+        "bookmaker_intent"
+      ],
+      "factor_analysis": [
+        "asian_handicap: ->away (cf=0.50, w=0.22)",
+        "elo: 约旦(1434.0) vs 阿根廷(1798.0) ->away (exp=0.11, w=0.11)",
+        "庄家动机: 赔率异常稳定→庄家高度控盘",
+        "冷门检测: 客队领先Elo364分但已无欲无求→防冷(-0.05)"
+      ],
+      "motivation_analysis": [
+        "约旦: 已确定出局，为荣誉而战，压力小",
+        "阿根廷: 已锁定出线，可能轮换主力，节奏放缓",
+        "阿根廷需争小组第一避强敌，战意提升",
+        "双方战意相当(荣誉之战 vs 已出线)",
+        "双方无压力→可能打出开放比赛"
+      ],
+      "goal_multiplier": 1.03,
+      "home_intensity": 1.0,
+      "away_intensity": 1.07,
+      "home_motive": "荣誉之战",
+      "away_motive": "已出线",
+      "elo": {
+        "home": 1434.0,
+        "away": 1798.0,
+        "expected": 0.11
+      },
+      "dynamic_weights": {
+        "odds_implied": 0.35,
+        "odds_movement": 0.12,
+        "asian_handicap": 0.22,
+        "over_under": 0.08,
+        "motivation": 0.12,
+        "elo": 0.11
+      },
+      "stage": "小组赛",
+      "timestamp": "2026-06-25 19:41:13"
     }
   ]
 }

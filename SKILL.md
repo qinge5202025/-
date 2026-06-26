@@ -479,9 +479,17 @@ python scripts/review.py --auto --input data/actual-results.json
 
 ---
 
-## 十一、全自动工作流（pipeline.py）
+## 十一、全自动工作流（pipeline.py + engine.py）
 
 一键执行完整流程：
+
+```bash
+# v4 统一引擎（推荐）
+python scripts/engine.py
+
+# v3 采集+预测（数据源）
+python scripts/pipeline.py
+```
 
 ```bash
 # 完整采集+预测
@@ -510,23 +518,22 @@ python scripts/pipeline.py --all
 ├── SKILL.md                           # 本文件（pi skill 入口）
 ├── TEAMS.md                           # 48支队数据库
 ├── scripts/
-│   ├── fetch-odds.py                  # 赔率采集+分析 (数据源: cp.nowscore.com)
-│   ├── predict.py                     # 七因子集成预测引擎 ★v3
+│   ├── engine.py                      # ★v4 统一核心引擎 (推荐使用)
+│   ├── predict.py                     # 七因子集成预测引擎 (v3, 数据源)
 │   ├── review.py                      # 赛后复盘+算法优化
 │   ├── pipeline.py                    # 全自动工作流
+│   ├── fetch-odds.py                  # 赔率采集+分析
 │   └── update-news.sh                 # 每日情报更新
 ├── data/
 │   ├── odds-latest.json               # 最新赔率
-│   ├── odds-history.json              # 历史赔率(16个快照)
-│   ├── elo-data.json 🆕              # 动态Elo评分（赛后自动更新）
+│   ├── elo-data.json                  # 动态Elo评分
 │   ├── predictions-latest.json        # 最新预测
 │   ├── predictions-YYYYMMDD.json      # 历史预测归档
+│   ├── group-standings.json           # 小组积分榜
 │   ├── reviews.json                   # 复盘记录
-│   └── performance.json               # 算法性能&权重
-├── templates/
-│   └── prediction-template.json
+│   └── v4-predictions-*.json          # v4引擎输出
 ├── .gitignore
-├── README.md                          # 项目概览
+├── README.md
 └── docs/
     └── TUTORIAL.md
 ```

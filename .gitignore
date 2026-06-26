@@ -1,35 +1,23 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.egg-info/
-dist/
-build/
+# 生成的预测数据
+data/predictions-*.json
+data/scores-enhanced-*.json
+data/v4-predictions-*.json
+data/comparison-*.json
+data/odds-backtest-*.json
+data/odds-final-*.json
 
-# Data - keep structure but ignore cache/snapshots
+# 网页快照
 data/*.html
-data/*_raw.html
-data/nowscore_*.html
-data/cp_*.html
 data/analysis_*.html
 data/odds_*.html
-data/1x2_*.html
-data/3in1_*.html
-data/detail_*.html
-data/match_*.html
-data/*cat_*.html
-data/jingcai_*.html
+data/cp_*.html
+data/nowscore_*.html
+
+# 编译缓存
+__pycache__/
+*.pyc
+*.pyo
 
 # OS
 .DS_Store
 Thumbs.db
-Desktop.ini
-
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# Logs
-*.log

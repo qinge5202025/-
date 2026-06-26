@@ -54,7 +54,7 @@ def fetch(url: str) -> str:
 def parse_match_list(html: str) -> list[dict]:
     """解析竞彩列表页"""
     matches = []
-    pattern = r'(<tr[^>]*cansale="true"[^>]*gamename="世界杯"[^>]*>.*?</tr>)'
+    pattern = r'(<tr[^>]*cansale="(?:true|false)"[^>]*gamename="世界杯"[^>]*>.*?</tr>)'
     for full_row in re.findall(pattern, html, re.DOTALL):
         m = {}
         # 排期ID（用于三合一等详情页，在 HomeTeam_XXXX 中）
