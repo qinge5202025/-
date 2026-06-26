@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚽ 波神 v4 — 2026世界杯预测看板</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;700;900&display=swap');
+
+:root {
+  --bg: #0a0e1a;
+  --card: #111827;
+  --card-border: #1e293b;
+  --gold: #fbbf24;
+  --gold-dim: #f59e0b;
+  --green: #22c55e;
+  --green-glow: rgba(34,197,94,.3);
+  --red: #ef4444;
+  --red-glow: rgba(239,68,68,.3);
+  --blue: #3b82f6;
+  --purple: #8b5cf6;
+  --cyan: #06b6d4;
+  --text: #f1f5f9;
+  --text-dim: #64748b;
+  --text-muted: #475569;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans SC', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ===== Particle canvas ===== */
+#particle-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== Layout ===== */
+.app-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ===== Header ===== */
+.header {
+  text-align: center;
+  padding: 30px 0 20px;
+  position: relative;
+}
+
+.header h1 {
+  font-family: 'Orbitron', monospace;
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold), #f97316, #ef4444, var(--purple));
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease infinite;
+  text-shadow: 0 0 40px rgba(251,191,36,.2);
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.header .subtitle {
+  font-size: 1rem;
+  color: var(--text-dim);
+  margin-top: 6px;
+  letter-spacing: 4px;
+}
+
+.header .update-time {
+  font-size: .85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ===== Stats bar ===== */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 20px 0 30px;
+}
+
+.stat-item {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px 24px;
+  text-align: center;
+  min-width: 120px;
+  transition: all .3s;
+}
+
+.stat-item:hover {
+  border-color: var(--gold-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(251,191,36,.1);
+}
+
+.stat-item .value {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.stat-item .label {
+  font-size: .75rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ===== Tabs ===== */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text-dim);
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: .9rem;
+  transition: all .3s;
+  font-family: inherit;
+}
+
+.tab-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, rgba(251,191,36,.15), rgba(251,191,36,.05));
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 20px rgba(251,191,36,.15);
+}
+
+/* ===== Match grid ===== */
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+/* ===== Match card ===== */
+.match-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all .4s cubic-bezier(.4,0,.2,1);
+  cursor: default;
+}
+
+.match-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity .4s;
+}
+
+.match-card:hover::before {
+  opacity: 1;
+}
+
+.match-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-dim);
+  box-shadow: 0 12px 40px rgba(0,0,0,.4);
+}
+
+/* Glow based on confidence */
+.match-card.conf-high::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--cyan));
+  opacity: .6;
+}
+
+.match-card.conf-med::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), #f97316);
+  opacity: .6;
+}
+
+.match-card.conf-low::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red), var(--purple));
+  opacity: .6;
+}
+
+/* Trap badge */
+.trap-badge {
+  position: absolute;
+  top: 12px; right: 12px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: pulse-trap 2s infinite;
+}
+
+.trap-badge.yes {
+  background: rgba(239,68,68,.2);
+  color: var(--red);
+  border: 1px solid rgba(239,68,68,.3);
+}
+
+@keyframes pulse-trap {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .6; }
+}
+
+/* Match header */
+.match-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.match-no {
+  font-family: 'Orbitron', monospace;
+  font-size: .8rem;
+  color: var(--text-muted);
+}
+
+.match-stage {
+  font-size: .7rem;
+  color: var(--text-dim);
+  background: rgba(71,85,105,.3);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Teams */
+.teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 8px;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.team .flag {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.4));
+}
+
+.team .name {
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.team .name.home {
+  color: var(--green);
+}
+
+.team .name.away {
+  color: var(--blue);
+}
+
+.vs {
+  font-family: 'Orbitron', monospace;
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 900;
+}
+
+/* Score display */
+.score-display {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.score-display .predicted-score {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+.score-display .predicted-label {
+  font-size: .7rem;
+  color: var(--text-dim);
+}
+
+/* Live score animation */
+.live-score {
+  display: none;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.live-score .score-numbers {
+  font-family: 'Orbitron', monospace;
+  font-size: 2rem;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-score .score-numbers .home-goals {
+  color: var(--green);
+  transition: all .3s;
+}
+
+.live-score .score-numbers .away-goals {
+  color: var(--blue);
+  transition: all .3s;
+}
+
+.live-score .score-numbers .sep {
+  color: var(--text-muted);
+}
+
+.live-score .live-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  margin-right: 6px;
+  animation: live-pulse 1.5s infinite;
+}
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .3; transform: scale(.7); }
+}
+
+/* Result direction */
+.result-direction {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.result-direction .arrow {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-right: 4px;
+  animation: arrow-bounce 2s infinite;
+}
+
+@keyframes arrow-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.result-direction .text {
+  font-size: .85rem;
+  font-weight: 700;
+}
+
+.result-direction .confidence {
+  font-size: .75rem;
+  color: var(--text-dim);
+  margin-left: 4px;
+}
+
+/* ==== Gauge ===== */
+.gauge-container {
+  height: 4px;
+  background: rgba(71,85,105,.3);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.gauge-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1.5s cubic-bezier(.4,0,.2,1);
+}
+
+.gauge-fill.home { background: linear-gradient(90deg, var(--green), var(--cyan)); }
+.gauge-fill.draw { background: linear-gradient(90deg, var(--gold), #f97316); }
+.gauge-fill.away { background: linear-gradient(90deg, var(--blue), var(--purple)); }
+
+/* Whale indicator */
+.whale-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: .75rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-top: 6px;
+}
+
+.whale-indicator.bullish {
+  color: var(--green);
+  background: rgba(34,197,94,.1);
+}
+
+.whale-indicator.bearish {
+  color: var(--red);
+  background: rgba(239,68,68,.1);
+}
+
+.whale-indicator.neutral {
+  color: var(--text-dim);
+  background: rgba(100,116,139,.1);
+}
+
+/* ===== Bookmaker analysis ===== */
+.bookie-section {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(15,23,42,.5);
+  border-radius: 8px;
+  border: 1px solid rgba(30,41,59,.5);
+}
+
+.bookie-title {
+  font-size: .7rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.bookie-intent {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.bookie-intent .tag {
+  font-size: .75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.tag.trap { background: rgba(239,68,68,.15); color: var(--red); border: 1px solid rgba(239,68,68,.2); }
+.tag.home { background: rgba(34,197,94,.15); color: var(--green); }
+.tag.draw { background: rgba(251,191,36,.15); color: var(--gold); }
+.tag.away { background: rgba(59,130,246,.15); color: var(--blue); }
+
+/* ===== Score prediction distribution ===== */
+.score-dist {
+  margin-top: 8px;
+  padding: 8px;
+  background: rgba(15,23,42,.3);
+  border-radius: 8px;
+}
+
+.score-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.score-bar .score-label {
+  font-size: .7rem;
+  color: var(--text-dim);
+  min-width: 60px;
+  text-align: right;
+}
+
+.score-bar .bar-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(71,85,105,.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.score-bar .bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease;
+  background: linear-gradient(90deg, var(--cyan), var(--blue));
+}
+
+.score-bar .bar-pct {
+  font-size: .65rem;
+  color: var(--text-muted);
+  min-width: 35px;
+}
+
+/* ===== Whales panel ===== */
+.whale-panel {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.whale-panel h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.whale-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.whale-table th {
+  text-align: left;
+  font-size: .75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.whale-table td {
+  padding: 10px 12px;
+  font-size: .85rem;
+  border-bottom: 1px solid rgba(30,41,59,.5);
+}
+
+.whale-table tr:last-child td {
+  border-bottom: none;
+}
+
+.whale-table .pnl-positive {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.whale-table .rank-num {
+  font-family: 'Orbitron', monospace;
+  color: var(--gold);
+  font-size: .8rem;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  color: var(--text-muted);
+  font-size: .8rem;
+  border-top: 1px solid rgba(30,41,59,.3);
+}
+
+/* ===== Loading overlay ===== */
+.loading-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity .8s ease;
+}
+
+.loading-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-spinner {
+  width: 60px; height: 60px;
+  border: 3px solid rgba(251,191,36,.1);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-top: 16px;
+  font-family: 'Orbitron', monospace;
+  color: var(--gold-dim);
+  font-size: .9rem;
+  letter-spacing: 3px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .header h1 { font-size: 1.6rem; }
+  .matches-grid { grid-template-columns: 1fr; }
+  .stats-bar { gap: 10px; }
+  .stat-item { min-width: 80px; padding: 8px 12px; }
+  .stat-item .value { font-size: 1.2rem; }
+}
+
+/* ===== Glow keyframes ===== */
+@keyframes glow-green {
+  0%, 100% { box-shadow: 0 0 5px var(--green-glow); }
+  50% { box-shadow: 0 0 20px var(--green-glow); }
+}
+
+@keyframes glow-red {
+  0%, 100% { box-shadow: 0 0 5px var(--red-glow); }
+  50% { box-shadow: 0 0 20px var(--red-glow); }
+}
+
+/* ===== Auto-scroll animation for score numbers ===== */
+.score-flip {
+  display: inline-block;
+  transition: all .3s cubic-bezier(.4,0,.2,1);
+}
+
+.score-flip.changed {
+  animation: flip-in .4s ease;
+}
+
+@keyframes flip-in {
+  0% { transform: rotateX(-90deg); opacity: 0; }
+  100% { transform: rotateX(0); opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- Loading overlay -->
+<div class="loading-overlay" id="loading">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">加载预测数据...</div>
+</div>
+
+<!-- Particle canvas -->
+<canvas id="particle-canvas"></canvas>
+
+<div class="app-container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>⚽ 波神 v4</h1>
+    <div class="subtitle">2026 WORLD CUP PREDICTION ENGINE</div>
+    <div class="update-time" id="updateTime">加载中...</div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar" id="statsBar">
+    <div class="stat-item">
+      <div class="value" id="statMatches">0</div>
+      <div class="label">比赛场次</div>
+    </div>
+    <div class="stat-item">
+      <div class="value" id="statTraps">0</div>
+      <div class="label">⛔ 诱盘</div>
+    </div>
+    <div class="stat-item">
+      <div class="value" id="statHighConf">0</div>
+      <div class="label">高置信</div>
+    </div>
+    <div class="stat-item">
+      <div class="value" id="statWhale">0</div>
+      <div class="label">🐋 鲸鱼信号</div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="all">📊 全部比赛</button>
+    <button class="tab-btn" data-tab="high">🔥 高置信</button>
+    <button class="tab-btn" data-tab="trap">⛔ 诱盘检测</button>
+    <button class="tab-btn" data-tab="whale">🐋 鲸鱼信号</button>
+    <button class="tab-btn" data-tab="live">🔴 直播中</button>
+  </div>
+
+  <!-- Match grid -->
+  <div class="matches-grid" id="matchGrid"></div>
+
+  <!-- Whale panel -->
+  <div class="whale-panel" id="whalePanel">
+    <h2>🐋 Polymarket 鲸鱼排行榜</h2>
+    <div style="overflow-x:auto">
+      <table class="whale-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>用户名</th>
+            <th>PnL</th>
+            <th>交易量</th>
+          </tr>
+        </thead>
+        <tbody id="whaleTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>⚽ 波神 v4 — 绿茵神算统一引擎 · 数据来源: cp.nowscore.com + Polymarket</p>
+    <p style="margin-top:4px;font-size:.7rem">预测仅供参考，比赛有风险，投注需谨慎</p>
+  </div>
+
+</div>
+
+<script>
+// ===== Particle System =====
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let mouseX = 0, mouseY = 0;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+window.addEventListener('resize', resizeCanvas);
+document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+
+resizeCanvas();
+
+class Particle {
+  constructor() {
+    this.reset();
+  }
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + .5;
+    this.speedX = (Math.random() - .5) * .4;
+    this.speedY = (Math.random() - .5) * .4;
+    this.opacity = Math.random() * .5 + .1;
+    this.color = ['rgba(251,191,36,', 'rgba(59,130,246,', 'rgba(34,197,94,', 'rgba(139,92,246,'][Math.floor(Math.random() * 4)];
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    // Mouse interaction
+    const dx = mouseX - this.x;
+    const dy = mouseY - this.y;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    if (dist < 150) {
+      this.x -= dx * .002;
+      this.y -= dy * .002;
+    }
+    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = this.color + this.opacity + ')';
+    ctx.fill();
+  }
+}
+
+const particleCount = Math.min(80, Math.floor(canvas.width * canvas.height / 15000));
+for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // Draw connections
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 120) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.strokeStyle = `rgba(251,191,36,${.08 * (1 - dist/120)})`;
+        ctx.lineWidth = .5;
+        ctx.stroke();
+      }
+    }
+  }
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+
+// ===== Main App =====
+const v4DataUrl = 'data/v4-predictions-20260626_140135.json';
+const whaleDataUrl = 'data/polymarket-whale.json';
+const actualResultsUrl = 'data/actual-results.json';
+
+let v4Data = null;
+let whaleData = null;
+let actualResults = [];
+let matchCards = [];
+
+// Team flags
+const FLAGS = {
+  '阿根廷':'🇦🇷','西班牙':'🇪🇸','法国':'🇫🇷','英格兰':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','巴西':'🇧🇷','德国':'🇩🇪',
+  '葡萄牙':'🇵🇹','荷兰':'🇳🇱','乌拉圭':'🇺🇾','克罗地亚':'🇭🇷','摩洛哥':'🇲🇦','哥伦比亚':'🇨🇴',
+  '日本':'🇯🇵','挪威':'🇳🇴','美国':'🇺🇸','墨西哥':'🇲🇽','加拿大':'🇨🇦','瑞士':'🇨🇭',
+  '韩国':'🇰🇷','比利时':'🇧🇪','塞内加尔':'🇸🇳','厄瓜多尔':'🇪🇨','埃及':'🇪🇬','澳大利亚':'🇦🇺',
+  '苏格兰':'🏴󠁧󠁢󠁳󠁣󠁴󠁿','土耳其':'🇹🇷','捷克':'🇨🇿','波黑':'🇧🇦','卡塔尔':'🇶🇦','巴拉圭':'🇵🇾',
+  '科特迪瓦':'🇨🇮','突尼斯':'🇹🇳','伊朗':'🇮🇷','新西兰':'🇳🇿','沙特阿拉伯':'🇸🇦','阿尔及利亚':'🇩🇿',
+  '加纳':'🇬🇭','巴拿马':'🇵🇦','伊拉克':'🇮🇶','乌兹别克斯坦':'🇺🇿','约旦':'🇯🇴','南非':'🇿🇦',
+  '海地':'🇭🇹','佛得角':'🇨🇻','刚果金':'🇨🇩','奥地利':'🇦🇹','瑞典':'🇸🇪','库拉索':'🇨🇼',
+};
+
+function getFlag(team) {
+  return FLAGS[team] || '🏳️';
+}
+
+function getDirectionSymbol(direction) {
+  switch(direction) {
+    case 'home': return '⬆️';
+    case 'away': return '⬇️';
+    case 'draw': return '⬌️';
+    default: return '❓';
+  }
+}
+
+function getDirectionText(direction, homeTeam, awayTeam) {
+  switch(direction) {
+    case 'home': return homeTeam + '胜';
+    case 'away': return awayTeam + '胜';
+    case 'draw': return '平局';
+    default: return '未知';
+  }
+}
+
+function getConfidenceLevel(conf) {
+  if (conf >= 0.8) return { label: '高', cls: 'conf-high' };
+  if (conf >= 0.6) return { label: '中', cls: 'conf-med' };
+  return { label: '低', cls: 'conf-low' };
+}
+
+function getConfidenceStars(conf) {
+  const stars = conf >= 0.8 ? 4 : conf >= 0.65 ? 3 : conf >= 0.5 ? 2 : 1;
+  return '★'.repeat(stars) + '☆'.repeat(4 - stars);
+}
+
+function getWhaleMomentum(home, away, whaleMetrics) {
+  if (!whaleMetrics) return null;
+  const h = whaleMetrics[home];
+  const a = whaleMetrics[away];
+  if (!h || !a) return null;
+  const hMom = h.whale_momentum || 0;
+  const aMom = a.whale_momentum || 0;
+  return { homeMomentum: hMom, awayMomentum: aMom, diff: hMom - aMom };
+}
+
+function getActualScore(home, away) {
+  const match = actualResults.find(r => r.home_team === home && r.away_team === away);
+  return match ? { home: match.home_goals, away: match.away_goals } : null;
+}
+
+function renderMatchCard(prediction, whaleMetrics) {
+  const { match_no, home_team, away_team, stage, result_prediction, score_prediction, bookmaker_analysis } = prediction;
+
+  const direction = result_prediction.value;
+  const confidence = result_prediction.confidence;
+  const confInfo = getConfidenceLevel(confidence);
+  const stars = getConfidenceStars(confidence);
+
+  const mostLikely = score_prediction.most_likely;
+  const alternatives = (score_prediction.alternatives || []).slice(0, 4);
+
+  // Bookmaker analysis
+  const bookie = bookmaker_analysis || {};
+  const isTrap = bookie.is_trap || false;
+  const trapDirection = bookie.trap_direction || '';
+  const trueDirection = bookie.true_direction || '';
+  const trapConfidence = bookie.trap_confidence || 0;
+  const bookieIntent = bookie.bookmaker_intent || '';
+
+  // Whale data
+  const whale = getWhaleMomentum(home_team, away_team, whaleMetrics);
+
+  // Actual
+  const actual = getActualScore(home_team, away_team);
+
+  const card = document.createElement('div');
+  card.className = `match-card ${confInfo.cls}`;
+  card.dataset.matchNo = match_no;
+  card.dataset.direction = direction;
+  card.dataset.isTrap = isTrap;
+  card.dataset.hasWhale = whale ? 'true' : 'false';
+  card.dataset.confidence = confidence;
+  card.dataset.stage = stage || '';
+
+  let scoreDistHtml = '';
+  if (alternatives.length > 0 && mostLikely) {
+    scoreDistHtml = '<div class="score-dist">';
+    const allScores = [mostLikely, ...alternatives];
+    const maxProb = Math.max(...allScores.map(s => s.probability));
+    allScores.forEach(s => {
+      const pct = (s.probability * 100).toFixed(1);
+      const barW = (s.probability / maxProb * 100).toFixed(0);
+      scoreDistHtml += `
+        <div class="score-bar">
+          <span class="score-label">${s.score}</span>
+          <div class="bar-track"><div class="bar-fill" style="width:${barW}%"></div></div>
+          <span class="bar-pct">${pct}%</span>
+        </div>`;
+    });
+    scoreDistHtml += '</div>';
+  }
+
+  // Whale display
+  let whaleHtml = '';
+  if (whale) {
+    const totalMom = whale.homeMomentum + whale.awayMomentum;
+    const absTotal = Math.abs(totalMom);
+    let whaleClass = 'neutral';
+    let whaleText = '🐋 鲸鱼中性';
+    if (absTotal > 0.02) {
+      if (totalMom > 0) {
+        whaleClass = 'bullish';
+        whaleText = `🐋 鲸鱼看${home_team}(+${(totalMom*100).toFixed(1)}%)`;
+      } else {
+        whaleClass = 'bearish';
+        whaleText = `🐋 鲸鱼看${away_team}(${(totalMom*100).toFixed(1)}%)`;
+      }
+    }
+    whaleHtml = `<div class="whale-indicator ${whaleClass}">${whaleText}</div>`;
+  }
+
+  // Actual result
+  let actualHtml = '';
+  if (actual) {
+    const correct = actual.home === mostLikely.home_goals && actual.away === mostLikely.away_goals;
+    actualHtml = `
+      <div style="text-align:center;margin-bottom:6px;padding:4px;background:rgba(34,197,94,.08);border-radius:6px">
+        <span style="font-size:.75rem;color:var(--text-dim)">实际结果: </span>
+        <span style="font-family:'Orbitron',monospace;font-weight:700;color:${correct ? 'var(--green)' : 'var(--red)'}">
+          ${home_team} ${actual.home}-${actual.away} ${away_team}
+        </span>
+        <span style="font-size:.7rem;margin-left:4px">${correct ? '✅' : '❌'}</span>
+      </div>`;
+  }
+
+  // Trap badge
+  let trapHtml = '';
+  if (isTrap) {
+    trapHtml = `<div class="trap-badge yes">⛔ 诱盘</div>`;
+  }
+
+  // Bookmaker analysis
+  let bookieHtml = '';
+  if (bookieIntent || isTrap) {
+    const intentDisplay = bookieIntent || (trapDirection ? `诱${trapDirection}(实看${trueDirection})` : '');
+    bookieHtml = `
+      <div class="bookie-section">
+        <div class="bookie-title">🏦 庄家分析</div>
+        <div class="bookie-intent">
+          ${isTrap ? '<span class="tag trap">⛔ 诱盘</span>' : ''}
+          ${trapDirection ? `<span class="tag ${trapDirection}">表面: 看${trapDirection === 'home' ? '主' : trapDirection === 'away' ? '客' : '平'}</span>` : ''}
+          ${trueDirection ? `<span class="tag ${trueDirection}">实际: 看${trueDirection === 'home' ? '主' : trueDirection === 'away' ? '客' : '平'}</span>` : ''}
+          ${trapConfidence ? `<span style="font-size:.7rem;color:var(--text-dim)">信${(trapConfidence*100).toFixed(0)}%</span>` : ''}
+        </div>
+        ${intentDisplay ? `<div style="font-size:.7rem;color:var(--text-dim);margin-top:4px">${intentDisplay}</div>` : ''}
+      </div>`;
+  }
+
+  card.innerHTML = `
+    ${trapHtml}
+    <div class="match-header">
+      <span class="match-no">#${match_no}</span>
+      ${actual ? '' : '<span style="font-size:.65rem;color:var(--green);background:rgba(34,197,94,.1);padding:2px 6px;border-radius:4px">● 待赛</span>'}
+      <span class="match-stage">${stage || ''}</span>
+    </div>
+    <div class="teams">
+      <div class="team">
+        <span class="flag">${getFlag(home_team)}</span>
+        <span class="name home">${home_team}</span>
+      </div>
+      <div class="vs">VS</div>
+      <div class="team">
+        <span class="flag">${getFlag(away_team)}</span>
+        <span class="name away">${away_team}</span>
+      </div>
+    </div>
+    ${actual ? actualHtml : `
+    <div class="score-display">
+      <div class="predicted-score">${mostLikely ? mostLikely.score : ''}</div>
+      <div class="predicted-label">波神预测 · 置信 ${(confidence*100).toFixed(0)}% ${stars}</div>
+    </div>
+    `}
+    <div class="live-score" id="live-${match_no}">
+      <span class="live-dot"></span>
+      <span class="score-numbers">
+        <span class="home-goals score-flip" id="lh-${match_no}">0</span>
+        <span class="sep">-</span>
+        <span class="away-goals score-flip" id="la-${match_no}">0</span>
+      </span>
+    </div>
+    <div class="result-direction">
+      <span class="arrow">${getDirectionSymbol(direction)}</span>
+      <span class="text" style="color:${direction === 'home' ? 'var(--green)' : direction === 'away' ? 'var(--blue)' : 'var(--gold)'}">
+        ${getDirectionText(direction, home_team, away_team)}
+      </span>
+      <span class="confidence">信${(confidence*100).toFixed(0)}% | ${stars}</span>
+    </div>
+    ${whaleHtml}
+    <div class="gauge-container">
+      <div class="gauge-fill ${direction}" style="width:${(confidence*100).toFixed(0)}%"></div>
+    </div>
+    ${scoreDistHtml}
+    ${bookieHtml}
+  `;
+
+  return card;
+}
+
+async function loadData() {
+  try {
+    const [v4Res, whaleRes, actualRes] = await Promise.all([
+      fetch(v4DataUrl),
+      fetch(whaleDataUrl),
+      fetch(actualResultsUrl).catch(() => ({ json: () => [] }))
+    ]);
+
+    v4Data = await v4Res.json();
+    whaleData = await whaleRes.json();
+    actualResults = await actualRes.json();
+
+    document.getElementById('updateTime').textContent =
+      `数据更新: ${v4Data.generate_time || '未知'} · 引擎: ${v4Data.model || '波神v4'}`;
+
+    renderAll();
+
+    // Hide loading
+    setTimeout(() => document.getElementById('loading').classList.add('hidden'), 500);
+
+  } catch (err) {
+    console.error('Failed to load data:', err);
+    document.getElementById('matchGrid').innerHTML =
+      `<div style="text-align:center;padding:60px;color:var(--red)">❌ 加载数据失败: ${err.message}</div>`;
+    document.getElementById('loading').classList.add('hidden');
+  }
+}
+
+function renderAll() {
+  if (!v4Data || !v4Data.predictions) return;
+  const predictions = v4Data.predictions;
+  const whaleMetrics = whaleData?.whale_metrics || null;
+
+  // Stats
+  const totalMatches = predictions.length;
+  const trapCount = predictions.filter(p => p.bookmaker_analysis?.is_trap).length;
+  const highConfCount = predictions.filter(p => p.result_prediction.confidence >= 0.8).length;
+  const whaleSignalCount = predictions.filter(p => {
+    if (!whaleMetrics) return false;
+    const h = whaleMetrics[p.home_team];
+    const a = whaleMetrics[p.away_team];
+    return h && a && (Math.abs(h.whale_momentum) > 0.02 || Math.abs(a.whale_momentum) > 0.02);
+  }).length;
+
+  animateCounter('statMatches', totalMatches);
+  animateCounter('statTraps', trapCount);
+  animateCounter('statHighConf', highConfCount);
+  animateCounter('statWhale', whaleSignalCount);
+
+  // Whale table
+  const whales = whaleData?.top_whales || [];
+  const tbody = document.getElementById('whaleTableBody');
+  tbody.innerHTML = whales.map(w => `
+    <tr>
+      <td><span class="rank-num">#${w.rank}</span></td>
+      <td>🐋 ${w.username || '匿名'}</td>
+      <td class="pnl-positive">$${(w.pnl || 0).toLocaleString()}</td>
+      <td>$${(w.volume || 0).toLocaleString()}</td>
+    </tr>
+  `).join('');
+
+  // Render cards
+  matchCards = predictions.map(p => renderMatchCard(p, whaleMetrics));
+  filterMatches('all');
+}
+
+function animateCounter(id, target) {
+  const el = document.getElementById(id);
+  const current = parseInt(el.textContent) || 0;
+  const diff = target - current;
+  const steps = Math.min(Math.abs(diff), 20);
+  let step = 0;
+  const interval = setInterval(() => {
+    step++;
+    el.textContent = Math.round(current + diff * step / steps);
+    if (step >= steps) {
+      el.textContent = target;
+      clearInterval(interval);
+    }
+  }, 40);
+}
+
+function filterMatches(tab) {
+  const grid = document.getElementById('matchGrid');
+  grid.innerHTML = '';
+
+  let filtered = [...matchCards];
+  const predictions = v4Data.predictions;
+
+  switch(tab) {
+    case 'high':
+      filtered = matchCards.filter((_, i) => predictions[i].result_prediction.confidence >= 0.8);
+      break;
+    case 'trap':
+      filtered = matchCards.filter((_, i) => predictions[i].bookmaker_analysis?.is_trap);
+      break;
+    case 'whale':
+      filtered = matchCards.filter((_, i) => {
+        const p = predictions[i];
+        const metrics = whaleData?.whale_metrics;
+        if (!metrics) return false;
+        const h = metrics[p.home_team];
+        const a = metrics[p.away_team];
+        return h && a && (Math.abs(h.whale_momentum) > 0.02 || Math.abs(a.whale_momentum) > 0.02);
+      });
+      break;
+    case 'live':
+      // For now show matches that have actual results (already played)
+      filtered = matchCards.filter((_, i) => {
+        const p = predictions[i];
+        return actualResults.some(r => r.home_team === p.home_team && r.away_team === p.away_team);
+      });
+      break;
+    default:
+      // 'all' - show all
+      break;
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div style="text-align:center;padding:40px;color:var(--text-dim)">没有匹配的比赛</div>`;
+    return;
+  }
+
+  // Animate cards in with staggered appearance
+  filtered.forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    grid.appendChild(card);
+    setTimeout(() => {
+      card.style.transition = 'all .5s cubic-bezier(.4,0,.2,1)';
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, i * 60);
+  });
+}
+
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterMatches(btn.dataset.tab);
+  });
+});
+
+// ===== Simulated live scores (demo) =====
+// This would be replaced with real-time fetch from cp.nowscore.com
+function simulateLiveScores() {
+  // Only for matches without actual results
+  if (!v4Data?.predictions) return;
+  v4Data.predictions.forEach(p => {
+    const actual = actualResults.find(r => r.home_team === p.home_team && r.away_team === p.away_team);
+    if (actual) {
+      const homeEl = document.getElementById(`lh-${p.match_no}`);
+      const awayEl = document.getElementById(`la-${p.match_no}`);
+      const liveContainer = document.getElementById(`live-${p.match_no}`);
+      if (homeEl && awayEl && liveContainer) {
+        liveContainer.style.display = 'block';
+        homeEl.textContent = actual.home_goals;
+        awayEl.textContent = actual.away_goals;
+        homeEl.classList.add('changed');
+        awayEl.classList.add('changed');
+        setTimeout(() => {
+          homeEl.classList.remove('changed');
+          awayEl.classList.remove('changed');
+        }, 500);
+      }
+    }
+  });
+}
+
+// Start
+loadData().then(() => {
+  // Real score polling every 30s (placeholder for real cp.nowscore integration)
+  setInterval(simulateLiveScores, 30000);
+});
+</script>
+
+</body>
+</html>
