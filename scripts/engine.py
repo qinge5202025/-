@@ -338,6 +338,7 @@ def extract_features(ctx: MatchContext):
     
     # ---- Polymarket市场情绪因子 ----
     poly_file = DATA_DIR / 'polymarket-data.json'
+    whale_file = DATA_DIR / 'polymarket-whale.json'
     if poly_file.exists():
         try:
             with open(poly_file, 'r', encoding='utf-8') as f:
@@ -386,6 +387,32 @@ def extract_features(ctx: MatchContext):
                     ctx.odds_features['polymarket_ratio'] = ratio
                     ctx.odds_features['polymarket_home'] = h_poly
                     ctx.odds_features['polymarket_away'] = a_poly
+        except:
+            pass
+    
+    # ---- Polymarket鲸鱼情绪因子 ----
+    if whale_file.exists():
+        try:
+            with open(whale_file, 'r', encoding='utf-8') as f:
+                whale_raw = json.load(f)
+            whale_metrics = whale_raw.get('whale_metrics', {})
+            
+            # 查当前比赛的鲸鱼数据
+            h_whale = whale_metrics.get(ctx.home_team, None)
+            a_whale = whale_metrics.get(ctx.away_team, None)
+            
+            if h_whale and a_whale:
+                # 鲸鱼动量差: 正=主队被鲸鱼看好
+                whale_momentum_diff = h_whale.get('whale_momentum', 0) - a_whale.get('whale_momentum', 0)
+                # 鲸鱼得分比
+                h_score = h_whale.get('whale_score', 0)
+                a_score = a_whale.get('whale_score', 0)
+                whale_score_ratio = h_score / max(a_score, 0.01)
+                
+                ctx.odds_features['whale_momentum_diff'] = whale_momentum_diff
+                ctx.odds_features['whale_score_ratio'] = whale_score_ratio
+                ctx.odds_features['whale_home_momentum'] = h_whale.get('whale_momentum', 0)
+                ctx.odds_features['whale_away_momentum'] = a_whale.get('whale_momentum', 0)
         except:
             pass
     
@@ -754,8 +781,20 @@ def predict_score(ctx: MatchContext):
     elif away_motive == '保平出线':
         def_adj_h = 0.90
     
+    # 合并所有调整
     exp_h = base_h * goal_mult * home_intensity * motive_adj_h * def_adj_h
     exp_a = base_a * goal_mult * away_intensity * motive_adj_a * def_adj_a
+    
+    # 鲸鱼动量修正: 鲸鱼持续买入=看好, 卖出=看衰
+    whale_mom_diff = ctx.odds_features.get('whale_momentum_diff', 0)
+    if abs(whale_mom_diff) > 0.01:
+        whale_boost = min(abs(whale_mom_diff) * 0.5, 0.10)
+        if whale_mom_diff > 0:
+            exp_h *= (1.0 + whale_boost)
+            exp_a *= (1.0 - whale_boost * 0.5)
+        else:
+            exp_a *= (1.0 + whale_boost)
+            exp_h *= (1.0 - whale_boost * 0.5)
     
     # 阶段调整
     if ctx.stage in ('16强', '8强'):
