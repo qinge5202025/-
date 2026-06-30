@@ -1,0 +1,10 @@
+{
+  "reviews": [],
+  "optimization_history": [],
+  "total_reviewed": 0,
+  "accuracy": {
+    "result_accuracy": 0,
+    "result_correct": 0,
+    "result_wrong": 0
+  }
+}

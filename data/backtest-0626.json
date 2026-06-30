@@ -1,0 +1,60 @@
+{
+  "date": "2026-06-26",
+  "total": 4,
+  "correct": 2,
+  "accuracy": 0.5,
+  "details": [
+    {
+      "match": "挪威 vs 法国",
+      "score": "1-4",
+      "odds": "4.5/4.08/1.51",
+      "probs": "20%/22%/59%",
+      "pred": "法国胜",
+      "actual": "法国胜",
+      "actual_result": "away",
+      "pred_result": "away",
+      "conf": "59%",
+      "margin": "37%",
+      "correct": true
+    },
+    {
+      "match": "佛得角 vs 沙特",
+      "score": "0-0",
+      "odds": "2.25/3.3/2.62",
+      "probs": "39%/27%/34%",
+      "pred": "佛得角胜",
+      "actual": "平局",
+      "actual_result": "draw",
+      "pred_result": "home",
+      "conf": "39%",
+      "margin": "6%",
+      "correct": false
+    },
+    {
+      "match": "乌拉圭 vs 西班牙",
+      "score": "0-1",
+      "odds": "5.85/3.6/1.47",
+      "probs": "15%/25%/60%",
+      "pred": "西班牙胜",
+      "actual": "西班牙胜",
+      "actual_result": "away",
+      "pred_result": "away",
+      "conf": "60%",
+      "margin": "36%",
+      "correct": true
+    },
+    {
+      "match": "埃及 vs 伊朗",
+      "score": "1-1",
+      "odds": "2.15/2.5/3.78",
+      "probs": "41%/35%/23%",
+      "pred": "埃及胜",
+      "actual": "平局",
+      "actual_result": "draw",
+      "pred_result": "home",
+      "conf": "41%",
+      "margin": "6%",
+      "correct": false
+    }
+  ]
+}

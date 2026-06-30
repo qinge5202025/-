@@ -716,6 +716,7 @@ body {
     <button class="tab-btn" data-tab="trap">⛔ 诱盘检测</button>
     <button class="tab-btn" data-tab="whale">🐋 鲸鱼信号</button>
     <button class="tab-btn" data-tab="live">🔴 直播中</button>
+    <button class="tab-btn" data-tab="finland">🇫🇮 芬超</button>
   </div>
 
   <!-- Match grid -->
@@ -826,7 +827,7 @@ function animateParticles() {
 animateParticles();
 
 // ===== Main App =====
-const v4DataUrl = 'data/v4-predictions-20260626_140135.json';
+const v4DataUrl = 'data/v4-predictions-latest.json';
 const whaleDataUrl = 'data/polymarket-whale.json';
 const actualResultsUrl = 'data/actual-results.json';
 
@@ -908,11 +909,11 @@ function renderMatchCard(prediction, whaleMetrics) {
 
   // Bookmaker analysis
   const bookie = bookmaker_analysis || {};
-  const isTrap = bookie.is_trap || false;
+  const isTrap = bookie.trap_detected || bookie.is_trap || false;
   const trapDirection = bookie.trap_direction || '';
-  const trueDirection = bookie.true_direction || '';
+  const trueDirection = bookie.true_direction || bookie.anti_trap_pick || '';
   const trapConfidence = bookie.trap_confidence || 0;
-  const bookieIntent = bookie.bookmaker_intent || '';
+  const bookieIntent = bookie.bookmaker_intent || (bookie.signals && bookie.signals.length > 0 ? bookie.signals[0].type || '' : '');
 
   // Whale data
   const whale = getWhaleMomentum(home_team, away_team, whaleMetrics);
@@ -1088,7 +1089,7 @@ function renderAll() {
 
   // Stats
   const totalMatches = predictions.length;
-  const trapCount = predictions.filter(p => p.bookmaker_analysis?.is_trap).length;
+  const trapCount = predictions.filter(p => p.bookmaker_analysis?.trap_detected || p.bookmaker_analysis?.is_trap).length;
   const highConfCount = predictions.filter(p => p.result_prediction.confidence >= 0.8).length;
   const whaleSignalCount = predictions.filter(p => {
     if (!whaleMetrics) return false;
@@ -1147,7 +1148,7 @@ function filterMatches(tab) {
       filtered = matchCards.filter((_, i) => predictions[i].result_prediction.confidence >= 0.8);
       break;
     case 'trap':
-      filtered = matchCards.filter((_, i) => predictions[i].bookmaker_analysis?.is_trap);
+      filtered = matchCards.filter((_, i) => predictions[i].bookmaker_analysis?.trap_detected || predictions[i].bookmaker_analysis?.is_trap);
       break;
     case 'whale':
       filtered = matchCards.filter((_, i) => {
@@ -1168,6 +1169,12 @@ function filterMatches(tab) {
       break;
     default:
       // 'all' - show all
+      break;
+    case 'finland':
+      filtered = matchCards.filter((_, i) => {
+        const n = predictions[i].match_no;
+        return n && !isNaN(n) && parseInt(n) >= 200;
+      });
       break;
   }
 

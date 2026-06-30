@@ -279,19 +279,135 @@ def extract_features(ctx: MatchContext):
         'big_gap': abs(elo_h - elo_a) > 80,
     }
     
-    # ---- 从 factor_analysis 文本中提取赔率信息 ----
-    # 虽然predict.py没有保留结构化赔率数据,
-    # 但我们从它的文本输出中解析关键信息
+    # ---- ★★★ 结构化赔率数据 (优先!) ★★★ ----
+    # 直接从 data_pipeline.py 注入的结构化数据读取
+    jingcai = ctx.raw.get('jingcai', {})
+    prob = ctx.raw.get('prob', {})
+    margin_raw = ctx.raw.get('margin', 0)
+    
+    # ★★★ RQ让球数据: 当SPF缺失时使用 ★★★
+    rq = ctx.raw.get('rq', {})
+    if rq and rq.get('home_win', 0) > 0:
+        rq_h = rq['home_win']
+        rq_d = rq.get('draw', 0)
+        rq_a = rq['away_win']
+        if rq_h > 0:
+            rq_total = 1/rq_h + 1/rq_d + 1/rq_a
+            ctx.asian_features['rq_home_prob'] = round((1/rq_h)/rq_total, 4)
+            ctx.asian_features['rq_draw_prob'] = round((1/rq_d)/rq_total, 4)
+            ctx.asian_features['rq_away_prob'] = round((1/rq_a)/rq_total, 4)
+    
+    if prob and prob.get('home', 0) > 0:
+        # 结构化数据可用! 直接使用
+        home_prob = prob.get('home', 0)
+        draw_prob = prob.get('draw', 0)
+        away_prob = prob.get('away', 0)
+        margin = margin_raw
+        
+        # 确定方向
+        max_prob = max(home_prob, draw_prob, away_prob)
+        if max_prob == home_prob:
+            odds_dir = 'home'
+            odds_conf = home_prob
+        elif max_prob == away_prob:
+            odds_dir = 'away'
+            odds_conf = away_prob
+        else:
+            odds_dir = 'draw'
+            odds_conf = draw_prob
+        
+        # ★★★ v2优化: 概率差分析 ★★★
+        sorted_probs = sorted([home_prob, draw_prob, away_prob], reverse=True)
+        prob_margin = sorted_probs[0] - sorted_probs[1]  # 第一和第二的概率差
+        prob_dominance = sorted_probs[0] / max(sorted_probs[1], 0.001)  # 比值
+        
+        # 判断信号强度
+        if prob_margin >= 0.30:
+            signal_strength = 'STRONG'
+            signal_notes = '赔率指向明确'
+        elif prob_margin >= 0.15:
+            signal_strength = 'MEDIUM'
+            signal_notes = '赔率有倾向'
+        elif prob_margin >= 0.05:
+            signal_strength = 'WEAK'
+            signal_notes = '赔率优势微弱'
+        else:
+            signal_strength = 'TOSS_UP'
+            signal_notes = '旗鼓相当, 需要更多信号'
+        
+        # ★★★ v3新增: 赔率变动信号 ★★★
+        odds_mov = ctx.raw.get('odds_movement', {})
+        mov_dir = odds_mov.get('movement_dir')
+        mov_strength = odds_mov.get('movement_strength')
+        mov_analysis = odds_mov.get('analysis', '')
+        
+        # 赔率变动 vs 赔率隐含方向 的一致性
+        mov_confirms = False
+        mov_conflict = False
+        if mov_dir and odds_dir:
+            if mov_dir == odds_dir:
+                mov_confirms = True  # 变动方向与赔率方向一致 → 确认信号
+            elif odds_dir != 'draw' and mov_dir != odds_dir:
+                mov_conflict = True  # 变动方向与赔率方向相反 → 警惕
+        
+        ctx.odds_features = {
+            'home_prob': home_prob,
+            'draw_prob': draw_prob,
+            'away_prob': away_prob,
+            'margin': margin,
+            'direction': odds_dir,
+            'direction_conf': round(odds_conf, 3),
+            'has_odds_data': True,
+            # ★★★ v2新增 ★★★
+            'prob_margin': round(prob_margin, 3),
+            'prob_dominance': round(prob_dominance, 2),
+            'signal_strength': signal_strength,
+            'signal_notes': signal_notes,
+            'sorted_probs': sorted_probs,
+            # ★★★ v3新增: 赔率变动 ★★★
+            'movement_dir': mov_dir,
+            'movement_strength': mov_strength,
+            'movement_analysis': mov_analysis[:100] if mov_analysis else '',
+            'movement_confirms': mov_confirms,
+            'movement_conflict': mov_conflict,
+        }
+        
+        # 亚盘信息 (RQ让球)
+        rq = ctx.raw.get('rq', {})
+        handicap = ctx.raw.get('handicap', '0')
+        ctx.asian_features = {
+            'handicap': float(handicap) if handicap else 0,
+            'handicap_text': f"让{handicap}",
+            'favored': 'home' if float(handicap) < 0 else ('away' if float(handicap) > 0 else None),
+            'rq_home': rq.get('home_win', 0),
+            'rq_draw': rq.get('draw', 0),
+            'rq_away': rq.get('away_win', 0),
+        }
+        
+        # 当SPF缺失但RQ存在时, 使用RQ作为备选信号
+        if rq and rq.get('home_win', 0) > 0:
+            rq_h = rq['home_win']
+            rq_d = rq.get('draw', 0)
+            rq_a = rq['away_win']
+            rq_total = 1/rq_h + 1/rq_d + 1/rq_a
+            ctx.asian_features['rq_home_prob'] = (1/rq_h) / rq_total
+            ctx.asian_features['rq_draw_prob'] = (1/rq_d) / rq_total
+            ctx.asian_features['rq_away_prob'] = (1/rq_a) / rq_total
+        
+        # 跳过后面的文本解析逻辑
+        _skip_text_parsing(ctx)
+        return
+    
+    # ---- Fallback: 从 factor_analysis 文本中提取赔率信息 ----
+    # (当结构化数据不可用时使用)
     factor_analysis = ctx.raw.get('factor_analysis', [])
     
-    # 从文本中提取方向信息
     odds_dir = None
     odds_conf = 0
     mov_dir = None
     mov_conf = 0
     
     for line in factor_analysis:
-        # 赔率隐含概率方向
         if line.startswith('odds_implied:'):
             if '->home' in line:
                 odds_dir = 'home'
@@ -332,9 +448,15 @@ def extract_features(ctx: MatchContext):
                 asian_dir = 'away'
             break
     
+    # 保留已有数据 (如RQ让球数据), 避免被覆盖
+    existing_af = ctx.asian_features.copy() if hasattr(ctx, 'asian_features') else {}
     ctx.asian_features = {
         'favored': asian_dir,
     }
+    # 合并回之前设置的RQ数据
+    for k in ['rq_home_prob', 'rq_draw_prob', 'rq_away_prob']:
+        if k in existing_af:
+            ctx.asian_features[k] = existing_af[k]
     
     # ---- Polymarket市场情绪因子 ----
     poly_file = DATA_DIR / 'polymarket-data.json'
@@ -582,52 +704,257 @@ def analyze_bookmaker(ctx: MatchContext):
 # Layer 3: 赛果预测 (使用全部数据 + 庄家修正)
 # ================================================================
 
+def _skip_text_parsing(ctx):
+    """结构化数据可用时跳过的文本解析占位"""
+    import re
+    
+    # ---- Polymarket市场情绪因子 ----
+    poly_file = DATA_DIR / 'polymarket-data.json'
+    if poly_file.exists():
+        try:
+            with open(poly_file, 'r', encoding='utf-8') as f:
+                poly_raw = json.load(f)
+            poly_teams = poly_raw.get('teams', {})
+            alias = {'阿尔及利': 'Algeria', '乌兹别克': 'Uzbekistan'}
+            h_name = alias.get(ctx.home_team, ctx.home_team)
+            a_name = alias.get(ctx.away_team, ctx.away_team)
+            en_to_cn = {
+                'Argentina': '阿根廷', 'Spain': '西班牙', 'France': '法国',
+                'England': '英格兰', 'Brazil': '巴西', 'Germany': '德国',
+                'Portugal': '葡萄牙', 'Netherlands': '荷兰', 'Uruguay': '乌拉圭',
+                'Croatia': '克罗地亚', 'Morocco': '摩洛哥', 'Colombia': '哥伦比亚',
+                'Japan': '日本', 'Norway': '挪威', 'USA': '美国',
+                'Mexico': '墨西哥', 'Canada': '加拿大', 'Switzerland': '瑞士',
+                'South Korea': '韩国', 'Belgium': '比利时', 'Senegal': '塞内加尔',
+                'Ecuador': '厄瓜多尔', 'Egypt': '埃及', 'Australia': '澳大利亚',
+                'Scotland': '苏格兰', 'Turkey': '土耳其', 'Czechia': '捷克',
+                'Bosnia-Herzegovina': '波黑', 'Qatar': '卡塔尔', 'Paraguay': '巴拉圭',
+                'Ivory Coast': '科特迪瓦', 'Tunisia': '突尼斯', 'Iran': '伊朗',
+                'New Zealand': '新西兰', 'Saudi Arabia': '沙特阿拉伯',
+                'Algeria': '阿尔及利亚', 'Ghana': '加纳', 'Panama': '巴拿马',
+                'Iraq': '伊拉克', 'Uzbekistan': '乌兹别克斯坦', 'Jordan': '约旦',
+                'South Africa': '南非', 'Haiti': '海地', 'Cape Verde': '佛得角',
+                'Congo DR': '刚果金', 'Austria': '奥地利', 'Sweden': '瑞典',
+                'Curacao': '库拉索',
+            }
+            h_en = a_en = None
+            for en, cn in en_to_cn.items():
+                if cn == ctx.home_team: h_en = en
+                if cn == ctx.away_team: a_en = en
+            if h_en and a_en:
+                h_poly = poly_teams.get(h_en, {}).get('prob', 0)
+                a_poly = poly_teams.get(a_en, {}).get('prob', 0)
+                if h_poly > 0 and a_poly > 0:
+                    ctx.odds_features['polymarket_ratio'] = h_poly / a_poly
+                    ctx.odds_features['polymarket_home'] = h_poly
+                    ctx.odds_features['polymarket_away'] = a_poly
+        except:
+            pass
+    
+    ctx.raw_result = ctx.raw.get('result_prediction', {})
+
+
 def predict_result(ctx: MatchContext):
     """
-    赛果预测 — 基于原predict.py的输出 + 庄家修正
+    赛果预测 v2 — 支持直接从赔率数据推断 + 庄家修正
     
-    因为predict.py已经做了完整的7因子分析,
-    这里我们:
-      1. 读取原predict.py的result_prediction
-      2. 叠加我们的庄家动机检测结果
-      3. 如果诱盘信号足够强 → 反买修正
+    数据源优先级:
+      1. 原predict.py的result_prediction (如果有)
+      2. 结构化赔率数据 (odds_features 中的隐含概率)
+      3. Elo评分 (最后的fallback)
+      4. 庄家动机修正 (叠加在所有方案之上)
     """
     
-    # ---- 读取原predict.py的结果 ----
+    # ---- Step 1: 从数据源获取基础预测 ----
     orig = ctx.raw.get('result_prediction', {})
     orig_val = orig.get('value', None)
     orig_conf = orig.get('confidence', 0)
     
-    # ---- 庄家修正 ----
+    odds = ctx.odds_features
+    elo = ctx.elo
+    
+    # 是否从赔率数据推断
+    odds_based = False
+    
+    if orig_val and orig_conf > 0:
+        # 方案1: 使用原predict.py的结果
+        result_val = orig_val
+        result_conf = orig_conf
+    elif odds.get('has_odds_data', False) is False and ctx.asian_features.get('rq_home_prob', 0) > 0:
+        # 方案2.5: 从RQ让球赔率推断 (★v2新增!)
+        rq_hp = ctx.asian_features['rq_home_prob']
+        rq_dp = ctx.asian_features['rq_draw_prob']
+        rq_ap = ctx.asian_features['rq_away_prob']
+        
+        max_p = max(rq_hp, rq_dp, rq_ap)
+        if max_p == rq_hp:
+            result_val = 'home'
+        elif max_p == rq_ap:
+            result_val = 'away'
+        else:
+            result_val = 'draw'
+        
+        sorted_probs = sorted([rq_hp, rq_dp, rq_ap], reverse=True)
+        prob_margin = sorted_probs[0] - sorted_probs[1]
+        result_conf = min(0.35 + prob_margin * 1.2, 0.75)
+        odds_based = True
+        
+        # 标记为RQ来源
+        ctx.odds_features['data_source'] = 'RQ让球'
+        ctx.odds_features['has_odds_data'] = True
+        ctx.odds_features['home_prob'] = rq_hp
+        ctx.odds_features['draw_prob'] = rq_dp
+        ctx.odds_features['away_prob'] = rq_ap
+        ctx.odds_features['prob_margin'] = round(prob_margin, 3)
+        ctx.odds_features['signal_strength'] = 'MEDIUM'
+        ctx.odds_features['signal_notes'] = f'基于RQ让球赔率(让{ctx.raw.get("handicap","0")})'
+        
+    elif odds.get('home_prob', 0) > 0:
+        # 方案3: 从结构化赔率数据推断 (★核心修复!)
+        hp = odds['home_prob']
+        dp = odds['draw_prob']
+        ap = odds['away_prob']
+        
+        max_p = max(hp, dp, ap)
+        if max_p == hp:
+            result_val = 'home'
+        elif max_p == ap:
+            result_val = 'away'
+        else:
+            result_val = 'draw'
+        
+        # ★★★ v2优化: 基于概率差的置信度校准 ★★★
+        sorted_probs = sorted([hp, dp, ap], reverse=True)
+        prob_margin = sorted_probs[0] - sorted_probs[1]
+        
+        # 校准公式: 基础置信度 + 概率差加成
+        # 概率差<5% → 低置信(33%)
+        # 概率差5-15% → 中低(40-55%)
+        # 概率差15-30% → 中高(55-70%)
+        # 概率差>30% → 高(70-85%)
+        # ★★★ v4修复: 置信度校准 - 参考历史准确率降低基础置信 ★★★
+        # 历史数据: 高置信(>70%)仅50%准确, 所以降低基础置信
+        if prob_margin < 0.05:
+            base_conf = 0.33
+        elif prob_margin < 0.10:
+            base_conf = 0.36 + prob_margin * 0.4  # 0.36~0.40
+        elif prob_margin < 0.20:
+            base_conf = 0.40 + (prob_margin - 0.10) * 0.8  # 0.40~0.48
+        elif prob_margin < 0.30:
+            base_conf = 0.48 + (prob_margin - 0.20) * 0.7  # 0.48~0.55
+        else:
+            base_conf = 0.55 + min(prob_margin - 0.30, 0.25) * 0.4  # 0.55~0.65
+        
+        result_conf = min(base_conf, 0.85)
+        odds_based = True
+        
+        # ★★★ v3: 赔率变动信号修正 ★★★
+        mov_dir = odds.get('movement_dir')
+        mov_strength = odds.get('movement_strength')
+        mov_confirms = odds.get('movement_confirms', False)
+        mov_conflict = odds.get('movement_conflict', False)
+        
+        if mov_confirms and mov_strength in ('STRONG', 'MEDIUM'):
+            # 赔率变动方向与预测一致 → 增强信心
+            boost = 0.06 if mov_strength == 'STRONG' else 0.03
+            result_conf = min(result_conf + boost, 0.88)
+            ctx.raw.setdefault('factor_details', []).append(f"odds_movement: 方向一致→+{boost:.0%}")
+        elif mov_conflict and mov_strength in ('STRONG', 'MEDIUM'):
+            # 赔率变动方向与预测相反 → 降低信心
+            penalty = 0.08 if mov_strength == 'STRONG' else 0.04
+            result_conf = max(0.33, result_conf - penalty)
+            ctx.raw.setdefault('factor_details', []).append(f"odds_movement: 方向冲突→-{penalty:.0%}")
+        
+        # 记录信号强度到factor_analysis
+        if 'factor_details' not in ctx.raw:
+            ctx.raw['factor_details'] = []
+        ctx.raw['factor_details'].append(f"odds_implied: ->{result_val} (margin={prob_margin:.0%}, conf={result_conf:.0%})")
+        
+    elif elo.get('diff', 0) != 0:
+        # 方案3: 从Elo推断
+        if elo['diff'] > 50:
+            result_val = 'home'
+            result_conf = min(0.3 + elo['expected'], 0.75)
+        elif elo['diff'] < -50:
+            result_val = 'away'
+            result_conf = min(0.3 + (1 - elo['expected']), 0.75)
+        else:
+            result_val = 'draw'
+            result_conf = 0.33
+    else:
+        result_val = 'draw'
+        result_conf = 0.33
+    
+    # ---- Step 2: 庄家动机修正 ----
     bm = ctx.bookmaker
     corrected = False
     
     if bm['trap_detected'] and bm['trap_confidence'] >= 0.20 and bm['anti_trap_pick']:
         anti = bm['anti_trap_pick']
         
-        if anti != orig_val:
-            # 诱盘信号强烈且与原预测方向不同 → 反买!
+        if anti != result_val:
+            # 诱盘信号强烈且与预测方向不同 → 反买!
             corrected = True
             result_val = anti
-            # 置信度 = 原置信度 + 庄家信心, 不超过0.95
-            result_conf = min(orig_conf + bm['trap_confidence'] * 0.3, 0.95)
+            result_conf = min(result_conf + bm['trap_confidence'] * 0.3, 0.95)
         else:
-            # 诱盘方向与原预测一致 → 加强原预测
-            result_val = orig_val
-            result_conf = min(orig_conf + bm['trap_confidence'] * 0.15, 0.95)
-    else:
-        # 无诱盘信号, 使用原预测
-        result_val = orig_val
-        result_conf = orig_conf
+            # 诱盘方向与预测一致 → 加强
+            result_conf = min(result_conf + bm['trap_confidence'] * 0.15, 0.95)
     
-    if result_val is None:
-        # 极端情况: 原预测也无结果
-        result_val = 'draw'
-        result_conf = 0.33
+    # ---- ★★★ v4修复: 置信度校准 (解决高置信准确率低的问题) ★★★ ----
+    
+    # 1. 冷门风险惩罚: Elo差大 + 赔率差大 = 高爆冷概率
+    elo_diff = ctx.elo.get('diff', 0)
+    odds_margin = ctx.odds_features.get('prob_margin', 0)
+    if abs(elo_diff) > 100 and odds_margin > 0.20:
+        # Elo差距大的场次更容易爆冷, 降权
+        upset_risk = min(abs(elo_diff) / 500 * 0.15, 0.12)
+        result_conf = max(0.33, result_conf - upset_risk)
+        if 'factor_details' not in ctx.raw:
+            ctx.raw['factor_details'] = []
+        ctx.raw['factor_details'].append(f"v4冷门惩罚: Elo差{abs(elo_diff):.0f}→降{upset_risk:.0%}")
+    
+    # 2. 平局概率惩罚: 当draw_prob > 25%时, 置信度不应过高
+    draw_prob = ctx.odds_features.get('draw_prob', 0)
+    if draw_prob >= 0.25 and result_val in ('home', 'away'):
+        draw_penalty = min(draw_prob * 0.20, 0.08)
+        result_conf = max(0.33, result_conf - draw_penalty)
+    
+    # 3. 置信度封顶: 公平赔率差过大(>30%)但draw_prob高的场次
+    if odds_margin > 0.30 and draw_prob > 0.22:
+        result_conf = min(result_conf, 0.72)
+    
+    # 4. 综合封顶
+    result_conf = min(result_conf, 0.88)
+    
+    # ---- 计算各因子投票明细 (v4修复: 之前votes始终为0!) ----
+    votes = {'home': 0.0, 'draw': 0.0, 'away': 0.0}
+    
+    # 赔率隐含概率投票
+    hp = ctx.odds_features.get('home_prob', 0)
+    dp = ctx.odds_features.get('draw_prob', 0)
+    ap = ctx.odds_features.get('away_prob', 0)
+    if hp > 0:
+        votes['home'] += hp * 0.35
+        votes['draw'] += dp * 0.35
+        votes['away'] += ap * 0.35
+    
+    # Elo投票
+    elo_exp = ctx.elo.get('expected', 0.5)
+    votes['home'] += elo_exp * 0.11
+    votes['away'] += (1 - elo_exp) * 0.11
+    
+    # RQ让球投票 (如有)
+    rq_h = ctx.asian_features.get('rq_home_prob', 0)
+    rq_a = ctx.asian_features.get('rq_away_prob', 0)
+    if rq_h > 0:
+        votes['home'] += rq_h * 0.15
+        votes['away'] += rq_a * 0.15
     
     ctx.result_prediction = {
         'value': result_val,
         'confidence': round(result_conf, 3),
+        'votes': {k: round(v, 4) for k, v in votes.items()},
         'original_value': orig_val,
         'original_confidence': orig_conf,
         'corrected_by_trap': corrected,

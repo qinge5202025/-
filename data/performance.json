@@ -1,0 +1,97 @@
+{
+  "weights": {
+    "odds_implied": 0.35,
+    "odds_movement": 0.2,
+    "asian_handicap": 0.3,
+    "over_under": 0.05,
+    "elo_factor": 0.1
+  },
+  "optimization_history": [
+    {
+      "date": "2026-06-29 14:02:34",
+      "old_weights": {
+        "odds_implied": 0.4,
+        "odds_movement": 0.25,
+        "asian_handicap": 0.25,
+        "over_under": 0.1
+      },
+      "new_weights": {
+        "odds_implied": 0.35,
+        "odds_movement": 0.2,
+        "asian_handicap": 0.3,
+        "over_under": 0.05,
+        "elo_factor": 0.1
+      },
+      "baseline_accuracy": 0.65,
+      "high_conf_accuracy": 0.5,
+      "total_reviewed": 28,
+      "reason": "淘汰赛权重优化：亚盘权重提升(Elo+亚盘在淘汰赛最可靠)，降低赔率变动噪点权重"
+    }
+  ],
+  "factor_accuracy": {
+    "odds_implied": {
+      "correct": 10,
+      "total": 28,
+      "rate": 0.7
+    },
+    "odds_movement": {
+      "correct": 7,
+      "total": 28,
+      "rate": 0.5
+    },
+    "asian_handicap": {
+      "correct": 12,
+      "total": 28,
+      "rate": 0.8
+    },
+    "over_under": {
+      "correct": 6,
+      "total": 28,
+      "rate": 0.4
+    }
+  },
+  "prediction_accuracy": {
+    "result": {
+      "correct": 16,
+      "total": 31,
+      "rate": 0.516
+    },
+    "over_under": {
+      "correct": 0,
+      "total": 0,
+      "rate": 0
+    },
+    "score_exact": {
+      "correct": 0,
+      "total": 0,
+      "rate": 0
+    },
+    "score_diff": {
+      "correct": 0,
+      "total": 0,
+      "rate": 0
+    }
+  },
+  "confidence_buckets": {
+    "high": {
+      "correct": 10,
+      "total": 20,
+      "rate": 0.5,
+      "threshold": 0.7
+    },
+    "medium": {
+      "correct": 5,
+      "total": 8,
+      "rate": 0.625,
+      "threshold": 0.4
+    },
+    "low": {
+      "correct": 0,
+      "total": 0,
+      "rate": 0.0,
+      "threshold": 0
+    }
+  },
+  "last_optimized": "2026-06-29 14:02:34",
+  "version": 2
+}

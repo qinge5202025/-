@@ -1,0 +1,29 @@
+[
+  {
+    "num": "074",
+    "home": "巴西",
+    "away": "日本",
+    "score": "2-1",
+    "home_goals": 2,
+    "away_goals": 1,
+    "date": "2026-06-30 01:00"
+  },
+  {
+    "num": "075",
+    "home": "德国",
+    "away": "巴拉圭",
+    "score": "1-1",
+    "home_goals": 1,
+    "away_goals": 1,
+    "date": "2026-06-30 04:30"
+  },
+  {
+    "num": "076",
+    "home": "荷兰",
+    "away": "摩洛哥",
+    "score": "1-1",
+    "home_goals": 1,
+    "away_goals": 1,
+    "date": "2026-06-30 09:00"
+  }
+]

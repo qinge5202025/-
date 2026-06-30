@@ -381,7 +381,11 @@ def main():
     hf = DATA_DIR / "odds-history.json"
     if hf.exists():
         try:
-            hist = json.load(open(hf, 'r', encoding='utf-8'))
+            raw = json.load(open(hf, 'r', encoding='utf-8'))
+            if isinstance(raw, dict) and 'snapshots' in raw:
+                hist = raw['snapshots']
+            elif isinstance(raw, list):
+                hist = raw
         except:
             pass
     hist.append(record)

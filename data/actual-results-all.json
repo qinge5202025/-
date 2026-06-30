@@ -1,0 +1,506 @@
+[
+  {
+    "home_team": "墨西哥",
+    "away_team": "南非",
+    "home_goals": 2,
+    "away_goals": 0,
+    "date": "2026-06-12 03:00"
+  },
+  {
+    "home_team": "韩国",
+    "away_team": "捷克",
+    "home_goals": 2,
+    "away_goals": 1,
+    "date": "2026-06-12 10:00"
+  },
+  {
+    "home_team": "捷克",
+    "away_team": "南非",
+    "home_goals": 1,
+    "away_goals": 1,
+    "date": "2026-06-19 00:00"
+  },
+  {
+    "home_team": "墨西哥",
+    "away_team": "韩国",
+    "home_goals": 1,
+    "away_goals": 0,
+    "date": "2026-06-19 09:00"
+  },
+  {
+    "home_team": "南非",
+    "away_team": "韩国",
+    "home_goals": 1,
+    "away_goals": 0,
+    "date": "2026-06-25 09:00"
+  },
+  {
+    "home_team": "捷克",
+    "away_team": "墨西哥",
+    "home_goals": 0,
+    "away_goals": 3,
+    "date": "2026-06-25 09:00"
+  },
+  {
+    "home_team": "加拿大",
+    "away_team": "波黑",
+    "home_goals": 1,
+    "away_goals": 1,
+    "date": "2026-06-13 03:00"
+  },
+  {
+    "home_team": "卡塔尔",
+    "away_team": "瑞士",
+    "home_goals": 1,
+    "away_goals": 1,
+    "date": "2026-06-14 03:00"
+  },
+  {
+    "home_team": "瑞士",
+    "away_team": "波黑",
+    "home_goals": 4,
+    "away_goals": 1,
+    "date": "2026-06-19 03:00"
+  },
+  {
+    "home_team": "加拿大",
+    "away_team": "卡塔尔",
+    "home_goals": 6,
+    "away_goals": 0,
+    "date": "2026-06-19 06:00"
+  },
+  {
+    "home_team": "瑞士",
+    "away_team": "加拿大",
+    "home_goals": 2,
+    "away_goals": 1,
+    "date": "2026-06-25 03:00"
+  },
+  {
+    "home_team": "波黑",
+    "away_team": "卡塔尔",
+    "home_goals": 3,
+    "away_goals": 1,
+    "date": "2026-06-25 03:00"
+  },
+  {
+    "home_team": "巴西",
+    "away_team": "摩洛哥",
+    "home_goals": 1,
+    "away_goals": 1,
+    "date": "2026-06-14 06:00"
+  },
+  {
+    "home_team": "海地",
+    "away_team": "苏格兰",
+    "home_goals": 0,
+    "away_goals": 1,
+    "date": "2026-06-14 09:00"
+  },
+  {
+    "home_team": "苏格兰",
+    "away_team": "摩洛哥",
+    "home_goals": 0,
+    "away_goals": 1,
+    "date": "2026-06-20 06:00"
+  },
+  {
+    "home_team": "巴西",
+    "away_team": "海地",
+    "home_goals": 3,
+    "away_goals": 0,
+    "date": "2026-06-20 08:30"
+  },
+  {
+    "home_team": "苏格兰",
+    "away_team": "巴西",
+    "home_goals": 0,
+    "away_goals": 3,
+    "date": "2026-06-25 06:00"
+  },
+  {
+    "home_team": "摩洛哥",
+    "away_team": "海地",
+    "home_goals": 4,
+    "away_goals": 2,
+    "date": "2026-06-25 06:00"
+  },
+  {
+    "home_team": "美国",
+    "away_team": "巴拉圭",
+    "home_goals": 4,
+    "away_goals": 1,
+    "date": "2026-06-13 09:00"
+  },
+  {
+    "home_team": "澳大利亚",
+    "away_team": "土耳其",
+    "home_goals": 2,
+    "away_goals": 0,
+    "date": "2026-06-14 12:00"
+  },
+  {
+    "home_team": "美国",
+    "away_team": "澳大利亚",
+    "home_goals": 2,
+    "away_goals": 0,
+    "date": "2026-06-20 03:00"
+  },
+  {
+    "home_team": "土耳其",
+    "away_team": "巴拉圭",
+    "home_goals": 0,
+    "away_goals": 1,
+    "date": "2026-06-20 11:00"
+  },
+  {
+    "home_team": "巴拉圭",
+    "away_team": "澳大利亚",
+    "home_goals": 0,
+    "away_goals": 0,
+    "date": "2026-06-26 10:00"
+  },
+  {
+    "home_team": "土耳其",
+    "away_team": "美国",
+    "home_goals": 3,
+    "away_goals": 2,
+    "date": "2026-06-26 10:00"
+  },
+  {
+    "home_team": "德国",
+    "away_team": "库拉索",
+    "home_goals": 7,
+    "away_goals": 1,
+    "date": "2026-06-15 01:00"
+  },
+  {
+    "home_team": "科特迪瓦",
+    "away_team": "厄瓜多尔",
+    "home_goals": 1,
+    "away_goals": 0,
+    "date": "2026-06-15 07:00"
+  },
+  {
+    "home_team": "德国",
+    "away_team": "科特迪瓦",
+    "home_goals": 2,
+    "away_goals": 1,
+    "date": "2026-06-21 04:00"
+  },
+  {
+    "home_team": "厄瓜多尔",
+    "away_team": "库拉索",
+    "home_goals": 0,
+    "away_goals": 0,
+    "date": "2026-06-21 08:00"
+  },
+  {
+    "home_team": "库拉索",
+    "away_team": "科特迪瓦",
+    "home_goals": 0,
+    "away_goals": 2,
+    "date": "2026-06-26 04:00"
+  },
+  {
+    "home_team": "厄瓜多尔",
+    "away_team": "德国",
+    "home_goals": 2,
+    "away_goals": 1,
+    "date": "2026-06-26 04:00"
+  },
+  {
+    "home_team": "荷兰",
+    "away_team": "日本",
+    "home_goals": 2,
+    "away_goals": 2,
+    "date": "2026-06-15 04:00"
+  },
+  {
+    "home_team": "瑞典",
+    "away_team": "突尼斯",
+    "home_goals": 5,
+    "away_goals": 1,
+    "date": "2026-06-15 10:00"
+  },
+  {
+    "home_team": "荷兰",
+    "away_team": "瑞典",
+    "home_goals": 5,
+    "away_goals": 1,
+    "date": "2026-06-21 01:00"
+  },
+  {
+    "home_team": "突尼斯",
+    "away_team": "日本",
+    "home_goals": 0,
+    "away_goals": 4,
+    "date": "2026-06-21 12:00"
+  },
+  {
+    "home_team": "突尼斯",
+    "away_team": "荷兰",
+    "home_goals": 1,
+    "away_goals": 3,
+    "date": "2026-06-26 07:00"
+  },
+  {
+    "home_team": "日本",
+    "away_team": "瑞典",
+    "home_goals": 1,
+    "away_goals": 1,
+    "date": "2026-06-26 07:00"
+  },
+  {
+    "home_team": "比利时",
+    "away_team": "埃及",
+    "home_goals": 1,
+    "away_goals": 1,
+    "date": "2026-06-16 03:00"
+  },
+  {
+    "home_team": "伊朗",
+    "away_team": "新西兰",
+    "home_goals": 2,
+    "away_goals": 2,
+    "date": "2026-06-16 09:00"
+  },
+  {
+    "home_team": "比利时",
+    "away_team": "伊朗",
+    "home_goals": 0,
+    "away_goals": 0,
+    "date": "2026-06-22 03:00"
+  },
+  {
+    "home_team": "新西兰",
+    "away_team": "埃及",
+    "home_goals": 1,
+    "away_goals": 3,
+    "date": "2026-06-22 09:00"
+  },
+  {
+    "home_team": "埃及",
+    "away_team": "伊朗",
+    "home_goals": 1,
+    "away_goals": 1,
+    "date": "2026-06-27 11:00"
+  },
+  {
+    "home_team": "新西兰",
+    "away_team": "比利时",
+    "home_goals": 1,
+    "away_goals": 5,
+    "date": "2026-06-27 11:00"
+  },
+  {
+    "home_team": "西班牙",
+    "away_team": "佛得角",
+    "home_goals": 0,
+    "away_goals": 0,
+    "date": "2026-06-16 00:00"
+  },
+  {
+    "home_team": "沙特阿拉伯",
+    "away_team": "乌拉圭",
+    "home_goals": 1,
+    "away_goals": 1,
+    "date": "2026-06-16 06:00"
+  },
+  {
+    "home_team": "西班牙",
+    "away_team": "沙特阿拉伯",
+    "home_goals": 4,
+    "away_goals": 0,
+    "date": "2026-06-22 00:00"
+  },
+  {
+    "home_team": "乌拉圭",
+    "away_team": "佛得角",
+    "home_goals": 2,
+    "away_goals": 2,
+    "date": "2026-06-22 06:00"
+  },
+  {
+    "home_team": "佛得角",
+    "away_team": "沙特阿拉伯",
+    "home_goals": 0,
+    "away_goals": 0,
+    "date": "2026-06-27 08:00"
+  },
+  {
+    "home_team": "乌拉圭",
+    "away_team": "西班牙",
+    "home_goals": 0,
+    "away_goals": 1,
+    "date": "2026-06-27 08:00"
+  },
+  {
+    "home_team": "法国",
+    "away_team": "塞内加尔",
+    "home_goals": 3,
+    "away_goals": 1,
+    "date": "2026-06-17 03:00"
+  },
+  {
+    "home_team": "伊拉克",
+    "away_team": "挪威",
+    "home_goals": 1,
+    "away_goals": 4,
+    "date": "2026-06-17 06:00"
+  },
+  {
+    "home_team": "法国",
+    "away_team": "伊拉克",
+    "home_goals": 3,
+    "away_goals": 0,
+    "date": "2026-06-23 05:00"
+  },
+  {
+    "home_team": "挪威",
+    "away_team": "塞内加尔",
+    "home_goals": 3,
+    "away_goals": 2,
+    "date": "2026-06-23 08:00"
+  },
+  {
+    "home_team": "挪威",
+    "away_team": "法国",
+    "home_goals": 1,
+    "away_goals": 4,
+    "date": "2026-06-27 03:00"
+  },
+  {
+    "home_team": "塞内加尔",
+    "away_team": "伊拉克",
+    "home_goals": 5,
+    "away_goals": 0,
+    "date": "2026-06-27 03:00"
+  },
+  {
+    "home_team": "阿根廷",
+    "away_team": "阿尔及利亚",
+    "home_goals": 3,
+    "away_goals": 0,
+    "date": "2026-06-17 09:00"
+  },
+  {
+    "home_team": "奥地利",
+    "away_team": "约旦",
+    "home_goals": 3,
+    "away_goals": 1,
+    "date": "2026-06-17 12:00"
+  },
+  {
+    "home_team": "阿根廷",
+    "away_team": "奥地利",
+    "home_goals": 2,
+    "away_goals": 0,
+    "date": "2026-06-23 01:00"
+  },
+  {
+    "home_team": "约旦",
+    "away_team": "阿尔及利亚",
+    "home_goals": 1,
+    "away_goals": 2,
+    "date": "2026-06-23 11:00"
+  },
+  {
+    "home_team": "阿尔及利亚",
+    "away_team": "奥地利",
+    "home_goals": 3,
+    "away_goals": 3,
+    "date": "2026-06-28 10:00"
+  },
+  {
+    "home_team": "约旦",
+    "away_team": "阿根廷",
+    "home_goals": 1,
+    "away_goals": 3,
+    "date": "2026-06-28 10:00"
+  },
+  {
+    "home_team": "葡萄牙",
+    "away_team": "刚果金",
+    "home_goals": 1,
+    "away_goals": 1,
+    "date": "2026-06-18 01:00"
+  },
+  {
+    "home_team": "乌兹别克斯坦",
+    "away_team": "哥伦比亚",
+    "home_goals": 1,
+    "away_goals": 3,
+    "date": "2026-06-18 10:00"
+  },
+  {
+    "home_team": "葡萄牙",
+    "away_team": "乌兹别克斯坦",
+    "home_goals": 5,
+    "away_goals": 0,
+    "date": "2026-06-24 01:00"
+  },
+  {
+    "home_team": "哥伦比亚",
+    "away_team": "刚果金",
+    "home_goals": 1,
+    "away_goals": 0,
+    "date": "2026-06-24 10:00"
+  },
+  {
+    "home_team": "刚果金",
+    "away_team": "乌兹别克斯坦",
+    "home_goals": 3,
+    "away_goals": 1,
+    "date": "2026-06-28 07:30"
+  },
+  {
+    "home_team": "哥伦比亚",
+    "away_team": "葡萄牙",
+    "home_goals": 0,
+    "away_goals": 0,
+    "date": "2026-06-28 07:30"
+  },
+  {
+    "home_team": "英格兰",
+    "away_team": "克罗地亚",
+    "home_goals": 4,
+    "away_goals": 2,
+    "date": "2026-06-18 04:00"
+  },
+  {
+    "home_team": "加纳",
+    "away_team": "巴拿马",
+    "home_goals": 1,
+    "away_goals": 0,
+    "date": "2026-06-18 07:00"
+  },
+  {
+    "home_team": "英格兰",
+    "away_team": "加纳",
+    "home_goals": 0,
+    "away_goals": 0,
+    "date": "2026-06-24 04:00"
+  },
+  {
+    "home_team": "巴拿马",
+    "away_team": "克罗地亚",
+    "home_goals": 0,
+    "away_goals": 1,
+    "date": "2026-06-24 07:00"
+  },
+  {
+    "home_team": "克罗地亚",
+    "away_team": "加纳",
+    "home_goals": 2,
+    "away_goals": 1,
+    "date": "2026-06-28 05:00"
+  },
+  {
+    "home_team": "巴拿马",
+    "away_team": "英格兰",
+    "home_goals": 0,
+    "away_goals": 2,
+    "date": "2026-06-28 05:00"
+  }
+]
