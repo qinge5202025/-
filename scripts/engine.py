@@ -1196,7 +1196,7 @@ def predict_score(ctx: MatchContext):
         if len(top_n) >= 8 or cumulative > 0.90:
             break
     
-    # ---- Step 6: 半场预测 ----
+    # ---- Step 6: 半场预测 (增强版) ----
     ht_factor = 0.42
     ht_scores = []
     for hg in range(5):
@@ -1209,6 +1209,45 @@ def predict_score(ctx: MatchContext):
                     'probability': round(prob, 4),
                 })
     ht_scores.sort(key=lambda x: -x['probability'])
+    
+    # ---- 半全场预测 (HT/FT组合) ----
+    htft_combos = []
+    ht_result_options = ['home', 'draw', 'away']
+    ft_result_options = ['home', 'draw', 'away']
+    expected_ht_home = exp_h * ht_factor
+    expected_ht_away = exp_a * ht_factor
+    
+    for hr in ht_result_options:
+        for fr in ft_result_options:
+            combo_name = {'home':'胜','draw':'平','away':'负'}[hr] + {'home':'胜','draw':'平','away':'负'}[fr]
+            # 用泊松模拟估算概率
+            prob_ht = 0
+            prob_ft_given_ht = 0
+            # 简化: 用期望进球差作为方向概率
+            ht_home_win_prob = 1 - (1 / (1 + math.exp(expected_ht_home - expected_ht_away)))
+            ht_draw_prob  = 1 - abs(expected_ht_home - expected_ht_away) / (expected_ht_home + expected_ht_away + 0.01)
+            ht_draw_prob = min(ht_draw_prob, 0.50)
+            ht_away_win_prob = 1 - ht_home_win_prob - ht_draw_prob
+            
+            ht_probs = {'home': ht_home_win_prob, 'draw': ht_draw_prob, 'away': ht_away_win_prob}
+            ft_expected_h = exp_h - expected_ht_home
+            ft_expected_a = exp_a - expected_ht_away
+            ft_home_win_prob = 1 - (1 / (1 + math.exp(ft_expected_h - ft_expected_a)))
+            ft_draw_prob = 1 - abs(ft_expected_h - ft_expected_a) / (ft_expected_h + ft_expected_a + 0.01)
+            ft_draw_prob = min(ft_draw_prob, 0.35)
+            ft_away_win_prob = 1 - ft_home_win_prob - ft_draw_prob
+            ft_probs = {'home': ft_home_win_prob, 'draw': ft_draw_prob, 'away': ft_away_win_prob}
+            
+            combo_prob = ht_probs[hr] * ft_probs[fr]
+            if combo_prob > 0.02:
+                htft_combos.append({
+                    'ht_result': hr,
+                    'ft_result': fr,
+                    'combo': combo_name,
+                    'probability': round(combo_prob, 4),
+                })
+    
+    htft_combos.sort(key=lambda x: -x['probability'])
     
     # ---- Step 7: 置信度 ----
     top_prob = top_n[0]['probability'] if top_n else 0
@@ -1231,6 +1270,18 @@ def predict_score(ctx: MatchContext):
     else:
         conf_level, stars = 'VERYLOW', 1
     
+    # ---- 大小球预测 ----
+    total_exp = exp_h + exp_a
+    over_prob = 0
+    standard_total = 2.5  # 标准大小球盘口
+    for hg in range(8):
+        for ag in range(8):
+            if hg + ag > standard_total:
+                prob_key = scores.get((hg, ag), 0)
+                over_prob += prob_key
+    
+    over_pred = 'over' if over_prob >= 0.50 else 'under'
+    
     ctx.score_prediction = {
         'most_likely': top_n[0] if top_n else None,
         'alternatives': [s for s in top_n[1:5]],
@@ -1239,6 +1290,17 @@ def predict_score(ctx: MatchContext):
         'expected_away_goals': round(exp_a, 2),
         'ht_prediction': ht_scores[0] if ht_scores else None,
         'ht_alternatives': [s for s in ht_scores[1:4]],
+        'htft_prediction': {
+            'most_likely': htft_combos[0] if htft_combos else None,
+            'alternatives': htft_combos[1:4] if len(htft_combos) > 1 else [],
+        },
+        'over_under': {
+            'prediction': over_pred,
+            'over_prob': round(over_prob, 4),
+            'under_prob': round(1 - over_prob, 4),
+            'standard_total': standard_total,
+            'confidence': round(abs(over_prob - 0.5) * 2, 3),
+        },
         'confidence': {
             'score': round(conf_score, 3),
             'level': conf_level,
@@ -1399,6 +1461,8 @@ def run_pipeline(input_file=None):
             'result_prediction': ctx.result_prediction,
             # 比分 (含庄家修正)
             'score_prediction': ctx.score_prediction,
+            'over_under_prediction': ctx.score_prediction.get('over_under', {}),
+            'htft_prediction': ctx.score_prediction.get('htft_prediction', {}),
             # 庄家动机 (结构化数据!)
             'bookmaker_analysis': ctx.bookmaker,
             # Elo

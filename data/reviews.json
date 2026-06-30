@@ -4,633 +4,963 @@
       "match": "阿根廷 vs 奥地利",
       "home_team": "阿根廷",
       "away_team": "奥地利",
+      "date": "2026-06-23",
+      "prediction": {
+        "result": "home",
+        "result_confidence": 0.9
+      },
       "actual": {
         "home_goals": 2,
         "away_goals": 0,
-        "result": "阿根廷胜",
         "result_value": "home"
       },
-      "prediction": {
-        "result": "home",
-        "result_text": "阿根廷胜",
-        "result_confidence": 0.9,
-        "over_under": "over",
-        "over_under_text": "大球(>2.5)",
-        "ou_confidence": 0.06
-      },
-      "comparison": {
+      "actual_score": "2-0",
+      "correct": true,
+      "audit": {
         "result_correct": true,
+        "score_exact": false,
+        "score_diff": 4,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
         "ou_correct": false,
-        "score_detail": null
+        "htft_correct": null,
+        "confidence_error": 0.1,
+        "pred_conf": 0.9,
+        "predicted_score": "-1--1",
+        "actual_score": "2-0",
+        "pred_result": "home",
+        "actual_result": "home"
       },
-      "timestamp": "2026-06-23 10:37:14"
+      "batch": "predictions-20260622.json"
     },
     {
       "match": "法国 vs 伊拉克",
       "home_team": "法国",
       "away_team": "伊拉克",
+      "date": "2026-06-23",
+      "prediction": {
+        "result": "home",
+        "result_confidence": 0.9
+      },
       "actual": {
         "home_goals": 3,
         "away_goals": 0,
-        "result": "法国胜",
         "result_value": "home"
       },
-      "prediction": {
-        "result": "home",
-        "result_text": "法国胜",
-        "result_confidence": 0.9,
-        "over_under": "over",
-        "over_under_text": "大球(>3.5)",
-        "ou_confidence": 0.8
-      },
-      "comparison": {
+      "actual_score": "3-0",
+      "correct": true,
+      "audit": {
         "result_correct": true,
-        "ou_correct": true,
-        "score_detail": null
+        "score_exact": false,
+        "score_diff": 5,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.1,
+        "pred_conf": 0.9,
+        "predicted_score": "-1--1",
+        "actual_score": "3-0",
+        "pred_result": "home",
+        "actual_result": "home"
       },
-      "timestamp": "2026-06-23 10:37:14"
+      "batch": "predictions-20260622.json"
     },
     {
       "match": "挪威 vs 塞内加尔",
       "home_team": "挪威",
       "away_team": "塞内加尔",
+      "date": "2026-06-23",
+      "prediction": {
+        "result": "away",
+        "result_confidence": 0.48
+      },
       "actual": {
         "home_goals": 3,
         "away_goals": 2,
-        "result": "挪威胜",
         "result_value": "home"
       },
-      "prediction": {
-        "result": "away",
-        "result_text": "塞内加尔胜",
-        "result_confidence": 0.48,
-        "over_under": "over",
-        "over_under_text": "大球(>2.5)",
-        "ou_confidence": 0.12
-      },
-      "comparison": {
+      "actual_score": "3-2",
+      "correct": false,
+      "audit": {
         "result_correct": false,
-        "ou_correct": true,
-        "score_detail": null
-      },
-      "timestamp": "2026-06-23 10:37:14"
-    },
-    {
-      "match": "约旦 vs 阿尔及利",
-      "home_team": "约旦",
-      "away_team": "阿尔及利",
-      "actual": {
-        "home_goals": 1,
-        "away_goals": 2,
-        "result": "阿尔及利胜",
-        "result_value": "away"
-      },
-      "prediction": {
-        "result": "away",
-        "result_text": "阿尔及利胜",
-        "result_confidence": 0.9,
-        "over_under": "under",
-        "over_under_text": "小球(<2.5)",
-        "ou_confidence": 0.0
-      },
-      "comparison": {
-        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 7,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
         "ou_correct": false,
-        "score_detail": null
+        "htft_correct": null,
+        "confidence_error": 0.48,
+        "pred_conf": 0.48,
+        "predicted_score": "-1--1",
+        "actual_score": "3-2",
+        "pred_result": "away",
+        "actual_result": "home"
       },
-      "timestamp": "2026-06-23 18:55:58"
+      "batch": "predictions-20260622.json"
     },
     {
       "match": "英格兰 vs 加纳",
-      "date": "2026-06-24 04:00",
+      "home_team": "英格兰",
+      "away_team": "加纳",
+      "date": "2026-06-24",
       "prediction": {
         "result": "home",
-        "result_text": "英格兰胜",
         "result_confidence": 0.9
       },
       "actual": {
         "home_goals": 0,
         "away_goals": 0,
-        "result": "平局",
         "result_value": "draw"
       },
-      "predicted_score": "英格兰 2-0 加纳",
       "actual_score": "0-0",
       "correct": false,
-      "batch": "data/predictions-20260622.json"
+      "audit": {
+        "result_correct": false,
+        "score_exact": false,
+        "score_diff": 2,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.9,
+        "pred_conf": 0.9,
+        "predicted_score": "-1--1",
+        "actual_score": "0-0",
+        "pred_result": "home",
+        "actual_result": "draw"
+      },
+      "batch": "predictions-20260622.json"
     },
     {
       "match": "巴拿马 vs 克罗地亚",
-      "date": "2026-06-24 07:00",
+      "home_team": "巴拿马",
+      "away_team": "克罗地亚",
+      "date": "2026-06-24",
       "prediction": {
         "result": "away",
-        "result_text": "克罗地亚胜",
         "result_confidence": 0.62
       },
       "actual": {
         "home_goals": 0,
         "away_goals": 1,
-        "result": "克罗地亚胜",
         "result_value": "away"
       },
-      "predicted_score": "巴拿马 0-2 克罗地亚",
       "actual_score": "0-1",
       "correct": true,
-      "batch": "data/predictions-20260622.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 3,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.38,
+        "pred_conf": 0.62,
+        "predicted_score": "-1--1",
+        "actual_score": "0-1",
+        "pred_result": "away",
+        "actual_result": "away"
+      },
+      "batch": "predictions-20260622.json"
     },
     {
       "match": "哥伦比亚 vs 刚果金",
-      "date": "2026-06-24 10:00",
+      "home_team": "哥伦比亚",
+      "away_team": "刚果金",
+      "date": "2026-06-24",
       "prediction": {
         "result": "home",
-        "result_text": "哥伦比亚胜",
         "result_confidence": 0.9
       },
       "actual": {
         "home_goals": 1,
         "away_goals": 0,
-        "result": "哥伦比亚胜",
         "result_value": "home"
       },
-      "predicted_score": "哥伦比亚 1-0 刚果金",
       "actual_score": "1-0",
       "correct": true,
-      "batch": "data/predictions-20260622.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 3,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.1,
+        "pred_conf": 0.9,
+        "predicted_score": "-1--1",
+        "actual_score": "1-0",
+        "pred_result": "home",
+        "actual_result": "home"
+      },
+      "batch": "predictions-20260622.json"
     },
     {
       "match": "瑞士 vs 加拿大",
-      "date": "2026-06-25 03:00",
+      "home_team": "瑞士",
+      "away_team": "加拿大",
+      "date": "2026-06-25",
       "prediction": {
         "result": "draw",
-        "result_text": "平局",
         "result_confidence": 0.6
       },
       "actual": {
         "home_goals": 2,
         "away_goals": 1,
-        "result": "瑞士胜",
         "result_value": "home"
       },
-      "predicted_score": "瑞士 1-1 加拿大",
       "actual_score": "2-1",
       "correct": false,
-      "batch": "data/predictions-20260622.json"
+      "audit": {
+        "result_correct": false,
+        "score_exact": false,
+        "score_diff": 5,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.6,
+        "pred_conf": 0.6,
+        "predicted_score": "-1--1",
+        "actual_score": "2-1",
+        "pred_result": "draw",
+        "actual_result": "home"
+      },
+      "batch": "predictions-20260622.json"
     },
     {
       "match": "波黑 vs 卡塔尔",
-      "date": "2026-06-25 03:00",
+      "home_team": "波黑",
+      "away_team": "卡塔尔",
+      "date": "2026-06-25",
       "prediction": {
         "result": "home",
-        "result_text": "波黑胜",
         "result_confidence": 0.83
       },
       "actual": {
         "home_goals": 3,
         "away_goals": 1,
-        "result": "波黑胜",
         "result_value": "home"
       },
-      "predicted_score": "波黑 2-0 卡塔尔",
       "actual_score": "3-1",
       "correct": true,
-      "batch": "data/predictions-20260622.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 6,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.17,
+        "pred_conf": 0.83,
+        "predicted_score": "-1--1",
+        "actual_score": "3-1",
+        "pred_result": "home",
+        "actual_result": "home"
+      },
+      "batch": "predictions-20260622.json"
     },
     {
       "match": "苏格兰 vs 巴西",
-      "date": "2026-06-25 06:00",
+      "home_team": "苏格兰",
+      "away_team": "巴西",
+      "date": "2026-06-25",
       "prediction": {
         "result": "away",
-        "result_text": "巴西胜",
         "result_confidence": 0.78
       },
       "actual": {
         "home_goals": 0,
         "away_goals": 3,
-        "result": "巴西胜",
         "result_value": "away"
       },
-      "predicted_score": "苏格兰 0-2 巴西",
       "actual_score": "0-3",
       "correct": true,
-      "batch": "data/predictions-20260622.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 5,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.22,
+        "pred_conf": 0.78,
+        "predicted_score": "-1--1",
+        "actual_score": "0-3",
+        "pred_result": "away",
+        "actual_result": "away"
+      },
+      "batch": "predictions-20260622.json"
     },
     {
       "match": "摩洛哥 vs 海地",
-      "date": "2026-06-25 06:00",
+      "home_team": "摩洛哥",
+      "away_team": "海地",
+      "date": "2026-06-25",
       "prediction": {
         "result": "home",
-        "result_text": "摩洛哥胜",
         "result_confidence": 0.9
       },
       "actual": {
         "home_goals": 4,
         "away_goals": 2,
-        "result": "摩洛哥胜",
         "result_value": "home"
       },
-      "predicted_score": "摩洛哥 3-0 海地",
       "actual_score": "4-2",
       "correct": true,
-      "batch": "data/predictions-20260622.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 8,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.1,
+        "pred_conf": 0.9,
+        "predicted_score": "-1--1",
+        "actual_score": "4-2",
+        "pred_result": "home",
+        "actual_result": "home"
+      },
+      "batch": "predictions-20260622.json"
     },
     {
       "match": "南非 vs 韩国",
-      "date": "2026-06-25 09:00",
+      "home_team": "南非",
+      "away_team": "韩国",
+      "date": "2026-06-25",
       "prediction": {
         "result": "away",
-        "result_text": "韩国胜",
         "result_confidence": 0.82
       },
       "actual": {
         "home_goals": 1,
         "away_goals": 0,
-        "result": "南非胜",
         "result_value": "home"
       },
-      "predicted_score": "南非 0-1 韩国",
       "actual_score": "1-0",
       "correct": false,
-      "batch": "data/predictions-20260622.json"
+      "audit": {
+        "result_correct": false,
+        "score_exact": false,
+        "score_diff": 3,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.82,
+        "pred_conf": 0.82,
+        "predicted_score": "-1--1",
+        "actual_score": "1-0",
+        "pred_result": "away",
+        "actual_result": "home"
+      },
+      "batch": "predictions-20260622.json"
     },
     {
       "match": "捷克 vs 墨西哥",
-      "date": "2026-06-25 09:00",
+      "home_team": "捷克",
+      "away_team": "墨西哥",
+      "date": "2026-06-25",
       "prediction": {
         "result": "home",
-        "result_text": "捷克胜",
         "result_confidence": 0.49
       },
       "actual": {
         "home_goals": 0,
         "away_goals": 3,
-        "result": "墨西哥胜",
         "result_value": "away"
       },
-      "predicted_score": "捷克 1-0 墨西哥",
       "actual_score": "0-3",
       "correct": false,
-      "batch": "data/predictions-20260622.json"
+      "audit": {
+        "result_correct": false,
+        "score_exact": false,
+        "score_diff": 5,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.49,
+        "pred_conf": 0.49,
+        "predicted_score": "-1--1",
+        "actual_score": "0-3",
+        "pred_result": "home",
+        "actual_result": "away"
+      },
+      "batch": "predictions-20260622.json"
     },
     {
       "match": "厄瓜多尔 vs 德国",
-      "date": "2026-06-26 04:00",
+      "home_team": "厄瓜多尔",
+      "away_team": "德国",
+      "date": "2026-06-26",
       "prediction": {
         "result": "away",
-        "result_text": "德国胜",
         "result_confidence": 0.9
       },
       "actual": {
         "home_goals": 2,
         "away_goals": 1,
-        "result": "厄瓜多尔胜",
         "result_value": "home"
       },
-      "predicted_score": "厄瓜多尔 0-2 德国",
       "actual_score": "2-1",
       "correct": false,
-      "batch": "data/predictions-20260624.json"
+      "audit": {
+        "result_correct": false,
+        "score_exact": false,
+        "score_diff": 5,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.9,
+        "pred_conf": 0.9,
+        "predicted_score": "-1--1",
+        "actual_score": "2-1",
+        "pred_result": "away",
+        "actual_result": "home"
+      },
+      "batch": "predictions-20260624.json"
     },
     {
       "match": "库拉索 vs 科特迪瓦",
-      "date": "2026-06-26 04:00",
+      "home_team": "库拉索",
+      "away_team": "科特迪瓦",
+      "date": "2026-06-26",
       "prediction": {
         "result": "away",
-        "result_text": "科特迪瓦胜",
         "result_confidence": 0.9
       },
       "actual": {
         "home_goals": 0,
         "away_goals": 2,
-        "result": "科特迪瓦胜",
         "result_value": "away"
       },
-      "predicted_score": "库拉索 0-3 科特迪瓦",
       "actual_score": "0-2",
       "correct": true,
-      "batch": "data/predictions-20260624.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 4,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.1,
+        "pred_conf": 0.9,
+        "predicted_score": "-1--1",
+        "actual_score": "0-2",
+        "pred_result": "away",
+        "actual_result": "away"
+      },
+      "batch": "predictions-20260624.json"
     },
     {
       "match": "突尼斯 vs 荷兰",
-      "date": "2026-06-26 07:00",
+      "home_team": "突尼斯",
+      "away_team": "荷兰",
+      "date": "2026-06-26",
       "prediction": {
         "result": "away",
-        "result_text": "荷兰胜",
         "result_confidence": 0.9
       },
       "actual": {
         "home_goals": 1,
         "away_goals": 3,
-        "result": "荷兰胜",
         "result_value": "away"
       },
-      "predicted_score": "突尼斯 0-3 荷兰",
       "actual_score": "1-3",
       "correct": true,
-      "batch": "data/predictions-20260624.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 6,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.1,
+        "pred_conf": 0.9,
+        "predicted_score": "-1--1",
+        "actual_score": "1-3",
+        "pred_result": "away",
+        "actual_result": "away"
+      },
+      "batch": "predictions-20260624.json"
     },
     {
       "match": "日本 vs 瑞典",
-      "date": "2026-06-26 07:00",
+      "home_team": "日本",
+      "away_team": "瑞典",
+      "date": "2026-06-26",
       "prediction": {
         "result": "away",
-        "result_text": "瑞典胜",
         "result_confidence": 0.75
       },
       "actual": {
         "home_goals": 1,
         "away_goals": 1,
-        "result": "平局",
         "result_value": "draw"
       },
-      "predicted_score": "日本 0-1 瑞典",
       "actual_score": "1-1",
       "correct": false,
-      "batch": "data/predictions-20260624.json"
+      "audit": {
+        "result_correct": false,
+        "score_exact": false,
+        "score_diff": 4,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.75,
+        "pred_conf": 0.75,
+        "predicted_score": "-1--1",
+        "actual_score": "1-1",
+        "pred_result": "away",
+        "actual_result": "draw"
+      },
+      "batch": "predictions-20260624.json"
     },
     {
       "match": "巴拉圭 vs 澳大利亚",
-      "date": "2026-06-26 10:00",
+      "home_team": "巴拉圭",
+      "away_team": "澳大利亚",
+      "date": "2026-06-26",
       "prediction": {
         "result": "draw",
-        "result_text": "平局",
         "result_confidence": 0.62
       },
       "actual": {
         "home_goals": 0,
         "away_goals": 0,
-        "result": "平局",
         "result_value": "draw"
       },
-      "predicted_score": "巴拉圭 0-0 澳大利亚",
       "actual_score": "0-0",
       "correct": true,
-      "batch": "data/predictions-20260624.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 2,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.38,
+        "pred_conf": 0.62,
+        "predicted_score": "-1--1",
+        "actual_score": "0-0",
+        "pred_result": "draw",
+        "actual_result": "draw"
+      },
+      "batch": "predictions-20260624.json"
     },
     {
       "match": "土耳其 vs 美国",
-      "date": "2026-06-26 10:00",
+      "home_team": "土耳其",
+      "away_team": "美国",
+      "date": "2026-06-26",
       "prediction": {
         "result": "away",
-        "result_text": "美国胜",
         "result_confidence": 0.83
       },
       "actual": {
         "home_goals": 3,
         "away_goals": 2,
-        "result": "土耳其胜",
         "result_value": "home"
       },
-      "predicted_score": "土耳其 0-1 美国",
       "actual_score": "3-2",
       "correct": false,
-      "batch": "data/predictions-20260624.json"
+      "audit": {
+        "result_correct": false,
+        "score_exact": false,
+        "score_diff": 7,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.83,
+        "pred_conf": 0.83,
+        "predicted_score": "-1--1",
+        "actual_score": "3-2",
+        "pred_result": "away",
+        "actual_result": "home"
+      },
+      "batch": "predictions-20260624.json"
     },
     {
       "match": "挪威 vs 法国",
-      "date": "2026-06-27 03:00",
+      "home_team": "挪威",
+      "away_team": "法国",
+      "date": "2026-06-27",
       "prediction": {
         "result": "away",
-        "result_text": "法国胜",
         "result_confidence": 0.8
       },
       "actual": {
         "home_goals": 1,
         "away_goals": 4,
-        "result": "法国胜",
         "result_value": "away"
       },
-      "predicted_score": "挪威 0-2 法国",
       "actual_score": "1-4",
       "correct": true,
-      "batch": "data/predictions-20260625.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 7,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.2,
+        "pred_conf": 0.8,
+        "predicted_score": "-1--1",
+        "actual_score": "1-4",
+        "pred_result": "away",
+        "actual_result": "away"
+      },
+      "batch": "predictions-20260625.json"
     },
     {
       "match": "塞内加尔 vs 伊拉克",
-      "date": "2026-06-27 03:00",
+      "home_team": "塞内加尔",
+      "away_team": "伊拉克",
+      "date": "2026-06-27",
       "prediction": {
         "result": "home",
-        "result_text": "塞内加尔胜",
         "result_confidence": 0.9
       },
       "actual": {
         "home_goals": 5,
         "away_goals": 0,
-        "result": "塞内加尔胜",
         "result_value": "home"
       },
-      "predicted_score": "塞内加尔 3-0 伊拉克",
       "actual_score": "5-0",
       "correct": true,
-      "batch": "data/predictions-20260625.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 7,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.1,
+        "pred_conf": 0.9,
+        "predicted_score": "-1--1",
+        "actual_score": "5-0",
+        "pred_result": "home",
+        "actual_result": "home"
+      },
+      "batch": "predictions-20260625.json"
     },
     {
       "match": "乌拉圭 vs 西班牙",
-      "date": "2026-06-27 08:00",
+      "home_team": "乌拉圭",
+      "away_team": "西班牙",
+      "date": "2026-06-27",
       "prediction": {
         "result": "away",
-        "result_text": "西班牙胜",
         "result_confidence": 0.69
       },
       "actual": {
         "home_goals": 0,
         "away_goals": 1,
-        "result": "西班牙胜",
         "result_value": "away"
       },
-      "predicted_score": "乌拉圭 0-2 西班牙",
       "actual_score": "0-1",
       "correct": true,
-      "batch": "data/predictions-20260625.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 3,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.31,
+        "pred_conf": 0.69,
+        "predicted_score": "-1--1",
+        "actual_score": "0-1",
+        "pred_result": "away",
+        "actual_result": "away"
+      },
+      "batch": "predictions-20260625.json"
     },
     {
       "match": "埃及 vs 伊朗",
-      "date": "2026-06-27 11:00",
+      "home_team": "埃及",
+      "away_team": "伊朗",
+      "date": "2026-06-27",
       "prediction": {
         "result": "away",
-        "result_text": "伊朗胜",
         "result_confidence": 0.9
       },
       "actual": {
         "home_goals": 1,
         "away_goals": 1,
-        "result": "平局",
         "result_value": "draw"
       },
-      "predicted_score": "埃及 0-1 伊朗",
       "actual_score": "1-1",
       "correct": false,
-      "batch": "data/predictions-20260625.json"
+      "audit": {
+        "result_correct": false,
+        "score_exact": false,
+        "score_diff": 4,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.9,
+        "pred_conf": 0.9,
+        "predicted_score": "-1--1",
+        "actual_score": "1-1",
+        "pred_result": "away",
+        "actual_result": "draw"
+      },
+      "batch": "predictions-20260625.json"
     },
     {
       "match": "新西兰 vs 比利时",
-      "date": "2026-06-27 11:00",
+      "home_team": "新西兰",
+      "away_team": "比利时",
+      "date": "2026-06-27",
       "prediction": {
         "result": "away",
-        "result_text": "比利时胜",
         "result_confidence": 0.64
       },
       "actual": {
         "home_goals": 1,
         "away_goals": 5,
-        "result": "比利时胜",
         "result_value": "away"
       },
-      "predicted_score": "新西兰 0-3 比利时",
       "actual_score": "1-5",
       "correct": true,
-      "batch": "data/predictions-20260625.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 8,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.36,
+        "pred_conf": 0.64,
+        "predicted_score": "-1--1",
+        "actual_score": "1-5",
+        "pred_result": "away",
+        "actual_result": "away"
+      },
+      "batch": "predictions-20260625.json"
     },
     {
       "match": "克罗地亚 vs 加纳",
-      "date": "2026-06-28 05:00",
+      "home_team": "克罗地亚",
+      "away_team": "加纳",
+      "date": "2026-06-28",
       "prediction": {
         "result": "home",
-        "result_text": "克罗地亚胜",
         "result_confidence": 0.67
       },
       "actual": {
         "home_goals": 2,
         "away_goals": 1,
-        "result": "克罗地亚胜",
         "result_value": "home"
       },
-      "predicted_score": "克罗地亚 1-0 加纳",
       "actual_score": "2-1",
       "correct": true,
-      "batch": "data/predictions-20260625.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 5,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.33,
+        "pred_conf": 0.67,
+        "predicted_score": "-1--1",
+        "actual_score": "2-1",
+        "pred_result": "home",
+        "actual_result": "home"
+      },
+      "batch": "predictions-20260625.json"
     },
     {
       "match": "巴拿马 vs 英格兰",
-      "date": "2026-06-28 05:00",
+      "home_team": "巴拿马",
+      "away_team": "英格兰",
+      "date": "2026-06-28",
       "prediction": {
         "result": "away",
-        "result_text": "英格兰胜",
         "result_confidence": 0.75
       },
       "actual": {
         "home_goals": 0,
         "away_goals": 2,
-        "result": "英格兰胜",
         "result_value": "away"
       },
-      "predicted_score": "巴拿马 0-3 英格兰",
       "actual_score": "0-2",
       "correct": true,
-      "batch": "data/predictions-20260625.json"
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 4,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.25,
+        "pred_conf": 0.75,
+        "predicted_score": "-1--1",
+        "actual_score": "0-2",
+        "pred_result": "away",
+        "actual_result": "away"
+      },
+      "batch": "predictions-20260625.json"
     },
     {
       "match": "哥伦比亚 vs 葡萄牙",
-      "date": "2026-06-28 07:30",
+      "home_team": "哥伦比亚",
+      "away_team": "葡萄牙",
+      "date": "2026-06-28",
       "prediction": {
         "result": "away",
-        "result_text": "葡萄牙胜",
         "result_confidence": 0.77
       },
       "actual": {
         "home_goals": 0,
         "away_goals": 0,
-        "result": "平局",
         "result_value": "draw"
       },
-      "predicted_score": "哥伦比亚 0-2 葡萄牙",
       "actual_score": "0-0",
       "correct": false,
-      "batch": "data/predictions-20260625.json"
+      "audit": {
+        "result_correct": false,
+        "score_exact": false,
+        "score_diff": 2,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.77,
+        "pred_conf": 0.77,
+        "predicted_score": "-1--1",
+        "actual_score": "0-0",
+        "pred_result": "away",
+        "actual_result": "draw"
+      },
+      "batch": "predictions-20260625.json"
     },
     {
       "match": "约旦 vs 阿根廷",
-      "date": "2026-06-28 10:00",
+      "home_team": "约旦",
+      "away_team": "阿根廷",
+      "date": "2026-06-28",
       "prediction": {
         "result": "away",
-        "result_text": "阿根廷胜",
         "result_confidence": 0.73
       },
       "actual": {
         "home_goals": 1,
         "away_goals": 3,
-        "result": "阿根廷胜",
         "result_value": "away"
       },
-      "predicted_score": "约旦 0-3 阿根廷",
       "actual_score": "1-3",
       "correct": true,
-      "batch": "data/predictions-20260625.json"
-    },
-    {
-      "match": "巴西 vs 日本",
-      "home_team": "巴西",
-      "away_team": "日本",
-      "date": "2026-06-30 01:00",
-      "prediction": {
-        "result": "home",
-        "result_text": "巴西胜",
-        "result_confidence": 0.747,
-        "fixed_confidence": 0.696
+      "audit": {
+        "result_correct": true,
+        "score_exact": false,
+        "score_diff": 6,
+        "score_diff_correct": false,
+        "ht_result_correct": null,
+        "ou_correct": false,
+        "htft_correct": null,
+        "confidence_error": 0.27,
+        "pred_conf": 0.73,
+        "predicted_score": "-1--1",
+        "actual_score": "1-3",
+        "pred_result": "away",
+        "actual_result": "away"
       },
-      "actual": {
-        "home_goals": 2,
-        "away_goals": 1,
-        "result": "巴西胜",
-        "result_value": "home"
-      },
-      "actual_score": "2-1",
-      "correct": true,
-      "batch": "data/predictions-20260629.json",
-      "timestamp": "2026-06-30 15:00",
-      "note": "预测正确"
-    },
-    {
-      "match": "德国 vs 巴拉圭",
-      "home_team": "德国",
-      "away_team": "巴拉圭",
-      "date": "2026-06-30 04:30",
-      "prediction": {
-        "result": "home",
-        "result_text": "德国胜",
-        "result_confidence": 0.849,
-        "fixed_confidence": 0.798
-      },
-      "actual": {
-        "home_goals": 1,
-        "away_goals": 1,
-        "result": "平局",
-        "result_value": "draw"
-      },
-      "actual_score": "1-1",
-      "correct": false,
-      "batch": "data/predictions-20260629.json",
-      "timestamp": "2026-06-30 15:00",
-      "note": "爆冷平局 (高置信场次冷门)"
-    },
-    {
-      "match": "荷兰 vs 摩洛哥",
-      "home_team": "荷兰",
-      "away_team": "摩洛哥",
-      "date": "2026-06-30 09:00",
-      "prediction": {
-        "result": "home",
-        "result_text": "荷兰胜",
-        "result_confidence": 0.5,
-        "fixed_confidence": 0.439
-      },
-      "actual": {
-        "home_goals": 1,
-        "away_goals": 1,
-        "result": "平局",
-        "result_value": "draw"
-      },
-      "actual_score": "1-1",
-      "correct": false,
-      "batch": "data/predictions-20260629.json",
-      "timestamp": "2026-06-30 15:00",
-      "note": "爆冷平局 (高置信场次冷门)"
+      "batch": "predictions-20260625.json"
     }
   ],
-  "total_reviewed": 31,
+  "total_reviewed": 27,
   "accuracy": {
-    "overall": 0.5161,
-    "correct": 16,
-    "total": 31
+    "overall": 0.6296,
+    "correct": 17,
+    "total": 27
   },
-  "last_updated": "2026-06-30 15:00"
+  "last_updated": "2026-06-30 16:28:38",
+  "latest_report": {
+    "generated_at": "2026-06-30 16:28:38",
+    "total_reviewed": 27,
+    "accuracy": {
+      "result": {
+        "rate": 0.6296,
+        "correct": 17,
+        "total": 27
+      },
+      "score_exact": {
+        "rate": 0.0,
+        "correct": 0,
+        "total": 27
+      },
+      "score_diff_1": {
+        "rate": 0.0,
+        "correct": 0,
+        "total": 27
+      },
+      "over_under": {
+        "rate": 0.0,
+        "correct": 0,
+        "total": 27
+      }
+    },
+    "confidence_buckets": {
+      "high": {
+        "rate": 0.6316,
+        "correct": 12,
+        "total": 19,
+        "threshold": 0.7
+      },
+      "medium": {
+        "rate": 0.625,
+        "correct": 5,
+        "total": 8,
+        "threshold": 0.4
+      },
+      "low": {
+        "rate": 0.0,
+        "correct": 0,
+        "total": 0,
+        "threshold": 0
+      }
+    },
+    "calibration_quality": {
+      "score": 96,
+      "max": 100,
+      "verdict": "优秀"
+    },
+    "error_patterns": {
+      "home_to_draw": 1,
+      "home_to_away": 1,
+      "away_to_draw": 3,
+      "away_to_home": 4,
+      "draw_to_home": 1,
+      "draw_to_away": 0
+    },
+    "avg_score_diff": 4.81,
+    "suggestions": [
+      "⚠️ 精确比分命中率极低, 泊松模型需要校准",
+      "⚠️ 大小球准确率<45%, 需要调整大小球阈值"
+    ]
+  }
 }
