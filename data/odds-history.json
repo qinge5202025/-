@@ -4691,6 +4691,306 @@
           "timestamp": "2026-06-30T14:47:24.420118"
         }
       }
+    },
+    {
+      "timestamp": "2026-06-30T16:29:55.673213",
+      "match_count": 9,
+      "odds": {
+        "077": {
+          "home_team": "科特迪瓦",
+          "away_team": "挪威",
+          "jingcai": {
+            "home_win": 3.6,
+            "draw": 3.38,
+            "away_win": 1.8
+          },
+          "rq": {
+            "home_win": 1.78,
+            "draw": 3.45,
+            "away_win": 3.6
+          },
+          "handicap": 1.0,
+          "timestamp": "2026-06-30T16:29:55.673184"
+        },
+        "078": {
+          "home_team": "法国",
+          "away_team": "瑞典",
+          "jingcai": {
+            "home_win": 1.16,
+            "draw": 5.8,
+            "away_win": 10.5
+          },
+          "rq": {
+            "home_win": 1.6,
+            "draw": 3.95,
+            "away_win": 3.98
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T16:29:55.673203"
+        },
+        "079": {
+          "home_team": "墨西哥",
+          "away_team": "厄瓜多尔",
+          "jingcai": {
+            "home_win": 1.94,
+            "draw": 2.7,
+            "away_win": 4.1
+          },
+          "rq": {
+            "home_win": 4.45,
+            "draw": 3.27,
+            "away_win": 1.67
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T16:29:55.673206"
+        },
+        "080": {
+          "home_team": "英格兰",
+          "away_team": "刚果金",
+          "jingcai": {
+            "home_win": 1.17,
+            "draw": 5.25,
+            "away_win": 12.0
+          },
+          "rq": {
+            "home_win": 1.69,
+            "draw": 3.55,
+            "away_win": 3.91
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T16:29:55.673207"
+        },
+        "081": {
+          "home_team": "比利时",
+          "away_team": "塞内加尔",
+          "jingcai": {
+            "home_win": 1.99,
+            "draw": 2.95,
+            "away_win": 3.47
+          },
+          "rq": {
+            "home_win": 4.15,
+            "draw": 3.6,
+            "away_win": 1.64
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T16:29:55.673208"
+        },
+        "082": {
+          "home_team": "美国",
+          "away_team": "波黑",
+          "jingcai": {
+            "home_win": 1.27,
+            "draw": 4.5,
+            "away_win": 8.4
+          },
+          "rq": {
+            "home_win": 1.93,
+            "draw": 3.5,
+            "away_win": 3.08
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T16:29:55.673209"
+        },
+        "083": {
+          "home_team": "西班牙",
+          "away_team": "奥地利",
+          "jingcai": {
+            "home_win": 1.26,
+            "draw": 4.5,
+            "away_win": 8.8
+          },
+          "rq": {
+            "home_win": 1.95,
+            "draw": 3.5,
+            "away_win": 3.02
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T16:29:55.673210"
+        },
+        "084": {
+          "home_team": "葡萄牙",
+          "away_team": "克罗地亚",
+          "jingcai": {
+            "home_win": 1.59,
+            "draw": 3.4,
+            "away_win": 4.85
+          },
+          "rq": {
+            "home_win": 2.99,
+            "draw": 3.25,
+            "away_win": 2.05
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T16:29:55.673211"
+        },
+        "085": {
+          "home_team": "瑞士",
+          "away_team": "阿尔及利",
+          "jingcai": {
+            "home_win": 1.85,
+            "draw": 3.0,
+            "away_win": 3.92
+          },
+          "rq": {
+            "home_win": 3.9,
+            "draw": 3.35,
+            "away_win": 1.74
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T16:29:55.673212"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-06-30T17:13:52.006201",
+      "match_count": 9,
+      "odds": {
+        "077": {
+          "home_team": "科特迪瓦",
+          "away_team": "挪威",
+          "jingcai": {
+            "home_win": 3.6,
+            "draw": 3.38,
+            "away_win": 1.8
+          },
+          "rq": {
+            "home_win": 1.78,
+            "draw": 3.45,
+            "away_win": 3.6
+          },
+          "handicap": 1.0,
+          "timestamp": "2026-06-30T17:13:52.006180"
+        },
+        "078": {
+          "home_team": "法国",
+          "away_team": "瑞典",
+          "jingcai": {
+            "home_win": 1.16,
+            "draw": 5.8,
+            "away_win": 10.5
+          },
+          "rq": {
+            "home_win": 1.6,
+            "draw": 3.95,
+            "away_win": 3.98
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T17:13:52.006189"
+        },
+        "079": {
+          "home_team": "墨西哥",
+          "away_team": "厄瓜多尔",
+          "jingcai": {
+            "home_win": 1.91,
+            "draw": 2.79,
+            "away_win": 4.05
+          },
+          "rq": {
+            "home_win": 4.45,
+            "draw": 3.16,
+            "away_win": 1.7
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T17:13:52.006192"
+        },
+        "080": {
+          "home_team": "英格兰",
+          "away_team": "刚果金",
+          "jingcai": {
+            "home_win": 1.17,
+            "draw": 5.25,
+            "away_win": 12.0
+          },
+          "rq": {
+            "home_win": 1.69,
+            "draw": 3.55,
+            "away_win": 3.91
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T17:13:52.006194"
+        },
+        "081": {
+          "home_team": "比利时",
+          "away_team": "塞内加尔",
+          "jingcai": {
+            "home_win": 1.99,
+            "draw": 2.95,
+            "away_win": 3.47
+          },
+          "rq": {
+            "home_win": 4.15,
+            "draw": 3.6,
+            "away_win": 1.64
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T17:13:52.006195"
+        },
+        "082": {
+          "home_team": "美国",
+          "away_team": "波黑",
+          "jingcai": {
+            "home_win": 1.27,
+            "draw": 4.5,
+            "away_win": 8.4
+          },
+          "rq": {
+            "home_win": 1.93,
+            "draw": 3.5,
+            "away_win": 3.08
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T17:13:52.006197"
+        },
+        "083": {
+          "home_team": "西班牙",
+          "away_team": "奥地利",
+          "jingcai": {
+            "home_win": 1.26,
+            "draw": 4.5,
+            "away_win": 8.8
+          },
+          "rq": {
+            "home_win": 1.95,
+            "draw": 3.5,
+            "away_win": 3.02
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T17:13:52.006198"
+        },
+        "084": {
+          "home_team": "葡萄牙",
+          "away_team": "克罗地亚",
+          "jingcai": {
+            "home_win": 1.59,
+            "draw": 3.4,
+            "away_win": 4.85
+          },
+          "rq": {
+            "home_win": 2.99,
+            "draw": 3.25,
+            "away_win": 2.05
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T17:13:52.006199"
+        },
+        "085": {
+          "home_team": "瑞士",
+          "away_team": "阿尔及利",
+          "jingcai": {
+            "home_win": 1.85,
+            "draw": 3.0,
+            "away_win": 3.92
+          },
+          "rq": {
+            "home_win": 3.9,
+            "draw": 3.35,
+            "away_win": 1.74
+          },
+          "handicap": -1.0,
+          "timestamp": "2026-06-30T17:13:52.006200"
+        }
+      }
     }
   ],
   "latest_match_odds": {
@@ -4704,11 +5004,11 @@
       },
       "rq": {
         "home_win": 1.78,
-        "draw": 3.55,
-        "away_win": 3.5
+        "draw": 3.45,
+        "away_win": 3.6
       },
       "handicap": 1.0,
-      "timestamp": "2026-06-30T14:47:24.420099"
+      "timestamp": "2026-06-30T17:13:52.006180"
     },
     "078": {
       "home_team": "法国",
@@ -4724,23 +5024,23 @@
         "away_win": 3.98
       },
       "handicap": -1.0,
-      "timestamp": "2026-06-30T14:47:24.420107"
+      "timestamp": "2026-06-30T17:13:52.006189"
     },
     "079": {
       "home_team": "墨西哥",
       "away_team": "厄瓜多尔",
       "jingcai": {
-        "home_win": 1.94,
-        "draw": 2.7,
-        "away_win": 4.1
+        "home_win": 1.91,
+        "draw": 2.79,
+        "away_win": 4.05
       },
       "rq": {
         "home_win": 4.45,
-        "draw": 3.27,
-        "away_win": 1.67
+        "draw": 3.16,
+        "away_win": 1.7
       },
       "handicap": -1.0,
-      "timestamp": "2026-06-30T14:47:24.420110"
+      "timestamp": "2026-06-30T17:13:52.006192"
     },
     "080": {
       "home_team": "英格兰",
@@ -4756,15 +5056,15 @@
         "away_win": 3.91
       },
       "handicap": -1.0,
-      "timestamp": "2026-06-30T14:47:24.420112"
+      "timestamp": "2026-06-30T17:13:52.006194"
     },
     "081": {
       "home_team": "比利时",
       "away_team": "塞内加尔",
       "jingcai": {
         "home_win": 1.99,
-        "draw": 3.0,
-        "away_win": 3.42
+        "draw": 2.95,
+        "away_win": 3.47
       },
       "rq": {
         "home_win": 4.15,
@@ -4772,7 +5072,7 @@
         "away_win": 1.64
       },
       "handicap": -1.0,
-      "timestamp": "2026-06-30T14:47:24.420113"
+      "timestamp": "2026-06-30T17:13:52.006195"
     },
     "082": {
       "home_team": "美国",
@@ -4788,7 +5088,7 @@
         "away_win": 3.08
       },
       "handicap": -1.0,
-      "timestamp": "2026-06-30T14:47:24.420114"
+      "timestamp": "2026-06-30T17:13:52.006197"
     },
     "083": {
       "home_team": "西班牙",
@@ -4804,7 +5104,7 @@
         "away_win": 3.02
       },
       "handicap": -1.0,
-      "timestamp": "2026-06-30T14:47:24.420116"
+      "timestamp": "2026-06-30T17:13:52.006198"
     },
     "084": {
       "home_team": "葡萄牙",
@@ -4820,7 +5120,7 @@
         "away_win": 2.05
       },
       "handicap": -1.0,
-      "timestamp": "2026-06-30T14:47:24.420117"
+      "timestamp": "2026-06-30T17:13:52.006199"
     },
     "085": {
       "home_team": "瑞士",
@@ -4836,7 +5136,7 @@
         "away_win": 1.74
       },
       "handicap": -1.0,
-      "timestamp": "2026-06-30T14:47:24.420118"
+      "timestamp": "2026-06-30T17:13:52.006200"
     }
   }
 }

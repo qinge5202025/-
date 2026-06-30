@@ -1,5 +1,5 @@
 {
-  "fetch_time": "2026-06-30T14:47:24.417789",
+  "fetch_time": "2026-06-30T17:13:52.003904",
   "date": "2026-06-30",
   "matches": [
     {
@@ -18,8 +18,8 @@
       },
       "rq": {
         "home_win": 1.78,
-        "draw": 3.55,
-        "away_win": 3.5
+        "draw": 3.45,
+        "away_win": 3.6
       },
       "margin": 0.1292,
       "prob": {
@@ -64,20 +64,20 @@
       "score": "-",
       "handicap": "-1",
       "jingcai": {
-        "home_win": 1.94,
-        "draw": 2.7,
-        "away_win": 4.1
+        "home_win": 1.91,
+        "draw": 2.79,
+        "away_win": 4.05
       },
       "rq": {
         "home_win": 4.45,
-        "draw": 3.27,
-        "away_win": 1.67
+        "draw": 3.16,
+        "away_win": 1.7
       },
-      "margin": 0.1297,
+      "margin": 0.1289,
       "prob": {
-        "home": 0.4563,
-        "draw": 0.3278,
-        "away": 0.2159
+        "home": 0.4638,
+        "draw": 0.3175,
+        "away": 0.2187
       }
     },
     {
@@ -117,19 +117,19 @@
       "handicap": "-1",
       "jingcai": {
         "home_win": 1.99,
-        "draw": 3.0,
-        "away_win": 3.42
+        "draw": 2.95,
+        "away_win": 3.47
       },
       "rq": {
         "home_win": 4.15,
         "draw": 3.6,
         "away_win": 1.64
       },
-      "margin": 0.1282,
+      "margin": 0.1297,
       "prob": {
-        "home": 0.4454,
-        "draw": 0.2954,
-        "away": 0.2592
+        "home": 0.4448,
+        "draw": 0.3001,
+        "away": 0.2551
       }
     },
     {

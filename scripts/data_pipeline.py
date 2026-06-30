@@ -495,6 +495,7 @@ def build_engine_input(matches: list) -> dict:
             'schedule_id': m['schedule_id'],
             'jingcai': m['jingcai'],
             'rq': m['rq'],
+            'handicap': m.get('handicap', 0),
             'margin': m['margin'],
             'prob': m['prob'],
             'odds_comparison': m.get('odds_comparison', {}),

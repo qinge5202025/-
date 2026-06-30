@@ -1,5 +1,5 @@
 {
-  "predict_time": "2026-06-30 14:47:25",
+  "predict_time": "2026-06-30 17:13:53",
   "predict_date": "2026-06-30",
   "stage": "32强",
   "total_matches": 9,
@@ -18,9 +18,10 @@
       },
       "rq": {
         "home_win": 1.78,
-        "draw": 3.55,
-        "away_win": 3.5
+        "draw": 3.45,
+        "away_win": 3.6
       },
+      "handicap": "+1",
       "margin": 0.1292,
       "prob": {
         "home": 0.246,
@@ -131,6 +132,7 @@
         "draw": 3.95,
         "away_win": 3.98
       },
+      "handicap": "-1",
       "margin": 0.1297,
       "prob": {
         "home": 0.7631,
@@ -231,56 +233,57 @@
       "stage": "32强",
       "schedule_id": "2907382",
       "jingcai": {
-        "home_win": 1.94,
-        "draw": 2.7,
-        "away_win": 4.1
+        "home_win": 1.91,
+        "draw": 2.79,
+        "away_win": 4.05
       },
       "rq": {
         "home_win": 4.45,
-        "draw": 3.27,
-        "away_win": 1.67
+        "draw": 3.16,
+        "away_win": 1.7
       },
-      "margin": 0.1297,
+      "handicap": "-1",
+      "margin": 0.1289,
       "prob": {
-        "home": 0.4563,
-        "draw": 0.3278,
-        "away": 0.2159
+        "home": 0.4638,
+        "draw": 0.3175,
+        "away": 0.2187
       },
       "odds_comparison": {
         "jingcai_prob": {
-          "home": 0.4563,
-          "draw": 0.3278,
-          "away": 0.2159
+          "home": 0.4638,
+          "draw": 0.3175,
+          "away": 0.2187
         },
         "euro_prob": {
-          "home": 0.4167,
-          "draw": 0.3333,
-          "away": 0.25
+          "home": 0.4093,
+          "draw": 0.3335,
+          "away": 0.2573
         },
         "jingcai_vs_euro": {
           "home": {
-            "jingcai": 0.4563,
-            "euro": 0.4167,
-            "diff": 0.0396
+            "jingcai": 0.4638,
+            "euro": 0.4093,
+            "diff": 0.0545
           },
           "draw": {
-            "jingcai": 0.3278,
-            "euro": 0.3333,
-            "diff": -0.0055
+            "jingcai": 0.3175,
+            "euro": 0.3335,
+            "diff": -0.016
           },
           "away": {
-            "jingcai": 0.2159,
-            "euro": 0.25,
-            "diff": -0.0341
+            "jingcai": 0.2187,
+            "euro": 0.2573,
+            "diff": -0.0385
           }
         },
         "signals": [
-          "主胜 竞彩比欧赔更看好(+4%)",
-          "客胜 欧赔比竞彩更看好(+3%)",
-          "欧赔抽水11.1%比竞彩13.0%更低, 欧赔更高效"
+          "主胜 竞彩比欧赔更看好(+5%)",
+          "客胜 欧赔比竞彩更看好(+4%)",
+          "欧赔抽水11.1%比竞彩12.9%更低, 欧赔更高效"
         ],
         "direction_match": true,
-        "jingcai_margin": 0.13,
+        "jingcai_margin": 0.129,
         "euro_margin": 0.111
       },
       "elo": {
@@ -309,10 +312,10 @@
         },
         "initial_audit": {
           "source": "jingcai_spf",
-          "prob_margin": 0.129,
-          "home_prob": 0.4563,
-          "draw_prob": 0.3278,
-          "away_prob": 0.2159
+          "prob_margin": 0.146,
+          "home_prob": 0.4638,
+          "draw_prob": 0.3175,
+          "away_prob": 0.2187
         }
       },
       "score_prediction": {},
@@ -350,6 +353,7 @@
         "draw": 3.55,
         "away_win": 3.91
       },
+      "handicap": "-1",
       "margin": 0.1285,
       "prob": {
         "home": 0.7574,
@@ -450,25 +454,26 @@
       "schedule_id": "2907384",
       "jingcai": {
         "home_win": 1.99,
-        "draw": 3.0,
-        "away_win": 3.42
+        "draw": 2.95,
+        "away_win": 3.47
       },
       "rq": {
         "home_win": 4.15,
         "draw": 3.6,
         "away_win": 1.64
       },
-      "margin": 0.1282,
+      "handicap": "-1",
+      "margin": 0.1297,
       "prob": {
-        "home": 0.4454,
-        "draw": 0.2954,
-        "away": 0.2592
+        "home": 0.4448,
+        "draw": 0.3001,
+        "away": 0.2551
       },
       "odds_comparison": {
         "jingcai_prob": {
-          "home": 0.4454,
-          "draw": 0.2954,
-          "away": 0.2592
+          "home": 0.4448,
+          "draw": 0.3001,
+          "away": 0.2551
         },
         "euro_prob": {
           "home": 0.4198,
@@ -477,26 +482,26 @@
         },
         "jingcai_vs_euro": {
           "home": {
-            "jingcai": 0.4454,
+            "jingcai": 0.4448,
             "euro": 0.4198,
-            "diff": 0.0256
+            "diff": 0.025
           },
           "draw": {
-            "jingcai": 0.2954,
+            "jingcai": 0.3001,
             "euro": 0.2995,
-            "diff": -0.004
+            "diff": 0.0006
           },
           "away": {
-            "jingcai": 0.2592,
+            "jingcai": 0.2551,
             "euro": 0.2807,
-            "diff": -0.0216
+            "diff": -0.0256
           }
         },
         "signals": [
-          "欧赔抽水11.3%比竞彩12.8%更低, 欧赔更高效"
+          "欧赔抽水11.3%比竞彩13.0%更低, 欧赔更高效"
         ],
         "direction_match": true,
-        "jingcai_margin": 0.128,
+        "jingcai_margin": 0.13,
         "euro_margin": 0.113
       },
       "elo": {
@@ -507,7 +512,7 @@
         "big_gap": false
       },
       "factor_analysis": [
-        "odds_implied: ->home (cf=0.45, w=0.35)",
+        "odds_implied: ->home (cf=0.44, w=0.35)",
         "odds_movement: 赔率稳定, 无明显变动"
       ],
       "motivation_analysis": [
@@ -517,7 +522,7 @@
       "result_prediction": {
         "prediction": "home",
         "value": "home",
-        "confidence": 0.65,
+        "confidence": 0.5,
         "votes": {
           "home": 0,
           "draw": 0,
@@ -525,10 +530,10 @@
         },
         "initial_audit": {
           "source": "jingcai_spf",
-          "prob_margin": 0.15,
-          "home_prob": 0.4454,
-          "draw_prob": 0.2954,
-          "away_prob": 0.2592
+          "prob_margin": 0.145,
+          "home_prob": 0.4448,
+          "draw_prob": 0.3001,
+          "away_prob": 0.2551
         }
       },
       "score_prediction": {},
@@ -566,6 +571,7 @@
         "draw": 3.5,
         "away_win": 3.08
       },
+      "handicap": "-1",
       "margin": 0.1287,
       "prob": {
         "home": 0.6976,
@@ -674,6 +680,7 @@
         "draw": 3.5,
         "away_win": 3.02
       },
+      "handicap": "-1",
       "margin": 0.1295,
       "prob": {
         "home": 0.7027,
@@ -782,6 +789,7 @@
         "draw": 3.25,
         "away_win": 2.05
       },
+      "handicap": "-1",
       "margin": 0.1292,
       "prob": {
         "home": 0.557,
@@ -892,6 +900,7 @@
         "draw": 3.35,
         "away_win": 1.74
       },
+      "handicap": "-1",
       "margin": 0.129,
       "prob": {
         "home": 0.4788,

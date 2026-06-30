@@ -204,6 +204,167 @@ def get_team_elo(team_name):
     return INITIAL_ELO_BASE.get(name, 1500)
 
 
+def analyze_asian_handicap(ctx):
+    """
+    亚盘心水深度分析 v2 — 从RQ让球赔率解读庄家真实意图
+    
+    核心逻辑:
+    1. 盘口方向: handicap<0=主队让球, >0=主队受让
+    2. 水位分析: 高水(>=1.05)=阻盘, 低水(<=0.85)=诱盘
+    3. 亚盘vs欧赔背离: 对比SPF胜率和RQ赢盘率的差异
+    4. 输出结构化信号供后续投票使用
+    """
+    rq = ctx.raw.get('rq', {})
+    handicap_raw = ctx.raw.get('handicap', 0)
+    try:
+        handicap = float(handicap_raw)
+    except:
+        handicap = 0
+    
+    ctx.asian_features = {'handicap': handicap, 'rq_home': 0, 'rq_draw': 0, 'rq_away': 0}
+    
+    if not rq or not rq.get('home_win', 0):
+        ctx.asian_features['has_rq'] = False
+        return
+    
+    rq_h = rq['home_win']
+    rq_d = rq.get('draw', 0)
+    rq_a = rq['away_win']
+    ctx.asian_features.update({'rq_home': rq_h, 'rq_draw': rq_d, 'rq_away': rq_a, 'has_rq': True})
+    
+    # 计算RQ三态概率
+    if rq_h > 0 and rq_d > 0 and rq_a > 0:
+        rq_total = 1/rq_h + 1/rq_d + 1/rq_a
+        rq_hp = round((1/rq_h)/rq_total, 4)
+        rq_dp = round((1/rq_d)/rq_total, 4)
+        rq_ap = round((1/rq_a)/rq_total, 4)
+        rq_margin = round(rq_total - 1, 4)
+    else:
+        rq_hp = rq_dp = rq_ap = rq_margin = 0
+    
+    ctx.asian_features.update({
+        'rq_home_prob': rq_hp, 'rq_draw_prob': rq_dp, 'rq_away_prob': rq_ap,
+        'rq_margin': rq_margin,
+    })
+    
+    # ---- 解读盘口方向 ----
+    # handicap < 0: 主队让球 | handicap > 0: 主队受让(=客队让球)
+    if handicap < 0:
+        # 主队是让球方
+        favored_team = 'home'
+        underdog_team = 'away'
+        hcp_abs = abs(handicap)
+        # 让球方赢盘赔率 = RQ home_win (主队-|hcap|后胜)
+        fav_win_odds = rq_h
+        fav_lose_odds = rq_a
+        hcap_text = f'{ctx.home_team}让{hcp_abs}球'
+    elif handicap > 0:
+        # 客队是让球方
+        favored_team = 'away'
+        underdog_team = 'home'
+        hcp_abs = handicap
+        # 让球方赢盘赔率 = RQ away_win (客队-|hcap|后胜)
+        fav_win_odds = rq_a
+        fav_lose_odds = rq_h
+        hcap_text = f'{ctx.away_team}让{hcp_abs}球'
+    else:
+        favored_team = None
+        underdog_team = None
+        hcp_abs = 0
+        fav_win_odds = 0
+        fav_lose_odds = 0
+        hcap_text = '平手盘'
+    
+    ctx.asian_features['handicap_text'] = hcap_text
+    ctx.asian_features['favored_team'] = favored_team
+    ctx.asian_features['underdog_team'] = underdog_team
+    ctx.asian_features['hcp_abs'] = hcp_abs
+    ctx.asian_features['fav_win_odds'] = fav_win_odds
+    ctx.asian_features['fav_lose_odds'] = fav_lose_odds
+    
+    # ---- 水位分析 ----
+    signals = []
+    trap_score = 0  # 诱盘得分(>0=有诱盘嫌疑)
+    
+    if fav_win_odds > 0:
+        # 让球方赢盘水位
+        ctx.asian_features['fav_water_level'] = '高水' if fav_win_odds >= 1.05 else ('低水' if fav_win_odds <= 0.85 else '中水')
+        ctx.asian_features['fav_water_value'] = fav_win_odds
+        
+        # 深盘+高水=阻盘(庄家真实看好, 但用高水阻买)
+        if hcp_abs >= 0.75 and fav_win_odds >= 1.05:
+            signals.append({'type': '阻盘', 'detail': f'{hcap_text}高水({fav_win_odds:.2f})→庄家防让球方打穿,真实看好让球方', 'strength': 0.20})
+            trap_score += 0.15
+        # 浅盘+低水=诱盘(庄家不真实看好, 用低水吸引投注)
+        elif hcp_abs <= 0.5 and fav_win_odds <= 0.85:
+            signals.append({'type': '诱盘', 'detail': f'{hcap_text}低水({fav_win_odds:.2f})→庄家诱买让球方,需防冷!', 'strength': 0.30})
+            trap_score += 0.25
+        # 深盘+低水=强诱(庄家极力看好但低水阻买, 真实不看好)
+        elif hcp_abs >= 1.0 and fav_win_odds <= 0.80:
+            signals.append({'type': '强诱', 'detail': f'{hcap_text}低水({fav_win_odds:.2f})→庄家强诱!严重不看好让球方', 'strength': 0.35})
+            trap_score += 0.30
+        
+        # 受让方水位(反方向)
+        if fav_lose_odds > 0:
+            ctx.asian_features['under_water_level'] = '高水' if fav_lose_odds >= 1.05 else ('低水' if fav_lose_odds <= 0.85 else '中水')
+            # 受让方高水=庄家不看好受让方能守住
+            if hcp_abs >= 0.75 and fav_lose_odds >= 1.05:
+                signals.append({'type': '阻下盘', 'detail': f'受让方高水({fav_lose_odds:.2f})→庄家不看好下盘能守住', 'strength': 0.10})
+    
+    # ---- 亚盘vs欧赔背离分析 ----
+    prob = ctx.raw.get('prob', {})
+    if prob and prob.get('home', 0) > 0 and rq_hp > 0:
+        # SPF看让球方胜的概率
+        if favored_team == 'home':
+            spf_fav_prob = prob.get('home', 0)
+        elif favored_team == 'away':
+            spf_fav_prob = prob.get('away', 0)
+        else:
+            spf_fav_prob = 0
+        
+        # RQ让球方赢盘的概率
+        if favored_team == 'home':
+            rq_fav_prob = rq_hp
+        elif favored_team == 'away':
+            rq_fav_prob = rq_ap
+        else:
+            rq_fav_prob = 0
+        
+        ctx.asian_features['spf_fav_win_prob'] = round(spf_fav_prob, 3)
+        ctx.asian_features['rq_fav_win_prob'] = round(rq_fav_prob, 3)
+        ctx.asian_features['spf_rq_diff'] = round(spf_fav_prob - rq_fav_prob, 3)
+        
+        diff = spf_fav_prob - rq_fav_prob
+        if abs(diff) > 0.10:
+            if diff > 0:
+                signals.append({'type': '背离', 'detail': f'欧赔更看好让球方(+{abs(diff):.0%}),但亚盘高水阻盘→庄家真实看好有限,可能小胜或不胜', 'strength': 0.25})
+                trap_score += 0.20
+            else:
+                signals.append({'type': '背离', 'detail': f'亚盘比欧赔更看好让球方(+{abs(diff):.0%}),低水真实看好!', 'strength': 0.15})
+    
+    # ---- 计算亚盘综合信号 ----
+    ctx.asian_features['asian_signals'] = signals
+    ctx.asian_features['trap_score'] = round(min(trap_score, 0.50), 3)
+    ctx.asian_features['has_trap_signal'] = trap_score >= 0.20
+    
+    # ---- 将亚盘信号注入bookmaker分析 ----
+    if ctx.asian_features.get('has_trap_signal', False):
+        ctx.bookmaker['trap_detected'] = True
+        ctx.bookmaker['trap_confidence'] = max(ctx.bookmaker.get('trap_confidence', 0), trap_score)
+        ctx.bookmaker['trap_source'] = 'asian_handicap'
+        if trap_score >= 0.20:
+            # 亚盘诱盘方向: 高水阻盘方向 = 庄家真实看好方向
+            if favored_team == 'home':
+                ctx.bookmaker['anti_trap_pick'] = underdog_team
+                ctx.bookmaker['trap_direction'] = 'home'
+            else:
+                ctx.bookmaker['anti_trap_pick'] = underdog_team
+                ctx.bookmaker['trap_direction'] = 'away'
+        for sig in signals:
+            if sig['strength'] >= 0.15:
+                ctx.bookmaker['signals'].append(sig)
+
+
 def conv_hcap(h):
     """让球文字→数值"""
     if not h:
@@ -285,17 +446,8 @@ def extract_features(ctx: MatchContext):
     prob = ctx.raw.get('prob', {})
     margin_raw = ctx.raw.get('margin', 0)
     
-    # ★★★ RQ让球数据: 当SPF缺失时使用 ★★★
-    rq = ctx.raw.get('rq', {})
-    if rq and rq.get('home_win', 0) > 0:
-        rq_h = rq['home_win']
-        rq_d = rq.get('draw', 0)
-        rq_a = rq['away_win']
-        if rq_h > 0:
-            rq_total = 1/rq_h + 1/rq_d + 1/rq_a
-            ctx.asian_features['rq_home_prob'] = round((1/rq_h)/rq_total, 4)
-            ctx.asian_features['rq_draw_prob'] = round((1/rq_d)/rq_total, 4)
-            ctx.asian_features['rq_away_prob'] = round((1/rq_a)/rq_total, 4)
+    # ★★★ RQ让球数据 (亚盘深度分析) ★★★
+    analyze_asian_handicap(ctx)
     
     if prob and prob.get('home', 0) > 0:
         # 结构化数据可用! 直接使用
@@ -372,20 +524,10 @@ def extract_features(ctx: MatchContext):
             'movement_conflict': mov_conflict,
         }
         
-        # 亚盘信息 (RQ让球)
+        # 亚盘信息 (由analyze_asian_handicap已填充)
         rq = ctx.raw.get('rq', {})
-        handicap = ctx.raw.get('handicap', '0')
-        ctx.asian_features = {
-            'handicap': float(handicap) if handicap else 0,
-            'handicap_text': f"让{handicap}",
-            'favored': 'home' if float(handicap) < 0 else ('away' if float(handicap) > 0 else None),
-            'rq_home': rq.get('home_win', 0),
-            'rq_draw': rq.get('draw', 0),
-            'rq_away': rq.get('away_win', 0),
-        }
-        
         # 当SPF缺失但RQ存在时, 使用RQ作为备选信号
-        if rq and rq.get('home_win', 0) > 0:
+        if rq and rq.get('home_win', 0) > 0 and not ctx.odds_features.get('has_odds_data', False):
             rq_h = rq['home_win']
             rq_d = rq.get('draw', 0)
             rq_a = rq['away_win']
